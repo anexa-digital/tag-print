@@ -4,6 +4,15 @@ using UniPRT.Sdk.Comm;
 namespace RfidTagPrinter;
 
 /// <summary>
+/// Tipo de conexión a la impresora
+/// </summary>
+public enum ConnectionType
+{
+    Ethernet,
+    Usb
+}
+
+/// <summary>
 /// Servicio para impresión de etiquetas RFID en Printronix T820
 /// Usando el SDK oficial UniPRT de TSC
 /// </summary>
@@ -11,8 +20,12 @@ public class RfidPrinterService : IDisposable
 {
     private readonly string _printerIp;
     private readonly int _printerPort;
-    private TcpConnection? _connection;
+    private readonly ConnectionType _connectionType;
+    
+    private TcpConnection? _tcpConnection;
+    private UsbConnection? _usbConnection;
     private bool _isConnected;
+    private string _connectionInfo = "";
 
     /// <summary>
     /// Constructor para conexión por red TCP/IP
@@ -23,6 +36,40 @@ public class RfidPrinterService : IDisposable
     {
         _printerIp = ipAddress;
         _printerPort = port;
+        _connectionType = ConnectionType.Ethernet;
+    }
+
+    /// <summary>
+    /// Constructor para conexión por USB
+    /// </summary>
+    public RfidPrinterService()
+    {
+        _printerIp = "";
+        _printerPort = 0;
+        _connectionType = ConnectionType.Usb;
+    }
+
+    /// <summary>
+    /// Lista los dispositivos USB disponibles
+    /// </summary>
+    public static List<(ushort vendorId, ushort productId, string description)> ListUsbDevices()
+    {
+        var result = new List<(ushort vendorId, ushort productId, string description)>();
+        
+        try
+        {
+            var devices = UsbConnection.AvaliableDevices();
+            foreach (var device in devices)
+            {
+                result.Add(((ushort)device.vendorID, (ushort)device.productID, $"VID:{device.vendorID:X4} PID:{device.productID:X4}"));
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error listando dispositivos USB: {ex.Message}");
+        }
+        
+        return result;
     }
 
     /// <summary>
@@ -32,23 +79,14 @@ public class RfidPrinterService : IDisposable
     {
         try
         {
-            Console.WriteLine($"📡 Conectando a {_printerIp}:{_printerPort}...");
-            
-            _connection = new TcpConnection(_printerIp, _printerPort);
-            _connection.Open();
-            
-            _isConnected = _connection.Connected;
-
-            if (_isConnected)
+            if (_connectionType == ConnectionType.Ethernet)
             {
-                Console.WriteLine("✅ Conexión establecida");
+                return ConnectEthernet();
             }
             else
             {
-                Console.WriteLine("❌ No se pudo conectar");
+                return ConnectUsb();
             }
-
-            return _isConnected;
         }
         catch (Exception ex)
         {
@@ -58,17 +96,90 @@ public class RfidPrinterService : IDisposable
         }
     }
 
+    private bool ConnectEthernet()
+    {
+        Console.WriteLine($"📡 Conectando a {_printerIp}:{_printerPort}...");
+        
+        _tcpConnection = new TcpConnection(_printerIp, _printerPort);
+        _tcpConnection.Open();
+        
+        _isConnected = _tcpConnection.Connected;
+        _connectionInfo = $"{_printerIp}:{_printerPort}";
+
+        if (_isConnected)
+        {
+            Console.WriteLine("✅ Conexión Ethernet establecida");
+        }
+        else
+        {
+            Console.WriteLine("❌ No se pudo conectar por Ethernet");
+        }
+
+        return _isConnected;
+    }
+
+    private bool ConnectUsb()
+    {
+        Console.WriteLine("🔌 Buscando impresoras USB...");
+        
+        var devices = UsbConnection.AvaliableDevices();
+        
+        if (devices.Count == 0)
+        {
+            Console.WriteLine("❌ No se encontraron impresoras USB");
+            return false;
+        }
+
+        Console.WriteLine($"   Encontrados {devices.Count} dispositivo(s):");
+        for (int i = 0; i < devices.Count; i++)
+        {
+            Console.WriteLine($"   [{i}] VID:{devices[i].vendorID:X4} PID:{devices[i].productID:X4}");
+        }
+
+        // Usar el primer dispositivo
+        var device = devices[0];
+        Console.WriteLine($"📡 Conectando a dispositivo USB VID:{device.vendorID:X4} PID:{device.productID:X4}...");
+        
+        _usbConnection = new UsbConnection(device.vendorID, device.productID);
+        _usbConnection.Open();
+        
+        _isConnected = _usbConnection.Connected;
+        _connectionInfo = $"USB VID:{device.vendorID:X4} PID:{device.productID:X4}";
+
+        if (_isConnected)
+        {
+            Console.WriteLine("✅ Conexión USB establecida");
+        }
+        else
+        {
+            Console.WriteLine("❌ No se pudo conectar por USB");
+        }
+
+        return _isConnected;
+    }
+
     /// <summary>
     /// Verifica si la impresora está conectada
     /// </summary>
-    public bool IsConnected => _isConnected && (_connection?.Connected ?? false);
+    public bool IsConnected
+    {
+        get
+        {
+            if (!_isConnected) return false;
+            
+            if (_connectionType == ConnectionType.Ethernet)
+                return _tcpConnection?.Connected ?? false;
+            else
+                return _usbConnection?.Connected ?? false;
+        }
+    }
 
     /// <summary>
     /// Envía comandos TSPL a la impresora
     /// </summary>
     private bool SendCommand(string command)
     {
-        if (!IsConnected || _connection == null)
+        if (!IsConnected)
         {
             Console.WriteLine("❌ No conectado a la impresora");
             return false;
@@ -77,7 +188,20 @@ public class RfidPrinterService : IDisposable
         try
         {
             byte[] data = Encoding.ASCII.GetBytes(command);
-            _connection.Write(data);
+            
+            if (_connectionType == ConnectionType.Ethernet && _tcpConnection != null)
+            {
+                _tcpConnection.Write(data);
+            }
+            else if (_connectionType == ConnectionType.Usb && _usbConnection != null)
+            {
+                _usbConnection.Write(data);
+            }
+            else
+            {
+                return false;
+            }
+            
             return true;
         }
         catch (Exception ex)
@@ -175,7 +299,7 @@ PRINT 1,1
             return "❌ No conectado";
         }
 
-        return "✅ Conectado a " + _printerIp;
+        return $"✅ Conectado ({_connectionType}): {_connectionInfo}";
     }
 
     /// <summary>
@@ -183,18 +307,28 @@ PRINT 1,1
     /// </summary>
     public void Disconnect()
     {
-        if (_connection != null)
+        try
         {
-            try
+            if (_tcpConnection != null)
             {
-                _connection.Close();
+                _tcpConnection.Close();
+                _tcpConnection = null;
+            }
+            
+            if (_usbConnection != null)
+            {
+                _usbConnection.Close();
+                _usbConnection = null;
+            }
+            
+            if (_isConnected)
+            {
                 Console.WriteLine("🔌 Desconectado de la impresora");
             }
-            catch { }
-            
-            _connection = null;
-            _isConnected = false;
         }
+        catch { }
+        
+        _isConnected = false;
     }
 
     public void Dispose()

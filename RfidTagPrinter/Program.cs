@@ -43,6 +43,8 @@ class Program
     /// </summary>
     const string TEST_BARCODE = "7501234567890";
 
+    static RfidPrinterService? _printer;
+
     static void Main(string[] args)
     {
         Console.WriteLine("═══════════════════════════════════════════════════════════");
@@ -51,20 +53,19 @@ class Program
         Console.WriteLine("═══════════════════════════════════════════════════════════");
         Console.WriteLine();
 
-        // Crear servicio de impresión (solo TCP/IP con el nuevo SDK)
-        using var printer = new RfidPrinterService(PRINTER_IP, PRINTER_PORT);
-
         // Mostrar menú
         bool running = true;
         while (running)
         {
             Console.WriteLine();
             Console.WriteLine("Opciones:");
-            Console.WriteLine("  1. Conectar a impresora");
-            Console.WriteLine("  2. Ver estado de impresora");
-            Console.WriteLine("  3. Imprimir etiqueta de prueba (sin RFID)");
-            Console.WriteLine("  4. Imprimir etiqueta RFID con EPC de prueba");
-            Console.WriteLine("  5. Imprimir etiqueta RFID con EPC personalizado");
+            Console.WriteLine("  1. Conectar por Ethernet (TCP/IP)");
+            Console.WriteLine("  2. Conectar por USB");
+            Console.WriteLine("  3. Ver estado de impresora");
+            Console.WriteLine("  4. Imprimir etiqueta de prueba (sin RFID)");
+            Console.WriteLine("  5. Imprimir etiqueta RFID con EPC de prueba");
+            Console.WriteLine("  6. Imprimir etiqueta RFID con EPC personalizado");
+            Console.WriteLine("  7. Desconectar");
             Console.WriteLine("  0. Salir");
             Console.WriteLine();
             Console.Write("Seleccione opción: ");
@@ -76,23 +77,31 @@ class Program
             switch (key.KeyChar)
             {
                 case '1':
-                    ConnectPrinter(printer);
+                    ConnectEthernet();
                     break;
 
                 case '2':
-                    ShowPrinterStatus(printer);
+                    ConnectUsb();
                     break;
 
                 case '3':
-                    PrintSimpleTest(printer);
+                    ShowPrinterStatus();
                     break;
 
                 case '4':
-                    PrintRfidTest(printer);
+                    PrintSimpleTest();
                     break;
 
                 case '5':
-                    PrintRfidCustom(printer);
+                    PrintRfidTest();
+                    break;
+
+                case '6':
+                    PrintRfidCustom();
+                    break;
+
+                case '7':
+                    DisconnectPrinter();
                     break;
 
                 case '0':
@@ -105,54 +114,113 @@ class Program
             }
         }
 
+        _printer?.Dispose();
         Console.WriteLine("👋 Programa terminado");
     }
 
-    static void ConnectPrinter(RfidPrinterService printer)
+    static void ConnectEthernet()
     {
-        Console.WriteLine("🔄 Intentando conectar...");
+        _printer?.Dispose();
         
-        if (printer.Connect())
+        Console.Write($"📡 IP de la impresora [{PRINTER_IP}]: ");
+        string? input = Console.ReadLine();
+        string ip = string.IsNullOrWhiteSpace(input) ? PRINTER_IP : input;
+        
+        _printer = new RfidPrinterService(ip, PRINTER_PORT);
+        
+        if (_printer.Connect())
         {
-            Console.WriteLine("✅ Conexión exitosa!");
+            Console.WriteLine("✅ Conexión Ethernet exitosa!");
         }
         else
         {
             Console.WriteLine("❌ No se pudo conectar. Verifica:");
             Console.WriteLine("   - Que la impresora esté encendida y ONLINE");
             Console.WriteLine("   - Que el lenguaje esté en TSPL (no PGL/LP+)");
-            Console.WriteLine($"   - Que la IP {PRINTER_IP} sea correcta");
+            Console.WriteLine($"   - Que la IP {ip} sea correcta");
             Console.WriteLine("   - Que el puerto 9100 esté abierto");
         }
     }
 
-    static void ShowPrinterStatus(RfidPrinterService printer)
+    static void ConnectUsb()
     {
-        Console.WriteLine("📊 Consultando estado...");
+        _printer?.Dispose();
         
-        string status = printer.GetStatus();
+        Console.WriteLine("🔌 Buscando impresoras USB...");
+        
+        _printer = new RfidPrinterService(); // Constructor USB
+        
+        if (_printer.Connect())
+        {
+            Console.WriteLine("✅ Conexión USB exitosa!");
+        }
+        else
+        {
+            Console.WriteLine("❌ No se pudo conectar por USB. Verifica:");
+            Console.WriteLine("   - Que la impresora esté conectada por USB");
+            Console.WriteLine("   - Que la impresora esté encendida y ONLINE");
+            Console.WriteLine("   - Que el lenguaje esté en TSPL (no PGL/LP+)");
+        }
+    }
+
+    static void DisconnectPrinter()
+    {
+        if (_printer != null)
+        {
+            _printer.Disconnect();
+            _printer.Dispose();
+            _printer = null;
+        }
+        else
+        {
+            Console.WriteLine("ℹ️ No hay conexión activa");
+        }
+    }
+
+    static void ShowPrinterStatus()
+    {
+        if (_printer == null)
+        {
+            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
+            return;
+        }
+        
+        Console.WriteLine("📊 Consultando estado...");
+        string status = _printer.GetStatus();
         Console.WriteLine($"   Estado: {status}");
     }
 
-    static void PrintSimpleTest(RfidPrinterService printer)
+    static void PrintSimpleTest()
     {
+        if (_printer == null || !_printer.IsConnected)
+        {
+            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
+            return;
+        }
+        
         Console.WriteLine("🏷️ Imprimiendo etiqueta de prueba simple...");
         
-        if (printer.PrintTestLabel("TEST CONEXION"))
+        if (_printer.PrintTestLabel("TEST CONEXION"))
         {
             Console.WriteLine("✅ Etiqueta enviada. Verifica que se imprimió.");
         }
     }
 
-    static void PrintRfidTest(RfidPrinterService printer)
+    static void PrintRfidTest()
     {
+        if (_printer == null || !_printer.IsConnected)
+        {
+            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
+            return;
+        }
+        
         Console.WriteLine("🏷️ Imprimiendo etiqueta RFID de prueba...");
         Console.WriteLine($"   EPC: {TEST_EPC}");
         Console.WriteLine($"   Texto: {TEST_LABEL_TEXT}");
         Console.WriteLine($"   Código: {TEST_BARCODE}");
         Console.WriteLine();
 
-        if (printer.PrintRfidLabel(TEST_EPC, TEST_LABEL_TEXT, TEST_BARCODE))
+        if (_printer.PrintRfidLabel(TEST_EPC, TEST_LABEL_TEXT, TEST_BARCODE))
         {
             Console.WriteLine();
             Console.WriteLine("✅ Etiqueta RFID enviada!");
@@ -160,8 +228,14 @@ class Program
         }
     }
 
-    static void PrintRfidCustom(RfidPrinterService printer)
+    static void PrintRfidCustom()
     {
+        if (_printer == null || !_printer.IsConnected)
+        {
+            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
+            return;
+        }
+        
         Console.WriteLine("📝 Ingresa los datos para la etiqueta RFID:");
         Console.WriteLine();
 
@@ -186,7 +260,7 @@ class Program
         Console.WriteLine();
         Console.WriteLine($"   Imprimiendo con EPC: {epc}");
 
-        if (printer.PrintRfidLabel(epc, text, barcode))
+        if (_printer.PrintRfidLabel(epc, text, barcode))
         {
             Console.WriteLine("✅ Etiqueta RFID personalizada enviada!");
         }
