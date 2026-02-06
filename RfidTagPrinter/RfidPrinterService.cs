@@ -21,6 +21,7 @@ public class RfidPrinterService : IDisposable
     private readonly string _printerIp;
     private readonly int _printerPort;
     private readonly ConnectionType _connectionType;
+    private readonly int _usbDeviceIndex;
     
     private TcpConnection? _tcpConnection;
     private UsbConnection? _usbConnection;
@@ -42,11 +43,12 @@ public class RfidPrinterService : IDisposable
     /// <summary>
     /// Constructor para conexión por USB
     /// </summary>
-    public RfidPrinterService()
+    public RfidPrinterService(int usbDeviceIndex = 0)
     {
         _printerIp = "";
         _printerPort = 0;
         _connectionType = ConnectionType.Usb;
+        _usbDeviceIndex = usbDeviceIndex;
     }
 
     /// <summary>
@@ -136,8 +138,14 @@ public class RfidPrinterService : IDisposable
             Console.WriteLine($"   [{i}] VID:{devices[i].vendorID:X4} PID:{devices[i].productID:X4}");
         }
 
-        // Usar el primer dispositivo
-        var device = devices[0];
+        if (_usbDeviceIndex < 0 || _usbDeviceIndex >= devices.Count)
+        {
+            Console.WriteLine($"❌ Índice USB inválido: {_usbDeviceIndex}. Rango válido: 0..{devices.Count - 1}");
+            return false;
+        }
+
+        // Usar el dispositivo seleccionado
+        var device = devices[_usbDeviceIndex];
         Console.WriteLine($"📡 Conectando a dispositivo USB VID:{device.vendorID:X4} PID:{device.productID:X4}...");
         
         _usbConnection = new UsbConnection(device.vendorID, device.productID);

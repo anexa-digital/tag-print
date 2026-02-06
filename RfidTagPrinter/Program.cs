@@ -147,8 +147,28 @@ class Program
         _printer?.Dispose();
         
         Console.WriteLine("🔌 Buscando impresoras USB...");
-        
-        _printer = new RfidPrinterService(); // Constructor USB
+        var devices = RfidPrinterService.ListUsbDevices();
+
+        if (devices.Count == 0)
+        {
+            Console.WriteLine("❌ No se encontraron impresoras USB");
+            return;
+        }
+
+        for (int i = 0; i < devices.Count; i++)
+        {
+            Console.WriteLine($"   [{i}] {devices[i].description}");
+        }
+
+        Console.Write("Seleccione índice USB [0]: ");
+        string? input = Console.ReadLine();
+        int index = 0;
+        if (!string.IsNullOrWhiteSpace(input) && int.TryParse(input, out int parsed))
+        {
+            index = parsed;
+        }
+
+        _printer = new RfidPrinterService(index);
         
         if (_printer.Connect())
         {
@@ -159,7 +179,7 @@ class Program
             Console.WriteLine("❌ No se pudo conectar por USB. Verifica:");
             Console.WriteLine("   - Que la impresora esté conectada por USB");
             Console.WriteLine("   - Que la impresora esté encendida y ONLINE");
-            Console.WriteLine("   - Que el lenguaje esté en TSPL (no PGL/LP+)");
+            Console.WriteLine("   - Que el lenguaje esté en TGL (TSPL)");
         }
     }
 
