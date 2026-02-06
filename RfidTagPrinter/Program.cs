@@ -30,8 +30,9 @@ class Program
     
     /// <summary>
     /// EPC de prueba (96 bits = 24 caracteres hexadecimales)
+    /// Usando valores simples para facilitar depuración
     /// </summary>
-    const string TEST_EPC = "E20034120123456789ABCDEF";
+    const string TEST_EPC = "000000000000000000000001";
     
     /// <summary>
     /// Texto visible en la etiqueta
@@ -63,9 +64,11 @@ class Program
             Console.WriteLine("  2. Conectar por USB");
             Console.WriteLine("  3. Ver estado de impresora");
             Console.WriteLine("  4. Imprimir etiqueta de prueba (sin RFID)");
-            Console.WriteLine("  5. Imprimir etiqueta RFID con EPC de prueba");
+            Console.WriteLine("  5. Imprimir etiqueta RFID (formato RFIDTAG)");
             Console.WriteLine("  6. Imprimir etiqueta RFID con EPC personalizado");
             Console.WriteLine("  7. Desconectar");
+            Console.WriteLine("  8. Probar comando RFID alternativo (RFIDENCODE)");
+            Console.WriteLine("  9. Enviar comando TSPL manual");
             Console.WriteLine("  0. Salir");
             Console.WriteLine();
             Console.Write("Seleccione opción: ");
@@ -102,6 +105,14 @@ class Program
 
                 case '7':
                     DisconnectPrinter();
+                    break;
+
+                case '8':
+                    PrintRfidAlternative();
+                    break;
+
+                case '9':
+                    SendManualCommand();
                     break;
 
                 case '0':
@@ -283,6 +294,53 @@ class Program
         if (_printer.PrintRfidLabel(epc, text, barcode))
         {
             Console.WriteLine("✅ Etiqueta RFID personalizada enviada!");
+        }
+    }
+
+    static void PrintRfidAlternative()
+    {
+        if (_printer == null || !_printer.IsConnected)
+        {
+            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
+            return;
+        }
+        
+        Console.WriteLine("🏷️ Probando con formato RFIDENCODE alternativo...");
+        Console.WriteLine($"   EPC: {TEST_EPC}");
+        Console.WriteLine();
+
+        if (_printer.PrintRfidLabelAlternative(TEST_EPC, TEST_LABEL_TEXT))
+        {
+            Console.WriteLine();
+            Console.WriteLine("✅ Etiqueta enviada con formato alternativo!");
+        }
+    }
+
+    static void SendManualCommand()
+    {
+        if (_printer == null || !_printer.IsConnected)
+        {
+            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
+            return;
+        }
+        
+        Console.WriteLine("📝 Ingrese el comando TSPL (o 'test' para un comando de prueba):");
+        Console.Write("> ");
+        string command = Console.ReadLine() ?? "";
+
+        if (command.ToLower() == "test")
+        {
+            command = "SIZE 4,2\nGAP 0.12,0\nCLS\nTEXT 50,50,\"3\",0,1,1,\"TEST MANUAL\"\nPRINT 1,1\n";
+            Console.WriteLine($"Enviando comando de prueba:");
+            Console.WriteLine(command);
+        }
+
+        if (!string.IsNullOrWhiteSpace(command))
+        {
+            if (_printer.SendRawCommand(command))
+            {
+                Console.WriteLine("✅ Comando enviado!");
+            }
         }
     }
 }

@@ -233,29 +233,58 @@ public class RfidPrinterService : IDisposable
             return false;
         }
 
+        // Limpiar y validar EPC
+        epcHex = epcHex.ToUpper().Replace(" ", "");
+        
+        // Validar que solo contenga caracteres hex válidos
+        if (!System.Text.RegularExpressions.Regex.IsMatch(epcHex, "^[0-9A-F]+$"))
+        {
+            Console.WriteLine("❌ Error: EPC contiene caracteres no hexadecimales");
+            return false;
+        }
+
         // Validar EPC (debe ser 24 caracteres hex para 96 bits)
         if (epcHex.Length != 24)
         {
             Console.WriteLine($"⚠️ Advertencia: EPC debería tener 24 caracteres hex (96 bits). Actual: {epcHex.Length}");
+            // Rellenar con ceros si es muy corto
+            if (epcHex.Length < 24)
+            {
+                epcHex = epcHex.PadRight(24, '0');
+                Console.WriteLine($"   Ajustado a: {epcHex}");
+            }
+            else if (epcHex.Length > 24)
+            {
+                epcHex = epcHex.Substring(0, 24);
+                Console.WriteLine($"   Truncado a: {epcHex}");
+            }
         }
 
         Console.WriteLine($"🏷️ Preparando etiqueta RFID...");
         Console.WriteLine($"   EPC: {epcHex}");
         Console.WriteLine($"   Texto: {labelText}");
 
-        // Construir script TSPL completo
-        string tsplScript = $@"SIZE 4,2
-GAP 0.12,0
-DIRECTION 1
-CLS
-RFIDDETECT AUTO
-RFIDSETUP 0,5,2
-RFIDENCODE EPC,0,96,""{epcHex}""
-TEXT 50,30,""3"",0,1,1,""{labelText}""
-TEXT 50,70,""2"",0,1,1,""EPC: {epcHex}""
-BARCODE 50,120,""128"",60,1,0,2,2,""{barcodeData}""
-PRINT 1,1
-";
+        // Construir script TSPL completo con terminadores de línea correctos
+        // Usar StringBuilder para mayor control
+        var sb = new StringBuilder();
+        sb.AppendLine("SIZE 4,2");
+        sb.AppendLine("GAP 0.12,0");
+        sb.AppendLine("DIRECTION 1");
+        sb.AppendLine("CLS");
+        sb.AppendLine("RFIDDETECT AUTO");
+        sb.AppendLine("RFIDSETUP 0,5,2");
+        sb.AppendLine($"RFIDTAG EPC,{epcHex}");
+        sb.AppendLine($"TEXT 50,30,\"3\",0,1,1,\"{SanitizeText(labelText)}\"");
+        sb.AppendLine($"TEXT 50,80,\"2\",0,1,1,\"EPC: {epcHex}\"");
+        sb.AppendLine($"BARCODE 50,130,\"128\",60,1,0,2,2,\"{SanitizeText(barcodeData)}\"");
+        sb.AppendLine("PRINT 1,1");
+
+        string tsplScript = sb.ToString();
+        
+        Console.WriteLine("📤 Enviando comandos TSPL:");
+        Console.WriteLine("---");
+        Console.WriteLine(tsplScript);
+        Console.WriteLine("---");
 
         if (SendCommand(tsplScript))
         {
@@ -264,6 +293,15 @@ PRINT 1,1
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Limpia texto para uso seguro en comandos TSPL
+    /// </summary>
+    private string SanitizeText(string text)
+    {
+        // Remover caracteres especiales que puedan causar problemas
+        return text.Replace("\"", "'").Replace("\r", "").Replace("\n", " ");
     }
 
     /// <summary>
@@ -295,6 +333,61 @@ PRINT 1,1
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// Imprime etiqueta RFID usando formato alternativo RFIDENCODE
+    /// </summary>
+    public bool PrintRfidLabelAlternative(string epcHex, string labelText)
+    {
+        if (!IsConnected)
+        {
+            Console.WriteLine("❌ No conectado a la impresora");
+            return false;
+        }
+
+        epcHex = epcHex.ToUpper().Replace(" ", "").PadRight(24, '0').Substring(0, 24);
+
+        Console.WriteLine($"🏷️ Usando formato RFIDENCODE...");
+        Console.WriteLine($"   EPC: {epcHex}");
+
+        var sb = new StringBuilder();
+        sb.AppendLine("SIZE 4,2");
+        sb.AppendLine("GAP 0.12,0");
+        sb.AppendLine("DIRECTION 1");
+        sb.AppendLine("CLS");
+        
+        // Formato alternativo con RFIDENCODE
+        sb.AppendLine("RFIDDETECT AUTO");
+        sb.AppendLine("RFIDSETUP 0,3,2");  // menos reintentos
+        sb.AppendLine($"RFIDENCODE EPC,0,96,\"{epcHex}\"");
+        
+        sb.AppendLine($"TEXT 50,50,\"3\",0,1,1,\"{SanitizeText(labelText)}\"");
+        sb.AppendLine("PRINT 1,1");
+
+        string tsplScript = sb.ToString();
+        
+        Console.WriteLine("📤 Comandos:");
+        Console.WriteLine(tsplScript);
+
+        return SendCommand(tsplScript);
+    }
+
+    /// <summary>
+    /// Envía un comando TSPL sin procesar
+    /// </summary>
+    public bool SendRawCommand(string command)
+    {
+        if (!IsConnected)
+        {
+            Console.WriteLine("❌ No conectado a la impresora");
+            return false;
+        }
+
+        // Asegurar que tenga saltos de línea correctos
+        command = command.Replace("\\n", "\n").Replace("\\r", "\r");
+        
+        return SendCommand(command);
     }
 
     /// <summary>
