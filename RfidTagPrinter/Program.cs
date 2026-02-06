@@ -6,7 +6,7 @@ namespace RfidTagPrinter;
 /// 
 /// ANTES DE EJECUTAR:
 /// 1. Cambiar lenguaje de impresora a TSPL (ver PLAN_CONFIGURACION.md)
-/// 2. Verificar IP de la impresora (actual: 192.168.3.60)
+/// 2. Verificar IP de la impresora (actual: 192.168.3.38)
 /// </summary>
 class Program
 {
@@ -17,7 +17,7 @@ class Program
     /// <summary>
     /// IP de la impresora Printronix T820
     /// </summary>
-    const string PRINTER_IP = "192.168.3.60";
+    const string PRINTER_IP = "192.168.3.38";
     
     /// <summary>
     /// Puerto TCP (estándar: 9100)

@@ -14,7 +14,7 @@ La impresora debe estar en modo **TSPL** (no PGL/LP+):
 
 ### 2. Verificar Configuración de Red
 ```
-IP Impresora: 192.168.3.60
+IP Impresora: 192.168.3.38
 Puerto: 9100
 ```
 

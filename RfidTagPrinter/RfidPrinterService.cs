@@ -31,7 +31,7 @@ public class RfidPrinterService : IDisposable
     /// <summary>
     /// Constructor para conexión por red TCP/IP
     /// </summary>
-    /// <param name="ipAddress">IP de la impresora (ej: 192.168.3.60)</param>
+    /// <param name="ipAddress">IP de la impresora (ej: 192.168.3.38)</param>
     /// <param name="port">Puerto TCP (default: 9100)</param>
     public RfidPrinterService(string ipAddress, int port = 9100)
     {
