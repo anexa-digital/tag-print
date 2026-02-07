@@ -15,7 +15,8 @@ Imprimir etiquetas con tag RFID (escribir EPC personalizado) desde un programa C
 | **IP** | 192.168.3.38 |
 | **Puerto TCP** | 9100 |
 | **Lector RFID** | Impinj (impinj-15-4b-ed) — para verificación |
-| **Etiqueta** | 80mm x 20mm con inlay RFID UHF |
+| **Etiqueta actual** | 80mm x 20mm con inlay RFID UHF, transparente (no apta para impresión visual) |
+| **Etiqueta futura** | Stickers blancos más grandes (por definir dimensiones) — mejor superficie de impresión |
 | **EPC** | 96 bits = 24 caracteres hexadecimales |
 
 ## Software / SDK
@@ -119,26 +120,37 @@ Imprimir etiquetas con tag RFID (escribir EPC personalizado) desde un programa C
   - `Settings > Application > Control > Active IGP Emul > ZGL`
   - Usar comandos ZPL estándar con `^RF` para RFID
 
+### 10. ÉXITO: Escritura de EPC RFID funciona (Feb 7, 2026)
+
+- **Resultado**: Se logró escribir EPC personalizados en tags RFID con éxito confirmado.
+- **Verificación**: Lector Impinj (`impinj-15-4b-ed`) lee exactamente el EPC escrito.
+  - Test 1: EPC `E20034120123456789ABCDEF` — leído correctamente (981 lecturas)
+  - Test 2: EPC `E20034120123456789ABCD01` — leído correctamente (403 lecturas)
+- **Conclusión**: El mismo tag se puede regrabar múltiples veces (EPC es EEPROM, ~100,000 ciclos).
+- **Impresión visual**: El barcode y algo de texto se imprimen, pero las etiquetas **transparentes** actuales no son aptas para buena impresión visual. Se usarán **etiquetas blancas más grandes** para producción.
+
 ---
 
-## Solución Final: ZPL en modo ZGL
+## Solución Final: ZPL en modo ZGL (CONFIRMADA FUNCIONANDO)
 
 ### Enfoque: ZPL con ^RF para RFID
 
 La impresora DEBE estar en modo **ZGL** (no TGL). ZGL emula ZPL de Zebra y soporta todos los comandos RFID.
 
+**Script ZPL funcional confirmado:**
 ```zpl
-^XA                                    // Inicio formato ZPL
-^PW640                                 // Ancho: 640 dots (80mm @ 203dpi)
-^LL160                                 // Alto: 160 dots (20mm @ 203dpi)
-^MNY                                   // Gap/mark tracking
-^RS8                                   // RFID setup: adaptive antenna
-^RFW,H^FD000000000000000000000001^FS  // RFID Write EPC en hex
-^FO20,10^A0N,25,25^FDRFID TEST^FS    // Texto
-^FO20,40^A0N,18,18^FDEPC: 000...001^FS  // EPC visible
-^FO20,70^BCN,50,Y,N,N^FD7501234567890^FS  // Code128 barcode
-^PQ1                                   // Imprimir 1 copia
-^XZ                                    // Fin formato
+^XA                                          // Inicio formato ZPL
+^PW640                                       // Ancho: 640 dots (80mm @ 203dpi)
+^LL160                                       // Alto: 160 dots (20mm @ 203dpi)
+^MNY                                         // Gap/mark tracking
+^RS8,0,0,0,0,0                              // RFID setup: adaptive antenna
+^RR3                                         // 3 reintentos si falla encode
+^RFW,H,2,12^FD{epcHex}^FS                   // RFID Write EPC: hex, word 2, 12 bytes
+^FO16,8^A0N,32,24^FD{textoEtiqueta}^FS      // Texto principal (arriba)
+^FO16,48^A0N,20,16^FDEPC: {epcHex}^FS       // EPC visible (medio)
+^FO16,76^BCN,30,Y,N,N^FD{codigoBarras}^FS   // Code128 barcode (abajo, 30 dots)
+^PQ1                                         // Imprimir 1 copia
+^XZ                                          // Fin formato
 ```
 
 ### Comandos RFID ZPL clave
@@ -232,13 +244,24 @@ tag-print/
 
 ---
 
-## Pendientes
+## Estado Actual (Feb 7, 2026)
 
-- [ ] **Cambiar impresora a modo ZGL**: Settings > Application > Control > Active IGP Emul > ZGL
-- [ ] Probar opción 4 (etiqueta ZPL sin RFID) para confirmar que ZGL funciona
-- [ ] Probar opción 6 (RFID mínimo) para confirmar escritura de EPC
-- [ ] Probar opción 5 (RFID completo con texto + barcode)
-- [ ] Verificar EPC escrito con lector Impinj
-- [ ] Ajustar posición de antena RFID si encode falla (`^RS` y `^HR` para calibración)
-- [ ] Evaluar si se necesita `^RR` para reintentos de encode
+### Completado
+- [x] **Cambiar impresora a modo ZGL**: Settings > Application > Control > Active IGP Emul > ZGL
+- [x] Probar opción 4 (etiqueta ZPL sin RFID) — funciona
+- [x] Probar opción 6 (RFID mínimo) — funciona
+- [x] Probar opción 5 (RFID completo con texto + barcode) — funciona
+- [x] Probar opción 7 (RFID con EPC personalizado) — funciona
+- [x] Verificar EPC escrito con lector Impinj — confirmado múltiples veces
+- [x] Configurar `^RS8,0,0,0,0,0` para antena adaptiva
+- [x] Configurar `^RR3` para reintentos de encode
+- [x] Confirmar que tags se pueden regrabar múltiples veces
+
+### Pendientes
+- [ ] **Migrar a etiquetas blancas** más grandes para mejor impresión visual
+- [ ] Ajustar dimensiones ZPL (`^PW`, `^LL`) al nuevo tamaño de etiqueta
+- [ ] Recalibrar media (`~JC`) con las nuevas etiquetas
+- [ ] Optimizar layout visual (texto, EPC, barcode) para el nuevo tamaño
 - [ ] Integrar con sistema de producción (lectura de datos desde DB/API)
+- [ ] Evaluar uso de `UniPRT.Sdk.Monitor.RfidMonitor` para verificación automática post-encode
+- [ ] Manejo de errores: detectar si encode RFID falló y reintentar/alertar
