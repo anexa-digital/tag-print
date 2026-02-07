@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT_Cloud SDK: UniPRT_Cloud.Comm.MqttComm.MqttComm类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">UniPRT_Cloud SDK<span id="projectnumber">&#160;v2.0.0.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_uni_p_r_t___cloud_1_1_comm_1_1_mqtt_comm_1_1_mqtt_comm.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="class_uni_p_r_t___cloud_1_1_comm_1_1_mqtt_comm_1_1_mqtt_comm-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">UniPRT_Cloud.Comm.MqttComm.MqttComm类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>非同步 MQTT 通訊包裝器。 提供開啟/關閉、發佈/訂閱，以及建立 TSC 指令的輔助方法。  
+ <a href="#details">更多...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a93f135fbf74d6c70445df9ce34616c57" id="r_a93f135fbf74d6c70445df9ce34616c57"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93f135fbf74d6c70445df9ce34616c57">__init__</a> (self, str broker, int port=8883, Optional[str] username=None, Optional[str] password=None, Optional[str] ca_cert=None, Optional[str] certfile=None, Optional[str] keyfile=None, Optional[str] keyfile_password=None)</td></tr>
+<tr class="memdesc:a93f135fbf74d6c70445df9ce34616c57"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化 MQTT 通訊用封裝。  <br /></td></tr>
+<tr class="separator:a93f135fbf74d6c70445df9ce34616c57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673e672a2a28a381d0136341bb9a4d2d" id="r_a673e672a2a28a381d0136341bb9a4d2d"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a673e672a2a28a381d0136341bb9a4d2d">open</a> (self)</td></tr>
+<tr class="memdesc:a673e672a2a28a381d0136341bb9a4d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">開啟與 MQTT broker 的連線。  <br /></td></tr>
+<tr class="separator:a673e672a2a28a381d0136341bb9a4d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac776a92542f189d4a013c6d78ba49be8" id="r_ac776a92542f189d4a013c6d78ba49be8"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac776a92542f189d4a013c6d78ba49be8">close</a> (self)</td></tr>
+<tr class="memdesc:ac776a92542f189d4a013c6d78ba49be8"><td class="mdescLeft">&#160;</td><td class="mdescRight">關閉與 MQTT broker 的連線。  <br /></td></tr>
+<tr class="separator:ac776a92542f189d4a013c6d78ba49be8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4db4d666a50ab81bba565d1e99c9ea68" id="r_a4db4d666a50ab81bba565d1e99c9ea68"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4db4d666a50ab81bba565d1e99c9ea68">write</a> (self, str topic, str payload)</td></tr>
+<tr class="memdesc:a4db4d666a50ab81bba565d1e99c9ea68"><td class="mdescLeft">&#160;</td><td class="mdescRight">發佈訊息至主題。  <br /></td></tr>
+<tr class="separator:a4db4d666a50ab81bba565d1e99c9ea68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e0660c8e6933b3d98b9ca357de3c426" id="r_a9e0660c8e6933b3d98b9ca357de3c426"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e0660c8e6933b3d98b9ca357de3c426">read</a> (self, str topic, Callable[[str, str], Awaitable[None]] callback)</td></tr>
+<tr class="memdesc:a9e0660c8e6933b3d98b9ca357de3c426"><td class="mdescLeft">&#160;</td><td class="mdescRight">訂閱主題並啟動非同步監聽工作。  <br /></td></tr>
+<tr class="separator:a9e0660c8e6933b3d98b9ca357de3c426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a22afa8e3197622c9bfc5c266070dc286" id="r_a22afa8e3197622c9bfc5c266070dc286"><td class="memItemLeft" align="right" valign="top">list[str]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22afa8e3197622c9bfc5c266070dc286">make_tsc_data_transfer_bulk</a> (data, Union[<a class="el" href="class_uni_p_r_t___cloud_1_1_comm_1_1_mqtt_comm_1_1_data_transfer_type.html">DataTransferType</a>, str] data_type, from_id=&quot;SDK&quot;, to_id=&quot;printer&quot;, transaction_id_start=None)</td></tr>
+<tr class="memdesc:a22afa8e3197622c9bfc5c266070dc286"><td class="mdescLeft">&#160;</td><td class="mdescRight">建立用於大量資料的 TSCDataTransfer JSON 指令清單。  <br /></td></tr>
+<tr class="separator:a22afa8e3197622c9bfc5c266070dc286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac98f9b3333a99fce7ccfb3e41ba756f3" id="r_ac98f9b3333a99fce7ccfb3e41ba756f3"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac98f9b3333a99fce7ccfb3e41ba756f3">make_tsc_abort_command</a> (str from_id=&quot;SDK&quot;, str to_id=&quot;printer&quot;, int transaction_id=None)</td></tr>
+<tr class="memdesc:ac98f9b3333a99fce7ccfb3e41ba756f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">產生 Action="Abort" 的 TSCDataTransfer 指令以清除印表機緩衝。  <br /></td></tr>
+<tr class="separator:ac98f9b3333a99fce7ccfb3e41ba756f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4061974b6063553f095f2b9e5ccc8bf1" id="r_a4061974b6063553f095f2b9e5ccc8bf1"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4061974b6063553f095f2b9e5ccc8bf1">make_tsc_data_pcl_command</a> (str pcl_language, str from_id=&quot;SDK&quot;, str to_id=&quot;SetPCL&quot;, Optional[int] transaction_id=random.randint(1000, 9999))</td></tr>
+<tr class="memdesc:a4061974b6063553f095f2b9e5ccc8bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">建立 TSCDataPCL 指令以設定印表機語言（如 ZPL、TSPL）。  <br /></td></tr>
+<tr class="separator:a4061974b6063553f095f2b9e5ccc8bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a293dd9702a365d7ebd2fc22de0c2a0" id="r_a2a293dd9702a365d7ebd2fc22de0c2a0"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a293dd9702a365d7ebd2fc22de0c2a0">make_tsc_download_file_command</a> (str download_uri, str from_id=&quot;SDK&quot;, str to_id=&quot;printer&quot;, int transaction_id=None, str save_filename=None, bool peer_cert_check=None)</td></tr>
+<tr class="memdesc:a2a293dd9702a365d7ebd2fc22de0c2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">建立 TSCDownloadFile 指令，要求印表機下載指定檔案。  <br /></td></tr>
+<tr class="separator:a2a293dd9702a365d7ebd2fc22de0c2a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:aba09690a9d9e1fc6c9d86a4e5d23e0e6" id="r_aba09690a9d9e1fc6c9d86a4e5d23e0e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba09690a9d9e1fc6c9d86a4e5d23e0e6">_mqtt_comm</a></td></tr>
+<tr class="separator:aba09690a9d9e1fc6c9d86a4e5d23e0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>非同步 MQTT 通訊包裝器。 提供開啟/關閉、發佈/訂閱，以及建立 TSC 指令的輔助方法。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a93f135fbf74d6c70445df9ce34616c57" name="a93f135fbf74d6c70445df9ce34616c57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93f135fbf74d6c70445df9ce34616c57">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None UniPRT_Cloud.Comm.MqttComm.MqttComm.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>broker</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>          <td class="paramname"><span class="paramname"><em>port</em></span><span class="paramdefsep"> = </span><span class="paramdefval">8883</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[str] </td>          <td class="paramname"><span class="paramname"><em>username</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[str] </td>          <td class="paramname"><span class="paramname"><em>password</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[str] </td>          <td class="paramname"><span class="paramname"><em>ca_cert</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[str] </td>          <td class="paramname"><span class="paramname"><em>certfile</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[str] </td>          <td class="paramname"><span class="paramname"><em>keyfile</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[str] </td>          <td class="paramname"><span class="paramname"><em>keyfile_password</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>初始化 MQTT 通訊用封裝。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">broker</td><td>MQTT broker 位址。 </td></tr>
+    <tr><td class="paramname">port</td><td>Broker 連接埠（預設 8883）。 </td></tr>
+    <tr><td class="paramname">username</td><td>選用：使用者名稱。 </td></tr>
+    <tr><td class="paramname">password</td><td>選用：密碼。 </td></tr>
+    <tr><td class="paramname">ca_cert</td><td>選用：CA 憑證路徑。 </td></tr>
+    <tr><td class="paramname">certfile</td><td>選用：用戶端憑證路徑。 </td></tr>
+    <tr><td class="paramname">keyfile</td><td>選用：用戶端私鑰路徑。 </td></tr>
+    <tr><td class="paramname">keyfile_password</td><td>選用：用戶端私鑰密碼。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>None。 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ac776a92542f189d4a013c6d78ba49be8" name="ac776a92542f189d4a013c6d78ba49be8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac776a92542f189d4a013c6d78ba49be8">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None UniPRT_Cloud.Comm.MqttComm.MqttComm.close </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>關閉與 MQTT broker 的連線。 </p>
+<dl class="section return"><dt>返回</dt><dd>None。 </dd></dl>
+
+</div>
+</div>
+<a id="ac98f9b3333a99fce7ccfb3e41ba756f3" name="ac98f9b3333a99fce7ccfb3e41ba756f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac98f9b3333a99fce7ccfb3e41ba756f3">&#9670;&#160;</a></span>make_tsc_abort_command()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str UniPRT_Cloud.Comm.MqttComm.MqttComm.make_tsc_abort_command </td>
+          <td>(</td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>from_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;SDK&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>to_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;printer&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>          <td class="paramname"><span class="paramname"><em>transaction_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>產生 Action="Abort" 的 TSCDataTransfer 指令以清除印表機緩衝。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from_id</td><td>送出端識別（預設 "SDK"）。 </td></tr>
+    <tr><td class="paramname">to_id</td><td>目標端識別（預設 "printer"）。 </td></tr>
+    <tr><td class="paramname">transaction_id</td><td>選用 TransactionId；None 時隨機。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>代表 Abort 指令的 JSON 字串。 </dd></dl>
+
+</div>
+</div>
+<a id="a4061974b6063553f095f2b9e5ccc8bf1" name="a4061974b6063553f095f2b9e5ccc8bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4061974b6063553f095f2b9e5ccc8bf1">&#9670;&#160;</a></span>make_tsc_data_pcl_command()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str UniPRT_Cloud.Comm.MqttComm.MqttComm.make_tsc_data_pcl_command </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>pcl_language</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>from_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;SDK&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>to_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;SetPCL&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[int] </td>          <td class="paramname"><span class="paramname"><em>transaction_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">random.randint(1000,&#160;9999)</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>建立 TSCDataPCL 指令以設定印表機語言（如 ZPL、TSPL）。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pcl_language</td><td>要設定的語言代碼；必須於支援清單中。 </td></tr>
+    <tr><td class="paramname">from_id</td><td>送出端識別（預設 "SDK"）。 </td></tr>
+    <tr><td class="paramname">to_id</td><td>目標端識別（預設 "SetPCL"）。 </td></tr>
+    <tr><td class="paramname">transaction_id</td><td>選用 TransactionId；預設為隨機。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>代表 TSCDataPCL 指令的 JSON 字串。 </dd></dl>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">TypeError</td><td>若 pcl_language 非字串。 </td></tr>
+    <tr><td class="paramname">ValueError</td><td>若語言不受支援。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a22afa8e3197622c9bfc5c266070dc286" name="a22afa8e3197622c9bfc5c266070dc286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22afa8e3197622c9bfc5c266070dc286">&#9670;&#160;</a></span>make_tsc_data_transfer_bulk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> list[str] UniPRT_Cloud.Comm.MqttComm.MqttComm.make_tsc_data_transfer_bulk </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Union[<a class="el" href="class_uni_p_r_t___cloud_1_1_comm_1_1_mqtt_comm_1_1_data_transfer_type.html">DataTransferType</a>, str]</td>          <td class="paramname"><span class="paramname"><em>data_type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>from_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;SDK&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>to_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;printer&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>transaction_id_start</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>建立用於大量資料的 TSCDataTransfer JSON 指令清單。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>輸入資料：Text 時為 list[str]；其餘為 Base64/Hex 字串。 </td></tr>
+    <tr><td class="paramname">data_type</td><td>資料型別：Text、Base64 或 Hex。 </td></tr>
+    <tr><td class="paramname">from_id</td><td>送出端識別（預設 "SDK"）。 </td></tr>
+    <tr><td class="paramname">to_id</td><td>目標端識別（預設 "printer"）。 </td></tr>
+    <tr><td class="paramname">transaction_id_start</td><td>起始 TransactionId；None 時隨機。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>JSON 字串清單（每筆為一個 TSCDataTransfer 指令）。 </dd></dl>
+<dl class="exception"><dt>异常</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ValueError</td><td>當輸入型別或編碼無效時。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2a293dd9702a365d7ebd2fc22de0c2a0" name="a2a293dd9702a365d7ebd2fc22de0c2a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a293dd9702a365d7ebd2fc22de0c2a0">&#9670;&#160;</a></span>make_tsc_download_file_command()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str UniPRT_Cloud.Comm.MqttComm.MqttComm.make_tsc_download_file_command </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>download_uri</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>from_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;SDK&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>to_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;printer&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int </td>          <td class="paramname"><span class="paramname"><em>transaction_id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>save_filename</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool </td>          <td class="paramname"><span class="paramname"><em>peer_cert_check</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>建立 TSCDownloadFile 指令，要求印表機下載指定檔案。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">download_uri</td><td>檔案來源 URL（必填）。 </td></tr>
+    <tr><td class="paramname">from_id</td><td>送出端識別（預設 "SDK"）。 </td></tr>
+    <tr><td class="paramname">to_id</td><td>目標端識別（預設 "printer"）。 </td></tr>
+    <tr><td class="paramname">transaction_id</td><td>選用 TransactionId；None 時隨機。 </td></tr>
+    <tr><td class="paramname">save_filename</td><td>選用：存檔檔名。 </td></tr>
+    <tr><td class="paramname">peer_cert_check</td><td>選用：是否驗證 TLS 對端憑證（True/False）。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>代表 TSCDownloadFile 指令的 JSON 字串。 </dd></dl>
+
+</div>
+</div>
+<a id="a673e672a2a28a381d0136341bb9a4d2d" name="a673e672a2a28a381d0136341bb9a4d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a673e672a2a28a381d0136341bb9a4d2d">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None UniPRT_Cloud.Comm.MqttComm.MqttComm.open </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>開啟與 MQTT broker 的連線。 </p>
+<dl class="section return"><dt>返回</dt><dd>None。 </dd></dl>
+
+</div>
+</div>
+<a id="a9e0660c8e6933b3d98b9ca357de3c426" name="a9e0660c8e6933b3d98b9ca357de3c426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e0660c8e6933b3d98b9ca357de3c426">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None UniPRT_Cloud.Comm.MqttComm.MqttComm.read </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>topic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable[[str, str], Awaitable[None]]</td>          <td class="paramname"><span class="paramname"><em>callback</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>訂閱主題並啟動非同步監聽工作。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>要訂閱的主題。 </td></tr>
+    <tr><td class="paramname">callback</td><td>非同步 callback，參數為 (topic, payload)。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>None。 </dd></dl>
+
+</div>
+</div>
+<a id="a4db4d666a50ab81bba565d1e99c9ea68" name="a4db4d666a50ab81bba565d1e99c9ea68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4db4d666a50ab81bba565d1e99c9ea68">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None UniPRT_Cloud.Comm.MqttComm.MqttComm.write </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>topic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>發佈訊息至主題。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>要發佈的 MQTT 主題。 </td></tr>
+    <tr><td class="paramname">payload</td><td>要傳送的訊息內容（UTF-8）。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>None。 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="aba09690a9d9e1fc6c9d86a4e5d23e0e6" name="aba09690a9d9e1fc6c9d86a4e5d23e0e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba09690a9d9e1fc6c9d86a4e5d23e0e6">&#9670;&#160;</a></span>_mqtt_comm</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UniPRT_Cloud.Comm.MqttComm.MqttComm._mqtt_comm</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=  MqttCommInternal(</div>
+<div class="line">            broker,</div>
+<div class="line">            port,</div>
+<div class="line">            username,</div>
+<div class="line">            password,</div>
+<div class="line">            ca_cert,</div>
+<div class="line">            certfile,</div>
+<div class="line">            keyfile,</div>
+<div class="line">            keyfile_password,</div>
+<div class="line">        )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>/Users/bob_huang/Documents/Project/UniPRT_Cloud/UniPRT_Cloud/Comm/<b>MqttComm.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>UniPRT_Cloud</b></li><li class="navelem"><b>Comm</b></li><li class="navelem"><b>MqttComm</b></li><li class="navelem"><a class="el" href="class_uni_p_r_t___cloud_1_1_comm_1_1_mqtt_comm_1_1_mqtt_comm.html">MqttComm</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>
