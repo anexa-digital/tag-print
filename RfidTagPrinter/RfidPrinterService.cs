@@ -216,9 +216,13 @@ public class RfidPrinterService : IDisposable
     /// Imprime etiqueta RFID usando ZPL con comando ^RF para escribir EPC.
     /// REQUIERE: Impresora en modo ZGL (Settings > Application > Control > Active IGP Emul > ZGL)
     /// 
-    /// Comando ^RF:
-    ///   ^RFW,H = Write, formato Hex
-    ///   ^FD{data} = datos hex del EPC
+    /// Memoria EPC (Bank 01) estructura:
+    ///   Word 0: CRC (auto-calculado por el tag)
+    ///   Word 1: PC (Protocol Control) - indica longitud EPC
+    ///   Words 2-7: EPC data (96 bits = 6 words = 12 bytes = 24 hex chars)
+    /// 
+    /// ^RF params: ^RFW,H,startBlock,numBytes
+    ///   W = Write, H = Hex, startBlock = word offset, numBytes = bytes a escribir
     /// </summary>
     public bool PrintRfidLabel(string epcHex, string labelText, string barcodeData)
     {
@@ -232,27 +236,31 @@ public class RfidPrinterService : IDisposable
         if (normalizedEpc == null) return false;
         epcHex = normalizedEpc;
 
+        int epcBytes = epcHex.Length / 2;  // 24 hex chars = 12 bytes
+
         Console.WriteLine($"🏷️ [ZPL + RFID] Preparando etiqueta RFID...");
-        Console.WriteLine($"   EPC: {epcHex}");
+        Console.WriteLine($"   EPC: {epcHex} ({epcBytes} bytes)");
         Console.WriteLine($"   Texto: {labelText}");
         Console.WriteLine($"   Código: {barcodeData}");
-        Console.WriteLine($"   Etiqueta: {LABEL_WIDTH_DOTS}x{LABEL_HEIGHT_DOTS} dots (80x20mm), gap {GAP_DOTS} dots (3mm)");
 
         try
         {
             var sb = new StringBuilder();
             sb.Append("^XA");                                              // Inicio formato
-            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho total: 640 dots (80mm)
+            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho: 640 dots (80mm)
             sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Alto: 160 dots (20mm)
-            sb.Append("^MNY");                                             // Gap/mark sensing activo
+            sb.Append("^MNY");                                             // Gap sensing
+            // --- RFID Config ---
+            sb.Append("^RS8,0,0,0,0,0");                                  // RFID setup: 8 posiciones, EPC encode
+            sb.Append("^RR3");                                             // 3 reintentos si falla encode
             // --- RFID: Escribir EPC ---
-            sb.Append("^RS8");                                             // RFID setup: adaptive antenna
-            sb.Append($"^RFW,H^FD{epcHex}^FS");                          // RFID Write EPC en hex
-            // --- Contenido visual (dentro del area imprimible) ---
-            sb.Append($"^FO16,8^A0N,25,20^FD{labelText}^FS");            // Texto principal (2mm,1mm)
-            sb.Append($"^FO16,36^A0N,16,14^FDEPC: {epcHex}^FS");        // EPC como texto
+            // ^RFW,H,2,12 = Write, Hex, empezar en word 2 (después de CRC+PC), 12 bytes
+            sb.Append($"^RFW,H,2,{epcBytes}^FD{epcHex}^FS");
+            // --- Contenido visual ---
+            sb.Append($"^FO16,8^A0N,25,20^FD{labelText}^FS");            // Texto principal
+            sb.Append($"^FO16,36^A0N,16,14^FDEPC: {epcHex}^FS");        // EPC visible
             sb.Append($"^FO16,60^BCN,45,Y,N,N^FD{barcodeData}^FS");     // Code128 barcode
-            sb.Append("^PQ1");                                             // Imprimir 1 etiqueta
+            sb.Append("^PQ1");                                             // 1 etiqueta
             sb.Append("^XZ");                                              // Fin formato
 
             string zpl = sb.ToString();
@@ -302,16 +310,18 @@ public class RfidPrinterService : IDisposable
 
         try
         {
+            int epcBytes = epcHex.Length / 2;  // 12 bytes
             var sb = new StringBuilder();
             sb.Append("^XA");                                              // Inicio formato
             sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho: 640 dots (80mm)
             sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Alto: 160 dots (20mm)
-            sb.Append("^MNY");                                             // Gap sensing activo
-            // --- RFID: Solo escribir EPC ---
-            sb.Append("^RS8");                                             // RFID setup
-            sb.Append($"^RFW,H^FD{epcHex}^FS");                          // RFID Write EPC
+            sb.Append("^MNY");                                             // Gap sensing
+            // --- RFID ---
+            sb.Append("^RS8,0,0,0,0,0");                                  // RFID setup: adaptive antenna
+            sb.Append("^RR3");                                             // 3 reintentos
+            sb.Append($"^RFW,H,2,{epcBytes}^FD{epcHex}^FS");            // Write EPC en word 2, 12 bytes
             // --- Texto mínimo ---
-            sb.Append($"^FO16,40^A0N,30,25^FDRFID OK^FS");               // Solo un texto centrado
+            sb.Append($"^FO16,40^A0N,30,25^FDRFID OK^FS");               // Solo un texto
             sb.Append("^PQ1");                                             // 1 copia
             sb.Append("^XZ");                                              // Fin formato
 

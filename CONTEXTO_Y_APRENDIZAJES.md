@@ -145,15 +145,19 @@ La impresora DEBE estar en modo **ZGL** (no TGL). ZGL emula ZPL de Zebra y sopor
 
 | Comando | Descripción |
 |---|---|
-| `^RFW,H` | Write RFID, formato Hex |
+| `^RFW,H,2,12` | Write EPC: hex, word 2 (después CRC+PC), 12 bytes (96 bits) |
 | `^RFR,H` | Read RFID, formato Hex |
-| `^RS8` | RFID Setup: adaptive antenna |
+| `^RS8,0,0,0,0,0` | RFID Setup: adaptive antenna, EPC encode |
+| `^RR3` | 3 reintentos si falla encode |
 | `^RB` | Define EPC Data Structure |
-| `^RR` | RFID retries |
+| `~JC` | Calibración automática de media (detecta gaps) |
 
 ### SDK UniPRT
 
-Se sigue usando `UniPRT.Sdk.Comm` para la conexión TCP/USB. Ya no se usa `LabelMaker.TSPL` ya que los comandos son ZPL directos.
+- Se usa `UniPRT.Sdk.Comm` para la conexión TCP/USB.
+- **NO existe** `LabelMaker.ZPL` — solo `LabelMaker.TSPL` que no sirve en ZGL.
+- Los comandos ZPL se construyen como strings raw.
+- `UniPRT.Sdk.Monitor.RfidMonitor` puede usarse para verificar encode (mejora futura).
 
 ---
 
