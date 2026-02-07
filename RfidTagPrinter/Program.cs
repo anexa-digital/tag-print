@@ -64,7 +64,7 @@ class Program
             Console.WriteLine("Opciones:");
             Console.WriteLine("  1. Conectar por Ethernet (TCP/IP)");
             Console.WriteLine("  2. Conectar por USB");
-            Console.WriteLine("  3. Ver estado de impresora");
+            Console.WriteLine("  3. Calibrar media (IMPORTANTE tras cambiar a ZGL)");
             Console.WriteLine("  4. Imprimir etiqueta de prueba ZPL (sin RFID)");
             Console.WriteLine("  5. Imprimir etiqueta RFID - ZPL completo (texto+barcode+RFID)");
             Console.WriteLine("  6. Imprimir etiqueta RFID - ZPL mínimo (solo RFID encode)");
@@ -90,7 +90,7 @@ class Program
                     break;
 
                 case '3':
-                    ShowPrinterStatus();
+                    CalibrateMedia();
                     break;
 
                 case '4':
@@ -210,17 +210,23 @@ class Program
         }
     }
 
-    static void ShowPrinterStatus()
+    static void CalibrateMedia()
     {
-        if (_printer == null)
+        if (_printer == null || !_printer.IsConnected)
         {
             Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
             return;
         }
         
-        Console.WriteLine("📊 Consultando estado...");
-        string status = _printer.GetStatus();
-        Console.WriteLine($"   Estado: {status}");
+        Console.WriteLine("📏 Calibrando media...");
+        Console.WriteLine("   La impresora avanzará algunas etiquetas para detectar el gap.");
+        Console.WriteLine("   Esto es NECESARIO tras cambiar de TGL a ZGL.");
+        Console.WriteLine();
+
+        if (_printer.CalibrateMedia())
+        {
+            Console.WriteLine("✅ Calibración enviada. Espera a que la impresora termine de avanzar.");
+        }
     }
 
     static void PrintSimpleTest()

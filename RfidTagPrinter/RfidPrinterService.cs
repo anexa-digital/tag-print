@@ -199,11 +199,14 @@ public class RfidPrinterService : IDisposable
     // CONFIGURACIÓN DE ETIQUETA (ZPL)
     // ==========================================
 
-    // Dimensiones reales de la etiqueta RFID (80mm x 20mm)
-    // ZPL usa dots. A 203 dpi: 1mm ≈ 8 dots
-    // 80mm ≈ 640 dots de ancho, 20mm ≈ 160 dots de alto
+    // Dimensiones reales de la etiqueta RFID
+    // Medidas físicas: 80mm ancho x 20mm alto, gap 3mm, margen derecho 5mm
+    // ZPL usa dots. A 203 dpi: 1mm = 203/25.4 ≈ 7.99 dots ≈ 8 dots
     private const int LABEL_WIDTH_DOTS = 640;   // 80mm @ 203dpi
     private const int LABEL_HEIGHT_DOTS = 160;  // 20mm @ 203dpi
+    private const int GAP_DOTS = 24;            // 3mm gap @ 203dpi
+    private const int RIGHT_MARGIN_DOTS = 40;   // 5mm margen derecho @ 203dpi
+    private const int PRINTABLE_WIDTH_DOTS = LABEL_WIDTH_DOTS - RIGHT_MARGIN_DOTS; // 600 dots (75mm)
 
     // ==========================================
     // MÉTODO 1: ZPL con RFID (^RF Write EPC)
@@ -233,22 +236,22 @@ public class RfidPrinterService : IDisposable
         Console.WriteLine($"   EPC: {epcHex}");
         Console.WriteLine($"   Texto: {labelText}");
         Console.WriteLine($"   Código: {barcodeData}");
-        Console.WriteLine($"   Etiqueta: {LABEL_WIDTH_DOTS}x{LABEL_HEIGHT_DOTS} dots (80x20mm)");
+        Console.WriteLine($"   Etiqueta: {LABEL_WIDTH_DOTS}x{LABEL_HEIGHT_DOTS} dots (80x20mm), gap {GAP_DOTS} dots (3mm)");
 
         try
         {
             var sb = new StringBuilder();
             sb.Append("^XA");                                              // Inicio formato
-            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho de impresión
-            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Largo de etiqueta
-            sb.Append("^MNY");                                             // Gap/mark tracking
+            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho total: 640 dots (80mm)
+            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Alto: 160 dots (20mm)
+            sb.Append("^MNY");                                             // Gap/mark sensing activo
             // --- RFID: Escribir EPC ---
             sb.Append("^RS8");                                             // RFID setup: adaptive antenna
             sb.Append($"^RFW,H^FD{epcHex}^FS");                          // RFID Write EPC en hex
-            // --- Contenido visual ---
-            sb.Append($"^FO20,10^A0N,25,25^FD{labelText}^FS");           // Texto principal
-            sb.Append($"^FO20,40^A0N,18,18^FDEPC: {epcHex}^FS");        // EPC como texto
-            sb.Append($"^FO20,70^BCN,50,Y,N,N^FD{barcodeData}^FS");     // Code128 barcode
+            // --- Contenido visual (dentro del area imprimible) ---
+            sb.Append($"^FO16,8^A0N,25,20^FD{labelText}^FS");            // Texto principal (2mm,1mm)
+            sb.Append($"^FO16,36^A0N,16,14^FDEPC: {epcHex}^FS");        // EPC como texto
+            sb.Append($"^FO16,60^BCN,45,Y,N,N^FD{barcodeData}^FS");     // Code128 barcode
             sb.Append("^PQ1");                                             // Imprimir 1 etiqueta
             sb.Append("^XZ");                                              // Fin formato
 
@@ -301,14 +304,14 @@ public class RfidPrinterService : IDisposable
         {
             var sb = new StringBuilder();
             sb.Append("^XA");                                              // Inicio formato
-            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho
-            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Largo
-            sb.Append("^MNY");                                             // Gap tracking
+            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho: 640 dots (80mm)
+            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Alto: 160 dots (20mm)
+            sb.Append("^MNY");                                             // Gap sensing activo
             // --- RFID: Solo escribir EPC ---
             sb.Append("^RS8");                                             // RFID setup
             sb.Append($"^RFW,H^FD{epcHex}^FS");                          // RFID Write EPC
             // --- Texto mínimo ---
-            sb.Append($"^FO20,20^A0N,30,30^FDRFID OK^FS");               // Solo un texto
+            sb.Append($"^FO16,40^A0N,30,25^FDRFID OK^FS");               // Solo un texto centrado
             sb.Append("^PQ1");                                             // 1 copia
             sb.Append("^XZ");                                              // Fin formato
 
@@ -355,11 +358,11 @@ public class RfidPrinterService : IDisposable
         {
             var sb = new StringBuilder();
             sb.Append("^XA");
-            sb.Append($"^PW{LABEL_WIDTH_DOTS}");
-            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");
-            sb.Append("^MNY");
-            sb.Append($"^FO20,15^A0N,30,30^FD{text}^FS");
-            sb.Append("^FO20,55^A0N,20,20^FDPrueba de conexion exitosa (ZPL)^FS");
+            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // 640 dots (80mm)
+            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // 160 dots (20mm)
+            sb.Append("^MNY");                                             // Gap sensing
+            sb.Append($"^FO16,15^A0N,28,22^FD{text}^FS");                // Texto principal
+            sb.Append("^FO16,55^A0N,18,16^FDConexion OK (ZPL/ZGL)^FS"); // Subtexto
             sb.Append("^PQ1");
             sb.Append("^XZ");
 
@@ -379,6 +382,54 @@ public class RfidPrinterService : IDisposable
         }
 
         return false;
+    }
+
+    // ==========================================
+    // CALIBRACIÓN DE MEDIA
+    // ==========================================
+
+    /// <summary>
+    /// Calibra el media (gap sensing) de la impresora.
+    /// IMPORTANTE: Ejecutar tras cambiar de TGL a ZGL.
+    /// ~JC = calibración automática de media en ZPL.
+    /// También configura el label length y gap sensing.
+    /// </summary>
+    public bool CalibrateMedia()
+    {
+        if (!IsConnected)
+        {
+            Console.WriteLine("❌ No conectado a la impresora");
+            return false;
+        }
+
+        try
+        {
+            Console.WriteLine("📏 Enviando comandos de calibración...");
+
+            // 1. Configurar tipo de media y dimensiones
+            var setup = new StringBuilder();
+            setup.Append("^XA");
+            setup.Append("^MNY");                                   // Media tracking: gap/notch sensing
+            setup.Append($"^PW{LABEL_WIDTH_DOTS}");                 // Ancho: 640 dots (80mm)
+            setup.Append($"^LL{LABEL_HEIGHT_DOTS}");                // Alto: 160 dots (20mm)
+            setup.Append("^JUS");                                    // Guardar config actual
+            setup.Append("^XZ");
+            SendCommand(setup.ToString());
+            Console.WriteLine("   ✅ Dimensiones configuradas: 80mm x 20mm");
+
+            // 2. Calibración automática de media (~JC)
+            // La impresora avanza varias etiquetas para detectar gap
+            SendCommand("~JC");
+            Console.WriteLine("   ✅ Calibración de gap enviada (~JC)");
+            Console.WriteLine("   ⏳ Espera a que la impresora termine de calibrar...");
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error calibrando: {ex.Message}");
+            return false;
+        }
     }
 
     /// <summary>
