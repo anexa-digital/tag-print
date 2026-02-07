@@ -246,6 +246,7 @@ public class RfidPrinterService : IDisposable
             // 5) Agregar código de barras
             var barcodeItem = new BarcodeItem(50f, 130f, barcodeData);
             var barcode = new Barcode1D(barcodeItem);
+            barcode.BarcodeType = BarcodeTypeEnum_1D.Code_128;
             label.AddObject(barcode);
 
             // 6) Agregar comando PRINT
