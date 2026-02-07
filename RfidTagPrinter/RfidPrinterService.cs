@@ -1,7 +1,5 @@
 using System.Text;
 using UniPRT.Sdk.Comm;
-using UniPRT.Sdk.LabelMaker.TSPL;
-using UniPRT.Sdk.LabelMaker.Interfaces;
 
 namespace RfidTagPrinter;
 
@@ -16,7 +14,12 @@ public enum ConnectionType
 
 /// <summary>
 /// Servicio para impresión de etiquetas RFID en Printronix T820
-/// Usando el SDK oficial UniPRT de TSC (LabelMaker API)
+/// 
+/// IMPORTANTE: La impresora DEBE estar en modo ZGL (ZPL emulation).
+/// TGL NO soporta comandos RFID. ZGL sí (^RF, ^RB, ^RS, etc.)
+/// 
+/// Configurar en la impresora:
+///   Settings > Application > Control > Active IGP Emul > ZGL
 /// </summary>
 public class RfidPrinterService : IDisposable
 {
@@ -193,21 +196,26 @@ public class RfidPrinterService : IDisposable
     }
 
     // ==========================================
-    // CONFIGURACIÓN DE ETIQUETA
+    // CONFIGURACIÓN DE ETIQUETA (ZPL)
     // ==========================================
 
     // Dimensiones reales de la etiqueta RFID (80mm x 20mm)
-    private const string LABEL_WIDTH_MM = "80";
-    private const string LABEL_HEIGHT_MM = "20";
-    private const string LABEL_GAP_MM = "3";  // gap entre etiquetas en mm
+    // ZPL usa dots. A 203 dpi: 1mm ≈ 8 dots
+    // 80mm ≈ 640 dots de ancho, 20mm ≈ 160 dots de alto
+    private const int LABEL_WIDTH_DOTS = 640;   // 80mm @ 203dpi
+    private const int LABEL_HEIGHT_DOTS = 160;  // 20mm @ 203dpi
 
     // ==========================================
-    // MÉTODO 1: HÍBRIDO (SDK RfidWrite + TSPL limpio)
+    // MÉTODO 1: ZPL con RFID (^RF Write EPC)
     // ==========================================
 
     /// <summary>
-    /// Imprime etiqueta RFID usando el comando RFID del SDK (RfidWrite.ToString())
-    /// combinado con TSPL puro para el resto (sin variables ni boilerplate del SDK).
+    /// Imprime etiqueta RFID usando ZPL con comando ^RF para escribir EPC.
+    /// REQUIERE: Impresora en modo ZGL (Settings > Application > Control > Active IGP Emul > ZGL)
+    /// 
+    /// Comando ^RF:
+    ///   ^RFW,H = Write, formato Hex
+    ///   ^FD{data} = datos hex del EPC
     /// </summary>
     public bool PrintRfidLabel(string epcHex, string labelText, string barcodeData)
     {
@@ -221,41 +229,39 @@ public class RfidPrinterService : IDisposable
         if (normalizedEpc == null) return false;
         epcHex = normalizedEpc;
 
-        Console.WriteLine($"🏷️ [Híbrido] Preparando etiqueta RFID...");
+        Console.WriteLine($"🏷️ [ZPL + RFID] Preparando etiqueta RFID...");
         Console.WriteLine($"   EPC: {epcHex}");
         Console.WriteLine($"   Texto: {labelText}");
-        Console.WriteLine($"   Tamaño: {LABEL_WIDTH_MM}mm x {LABEL_HEIGHT_MM}mm");
+        Console.WriteLine($"   Código: {barcodeData}");
+        Console.WriteLine($"   Etiqueta: {LABEL_WIDTH_DOTS}x{LABEL_HEIGHT_DOTS} dots (80x20mm)");
 
         try
         {
-            // Obtener comando RFID del SDK (ya validado por la API oficial)
-            var rfidWrite = new RfidWrite(RfidMemBlockEnum.EPC, epcHex);
-            string rfidCommand = rfidWrite.ToString();
-
-            Console.WriteLine($"   RFID CMD (SDK): {rfidCommand.Trim()}");
-
-            // Construir TSPL limpio (sin variables, sin boilerplate)
             var sb = new StringBuilder();
-            sb.AppendLine($"SIZE {LABEL_WIDTH_MM} mm,{LABEL_HEIGHT_MM} mm");
-            sb.AppendLine($"GAP {LABEL_GAP_MM} mm,0");
-            sb.AppendLine("DIRECTION 1");
-            sb.AppendLine("CLS");
-            sb.Append(rfidCommand);  // SDK genera: RFID WRITE 0,H,0,96,EPC,"data"\n
-            sb.AppendLine($"TEXT 30,10,\"2\",0,1,1,\"{labelText}\"");
-            sb.AppendLine($"TEXT 30,45,\"1\",0,1,1,\"EPC: {epcHex}\"");
-            sb.AppendLine($"BARCODE 30,70,\"128\",40,1,0,2,2,\"{barcodeData}\"");
-            sb.AppendLine("PRINT 1,1");
+            sb.Append("^XA");                                              // Inicio formato
+            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho de impresión
+            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Largo de etiqueta
+            sb.Append("^MNY");                                             // Gap/mark tracking
+            // --- RFID: Escribir EPC ---
+            sb.Append("^RS8");                                             // RFID setup: adaptive antenna
+            sb.Append($"^RFW,H^FD{epcHex}^FS");                          // RFID Write EPC en hex
+            // --- Contenido visual ---
+            sb.Append($"^FO20,10^A0N,25,25^FD{labelText}^FS");           // Texto principal
+            sb.Append($"^FO20,40^A0N,18,18^FDEPC: {epcHex}^FS");        // EPC como texto
+            sb.Append($"^FO20,70^BCN,50,Y,N,N^FD{barcodeData}^FS");     // Code128 barcode
+            sb.Append("^PQ1");                                             // Imprimir 1 etiqueta
+            sb.Append("^XZ");                                              // Fin formato
 
-            string tspl = sb.ToString();
+            string zpl = sb.ToString();
 
-            Console.WriteLine("📤 Script TSPL enviado:");
+            Console.WriteLine("📤 Script ZPL enviado:");
             Console.WriteLine("---");
-            Console.Write(tspl);
+            Console.WriteLine(zpl);
             Console.WriteLine("---");
 
-            if (SendCommand(tspl))
+            if (SendCommand(zpl))
             {
-                Console.WriteLine("✅ Etiqueta RFID enviada a impresora");
+                Console.WriteLine("✅ Etiqueta RFID (ZPL) enviada a impresora");
                 return true;
             }
         }
@@ -269,12 +275,12 @@ public class RfidPrinterService : IDisposable
     }
 
     // ==========================================
-    // MÉTODO 2: TSPL PURO (sin SDK, comando RFID directo)
+    // MÉTODO 2: ZPL solo RFID (mínimo, sin contenido visual)
     // ==========================================
 
     /// <summary>
-    /// Imprime etiqueta RFID usando TSPL 100% puro.
-    /// Usa la sintaxis RFID WRITE descubierta del SDK sin depender de él.
+    /// Imprime etiqueta RFID con ZPL mínimo: solo encode RFID + texto simple.
+    /// Útil para depuración: si esto funciona, el RFID está bien configurado.
     /// </summary>
     public bool PrintRfidLabelRaw(string epcHex, string labelText, string barcodeData)
     {
@@ -288,36 +294,34 @@ public class RfidPrinterService : IDisposable
         if (normalizedEpc == null) return false;
         epcHex = normalizedEpc;
 
-        int epcBits = epcHex.Length * 4;  // 24 hex chars = 96 bits
-
-        Console.WriteLine($"🏷️ [TSPL Puro] Preparando etiqueta RFID...");
-        Console.WriteLine($"   EPC: {epcHex} ({epcBits} bits)");
-        Console.WriteLine($"   Texto: {labelText}");
+        Console.WriteLine($"🏷️ [ZPL Mínimo] Solo RFID encode + texto simple...");
+        Console.WriteLine($"   EPC: {epcHex}");
 
         try
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"SIZE {LABEL_WIDTH_MM} mm,{LABEL_HEIGHT_MM} mm");
-            sb.AppendLine($"GAP {LABEL_GAP_MM} mm,0");
-            sb.AppendLine("DIRECTION 1");
-            sb.AppendLine("CLS");
-            // Comando RFID WRITE: retry=0, format=H(hex), offset=0, bits=96, bank=EPC
-            sb.AppendLine($"RFID WRITE 0,H,0,{epcBits},EPC,\"{epcHex}\"");
-            sb.AppendLine($"TEXT 30,10,\"2\",0,1,1,\"{labelText}\"");
-            sb.AppendLine($"TEXT 30,45,\"1\",0,1,1,\"EPC: {epcHex}\"");
-            sb.AppendLine($"BARCODE 30,70,\"128\",40,1,0,2,2,\"{barcodeData}\"");
-            sb.AppendLine("PRINT 1,1");
+            sb.Append("^XA");                                              // Inicio formato
+            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho
+            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Largo
+            sb.Append("^MNY");                                             // Gap tracking
+            // --- RFID: Solo escribir EPC ---
+            sb.Append("^RS8");                                             // RFID setup
+            sb.Append($"^RFW,H^FD{epcHex}^FS");                          // RFID Write EPC
+            // --- Texto mínimo ---
+            sb.Append($"^FO20,20^A0N,30,30^FDRFID OK^FS");               // Solo un texto
+            sb.Append("^PQ1");                                             // 1 copia
+            sb.Append("^XZ");                                              // Fin formato
 
-            string tspl = sb.ToString();
+            string zpl = sb.ToString();
 
-            Console.WriteLine("📤 Script TSPL enviado:");
+            Console.WriteLine("📤 Script ZPL enviado:");
             Console.WriteLine("---");
-            Console.Write(tspl);
+            Console.WriteLine(zpl);
             Console.WriteLine("---");
 
-            if (SendCommand(tspl))
+            if (SendCommand(zpl))
             {
-                Console.WriteLine("✅ Etiqueta RFID enviada a impresora");
+                Console.WriteLine("✅ Etiqueta RFID mínima enviada a impresora");
                 return true;
             }
         }
@@ -331,10 +335,11 @@ public class RfidPrinterService : IDisposable
     }
 
     // ==========================================
-    // ETIQUETA DE PRUEBA (sin RFID)
+    // ETIQUETA DE PRUEBA (sin RFID, ZPL)
     // ==========================================
     /// <summary>
-    /// Imprime etiqueta de prueba (sin RFID) con TSPL puro
+    /// Imprime etiqueta de prueba (sin RFID) con ZPL puro.
+    /// Sirve para verificar que ZGL está bien configurado.
     /// </summary>
     public bool PrintTestLabel(string text)
     {
@@ -344,26 +349,27 @@ public class RfidPrinterService : IDisposable
             return false;
         }
 
-        Console.WriteLine($"🏷️ Imprimiendo etiqueta de prueba: {text}");
+        Console.WriteLine($"🏷️ Imprimiendo etiqueta de prueba (ZPL): {text}");
 
         try
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"SIZE {LABEL_WIDTH_MM} mm,{LABEL_HEIGHT_MM} mm");
-            sb.AppendLine($"GAP {LABEL_GAP_MM} mm,0");
-            sb.AppendLine("DIRECTION 1");
-            sb.AppendLine("CLS");
-            sb.AppendLine($"TEXT 30,15,\"2\",0,1,1,\"{text}\"");
-            sb.AppendLine($"TEXT 30,50,\"1\",0,1,1,\"Prueba de conexion exitosa\"");
-            sb.AppendLine("PRINT 1,1");
+            sb.Append("^XA");
+            sb.Append($"^PW{LABEL_WIDTH_DOTS}");
+            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");
+            sb.Append("^MNY");
+            sb.Append($"^FO20,15^A0N,30,30^FD{text}^FS");
+            sb.Append("^FO20,55^A0N,20,20^FDPrueba de conexion exitosa (ZPL)^FS");
+            sb.Append("^PQ1");
+            sb.Append("^XZ");
 
-            string tspl = sb.ToString();
-            Console.WriteLine("📤 Script generado:");
-            Console.Write(tspl);
+            string zpl = sb.ToString();
+            Console.WriteLine("📤 Script ZPL generado:");
+            Console.WriteLine(zpl);
 
-            if (SendCommand(tspl))
+            if (SendCommand(zpl))
             {
-                Console.WriteLine("✅ Etiqueta de prueba enviada");
+                Console.WriteLine("✅ Etiqueta de prueba (ZPL) enviada");
                 return true;
             }
         }
@@ -376,7 +382,7 @@ public class RfidPrinterService : IDisposable
     }
 
     /// <summary>
-    /// Envía un comando TSPL sin procesar
+    /// Envía un comando ZPL/raw sin procesar
     /// </summary>
     public bool SendRawCommand(string command)
     {

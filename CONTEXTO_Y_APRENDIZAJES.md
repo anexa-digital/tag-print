@@ -104,42 +104,56 @@ Imprimir etiquetas con tag RFID (escribir EPC personalizado) desde un programa C
 
 ---
 
-## Solución Final (en pruebas)
+### 9. CAUSA RAÍZ: TGL NO soporta RFID (Feb 7, 2026)
 
-### Enfoque Híbrido
+- **Descubrimiento**: Revisando los manuales oficiales de programación de Printronix:
+  - **TGL Programmer's Reference** (`_58781f-prm-tgl-th.pdf`): Lista completa de comandos. **CERO comandos RFID**. Solo soporta: AR, AX, AY, C, D, IB, LC, PC, PV, RB, RC, RV, SG, T, XB, XS, etc.
+  - **ZGL Programmer's Reference** (`258782f_prgm_manual_zgl_th.pdf`): **SÍ tiene comandos RFID**: ^RF, ^RB, ^RS, ^RW, ^WT, ^HR, ^RU, ^RZ
+  - **PGL Programmer's Reference** (IGP/PGL): **SÍ tiene comandos RFID**: RFWTAG, RFRTAG
+  
+- **Causa del "Invalid Data"**: TGL (TEC Graphic Language) es emulación de impresoras Toshiba TEC. NO es lo mismo que TSPL (TSC Printer Language). Los comandos RFID (`RFID WRITE`, `RFIDTAG`, `RFIDENCODE`) simplemente no existen en TGL — la impresora los rechaza como datos inválidos.
+  
+- **Confusión original**: Se asumió que TGL = TSPL porque ambos son de TSC, pero TGL emula TEC, no TSC nativo.
 
-Usar el SDK **solo para generar el comando RFID** (`RfidWrite.ToString()`), y construir el resto del TSPL de forma limpia (sin variables, sin boilerplate):
+- **Solución**: Cambiar de **TGL** a **ZGL** (emulación ZPL de Zebra):
+  - `Settings > Application > Control > Active IGP Emul > ZGL`
+  - Usar comandos ZPL estándar con `^RF` para RFID
 
-```csharp
-// Solo el comando RFID viene del SDK
-var rfidWrite = new RfidWrite(RfidMemBlockEnum.EPC, epcHex);
-string rfidCommand = rfidWrite.ToString();
-// Genera: RFID WRITE 0,H,0,96,EPC,"000000000000000000000001"
+---
 
-// El resto es TSPL limpio
-var sb = new StringBuilder();
-sb.AppendLine("SIZE 80 mm,20 mm");
-sb.AppendLine("GAP 3 mm,0");
-sb.AppendLine("DIRECTION 1");
-sb.AppendLine("CLS");
-sb.Append(rfidCommand);
-sb.AppendLine("TEXT 30,10,\"2\",0,1,1,\"RFID TEST\"");
-sb.AppendLine("TEXT 30,45,\"1\",0,1,1,\"EPC: 000...001\"");
-sb.AppendLine("BARCODE 30,70,\"128\",40,1,0,2,2,\"7501234567890\"");
-sb.AppendLine("PRINT 1,1");
+## Solución Final: ZPL en modo ZGL
 
-connection.Write(Encoding.ASCII.GetBytes(sb.ToString()));
+### Enfoque: ZPL con ^RF para RFID
+
+La impresora DEBE estar en modo **ZGL** (no TGL). ZGL emula ZPL de Zebra y soporta todos los comandos RFID.
+
+```zpl
+^XA                                    // Inicio formato ZPL
+^PW640                                 // Ancho: 640 dots (80mm @ 203dpi)
+^LL160                                 // Alto: 160 dots (20mm @ 203dpi)
+^MNY                                   // Gap/mark tracking
+^RS8                                   // RFID setup: adaptive antenna
+^RFW,H^FD000000000000000000000001^FS  // RFID Write EPC en hex
+^FO20,10^A0N,25,25^FDRFID TEST^FS    // Texto
+^FO20,40^A0N,18,18^FDEPC: 000...001^FS  // EPC visible
+^FO20,70^BCN,50,Y,N,N^FD7501234567890^FS  // Code128 barcode
+^PQ1                                   // Imprimir 1 copia
+^XZ                                    // Fin formato
 ```
 
-### Alternativa: TSPL 100% Puro
+### Comandos RFID ZPL clave
 
-Sin depender del SDK para nada, usando la sintaxis `RFID WRITE` descubierta:
+| Comando | Descripción |
+|---|---|
+| `^RFW,H` | Write RFID, formato Hex |
+| `^RFR,H` | Read RFID, formato Hex |
+| `^RS8` | RFID Setup: adaptive antenna |
+| `^RB` | Define EPC Data Structure |
+| `^RR` | RFID retries |
 
-```
-RFID WRITE 0,H,0,96,EPC,"000000000000000000000001"
-```
+### SDK UniPRT
 
-Parámetros: `retry=0, format=H(hex), offset=0, bits=96, bank=EPC, data="..."`
+Se sigue usando `UniPRT.Sdk.Comm` para la conexión TCP/USB. Ya no se usa `LabelMaker.TSPL` ya que los comandos son ZPL directos.
 
 ---
 
@@ -161,15 +175,17 @@ Parámetros: `retry=0, format=H(hex), offset=0, bits=96, bank=EPC, data="..."`
 
 ### Printronix T820
 
-7. **Modo TGL obligatorio**: Sin cambiar de PGL/LP+ a TGL, ningún comando TSPL funciona.
-8. **No soporta TSPL extendido**: Variables (`DPI=300`, `FONT$="1"`) y expresiones aritméticas en parámetros (`30 - 1*FV`) causan "Invalid Data".
-9. **TSPL puro funciona**: Comandos TSPL estándar (SIZE, GAP, CLS, TEXT, BARCODE, PRINT) funcionan perfecto.
-10. **Sintaxis RFID correcta**: `RFID WRITE retry,format,offset,bits,bank,"data"` (descubierta del output del SDK).
+7. **TGL NO soporta RFID**: TGL (TEC Graphic Language) emula impresoras Toshiba TEC. NO es TSPL. No tiene ningún comando RFID — de ahí el "Invalid Data" persistente.
+8. **ZGL SÍ soporta RFID**: ZGL (emulación ZPL/Zebra) tiene comandos RFID completos: ^RF, ^RB, ^RS, ^RW, ^WT.
+9. **PGL también soporta RFID**: PGL (Printronix nativo) tiene RFWTAG y RFRTAG para RFID.
+10. **Emulaciones disponibles**: PGL (Printronix nativo), ZGL (Zebra ZPL), TGL (Toshiba TEC). Para RFID usar ZGL o PGL.
+11. **TGL acepta algo de TSPL**: Algunos comandos TSPL básicos (SIZE, GAP, TEXT, PRINT) funcionan en TGL, pero NO los de RFID.
+12. **ZPL RFID syntax**: `^RFW,H^FD{hexdata}^FS` para escribir EPC. `^RS8` para setup de antena adaptiva.
 
 ### Dimensiones de Etiqueta
 
-11. **SIZE afecta RFID**: Si las dimensiones no coinciden con el media físico, la antena no se alinea con el chip y el encode puede fallar.
-12. **Formato SIZE con mm**: Se puede usar `SIZE 80 mm,20 mm` en lugar de pulgadas `SIZE 4,2`.
+13. **Dimensiones afectan RFID**: Si las dimensiones no coinciden con el media físico, la antena no se alinea con el chip y el encode puede fallar.
+14. **ZPL usa dots**: A 203 dpi: 80mm ≈ 640 dots, 20mm ≈ 160 dots. Se configura con `^PW640^LL160`.
 
 ### Inspección del SDK
 
@@ -202,20 +218,23 @@ tag-print/
 | 1 | Conectar por Ethernet (TCP/IP) |
 | 2 | Conectar por USB |
 | 3 | Ver estado de impresora |
-| 4 | Imprimir etiqueta de prueba (sin RFID) |
-| 5 | **RFID Híbrido** — SDK RfidWrite + TSPL limpio |
-| 6 | **RFID TSPL Puro** — Sin SDK, comando RFID WRITE directo |
+| 4 | Imprimir etiqueta de prueba ZPL (sin RFID) |
+| 5 | **RFID ZPL Completo** — ^RF + texto + barcode |
+| 6 | **RFID ZPL Mínimo** — Solo ^RF encode (para depuración) |
 | 7 | RFID con EPC personalizado |
 | 8 | Desconectar |
-| 9 | Enviar comando TSPL manual |
+| 9 | Enviar comando ZPL manual |
 | 0 | Salir |
 
 ---
 
 ## Pendientes
 
-- [ ] Confirmar que opción 6 (TSPL puro) o 5 (híbrido) escriben el EPC correctamente
+- [ ] **Cambiar impresora a modo ZGL**: Settings > Application > Control > Active IGP Emul > ZGL
+- [ ] Probar opción 4 (etiqueta ZPL sin RFID) para confirmar que ZGL funciona
+- [ ] Probar opción 6 (RFID mínimo) para confirmar escritura de EPC
+- [ ] Probar opción 5 (RFID completo con texto + barcode)
 - [ ] Verificar EPC escrito con lector Impinj
-- [ ] Ajustar GAP si las etiquetas no se posicionan bien (actualmente 3mm)
-- [ ] Evaluar si se necesita `RFIDRETRY` para reintentos de encode
+- [ ] Ajustar posición de antena RFID si encode falla (`^RS` y `^HR` para calibración)
+- [ ] Evaluar si se necesita `^RR` para reintentos de encode
 - [ ] Integrar con sistema de producción (lectura de datos desde DB/API)

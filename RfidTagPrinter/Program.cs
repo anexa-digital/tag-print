@@ -2,10 +2,12 @@ namespace RfidTagPrinter;
 
 /// <summary>
 /// Programa de prueba para impresión RFID en Printronix T820
-/// Usando SDK oficial UniPRT de TSC
+/// Usando ZPL (modo ZGL) para RFID + SDK UniPRT para conexión
 /// 
 /// ANTES DE EJECUTAR:
-/// 1. Cambiar lenguaje de impresora a TSPL (ver PLAN_CONFIGURACION.md)
+/// 1. Cambiar lenguaje de impresora a ZGL: 
+///    Settings > Application > Control > Active IGP Emul > ZGL
+///    (TGL NO soporta RFID - solo ZGL y PGL tienen comandos RFID)
 /// 2. Verificar IP de la impresora (actual: 192.168.3.38)
 /// </summary>
 class Program
@@ -50,7 +52,7 @@ class Program
     {
         Console.WriteLine("═══════════════════════════════════════════════════════════");
         Console.WriteLine("     RFID Tag Printer - Printronix T820                    ");
-        Console.WriteLine("     SDK: UniPRT 2.0                                       ");
+        Console.WriteLine("     Modo: ZGL (ZPL) + UniPRT SDK (conexión)              ");
         Console.WriteLine("═══════════════════════════════════════════════════════════");
         Console.WriteLine();
 
@@ -63,12 +65,12 @@ class Program
             Console.WriteLine("  1. Conectar por Ethernet (TCP/IP)");
             Console.WriteLine("  2. Conectar por USB");
             Console.WriteLine("  3. Ver estado de impresora");
-            Console.WriteLine("  4. Imprimir etiqueta de prueba (sin RFID)");
-            Console.WriteLine("  5. Imprimir etiqueta RFID - Híbrido (SDK + TSPL limpio)");
-            Console.WriteLine("  6. Imprimir etiqueta RFID - TSPL puro (sin SDK)");
+            Console.WriteLine("  4. Imprimir etiqueta de prueba ZPL (sin RFID)");
+            Console.WriteLine("  5. Imprimir etiqueta RFID - ZPL completo (texto+barcode+RFID)");
+            Console.WriteLine("  6. Imprimir etiqueta RFID - ZPL mínimo (solo RFID encode)");
             Console.WriteLine("  7. Imprimir etiqueta RFID con EPC personalizado");
             Console.WriteLine("  8. Desconectar");
-            Console.WriteLine("  9. Enviar comando TSPL manual");
+            Console.WriteLine("  9. Enviar comando ZPL manual");
             Console.WriteLine("  0. Salir");
             Console.WriteLine();
             Console.Write("Seleccione opción: ");
@@ -147,7 +149,7 @@ class Program
         {
             Console.WriteLine("❌ No se pudo conectar. Verifica:");
             Console.WriteLine("   - Que la impresora esté encendida y ONLINE");
-            Console.WriteLine("   - Que el lenguaje esté en TSPL (no PGL/LP+)");
+            Console.WriteLine("   - Que el lenguaje esté en ZGL (no TGL ni PGL)");
             Console.WriteLine($"   - Que la IP {ip} sea correcta");
             Console.WriteLine("   - Que el puerto 9100 esté abierto");
         }
@@ -190,7 +192,7 @@ class Program
             Console.WriteLine("❌ No se pudo conectar por USB. Verifica:");
             Console.WriteLine("   - Que la impresora esté conectada por USB");
             Console.WriteLine("   - Que la impresora esté encendida y ONLINE");
-            Console.WriteLine("   - Que el lenguaje esté en TGL (TSPL)");
+            Console.WriteLine("   - Que el lenguaje esté en ZGL");
         }
     }
 
@@ -245,7 +247,7 @@ class Program
             return;
         }
         
-        Console.WriteLine("🏷️ [Método Híbrido] SDK RfidWrite + TSPL limpio");
+        Console.WriteLine("🏷️ [ZPL Completo] RFID + texto + barcode");
         Console.WriteLine($"   EPC: {TEST_EPC}");
         Console.WriteLine($"   Texto: {TEST_LABEL_TEXT}");
         Console.WriteLine($"   Código: {TEST_BARCODE}");
@@ -267,7 +269,7 @@ class Program
             return;
         }
         
-        Console.WriteLine("🏷️ [Método TSPL Puro] Sin SDK - comando RFID WRITE directo");
+        Console.WriteLine("🏷️ [ZPL Mínimo] Solo RFID encode - para depuración");
         Console.WriteLine($"   EPC: {TEST_EPC}");
         Console.WriteLine($"   Texto: {TEST_LABEL_TEXT}");
         Console.WriteLine($"   Código: {TEST_BARCODE}");
@@ -327,13 +329,13 @@ class Program
             return;
         }
         
-        Console.WriteLine("📝 Ingrese el comando TSPL (o 'test' para un comando de prueba):");
+        Console.WriteLine("📝 Ingrese el comando ZPL (o 'test' para un comando de prueba):");
         Console.Write("> ");
         string command = Console.ReadLine() ?? "";
 
         if (command.ToLower() == "test")
         {
-            command = "SIZE 80 mm,20 mm\nGAP 3 mm,0\nCLS\nTEXT 30,15,\"2\",0,1,1,\"TEST MANUAL\"\nPRINT 1,1\n";
+            command = "^XA^PW640^LL160^MNY^FO20,20^A0N,30,30^FDTEST MANUAL ZPL^FS^PQ1^XZ";
             Console.WriteLine($"Enviando comando de prueba:");
             Console.WriteLine(command);
         }
