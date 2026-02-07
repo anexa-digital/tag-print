@@ -193,15 +193,22 @@ public class RfidPrinterService : IDisposable
     }
 
     // ==========================================
-    // IMPRESIÓN CON API LabelMaker (OFICIAL SDK)
+    // CONFIGURACIÓN DE ETIQUETA
+    // ==========================================
+
+    // Dimensiones reales de la etiqueta RFID (80mm x 20mm)
+    private const string LABEL_WIDTH_MM = "80";
+    private const string LABEL_HEIGHT_MM = "20";
+    private const string LABEL_GAP_MM = "3";  // gap entre etiquetas en mm
+
+    // ==========================================
+    // MÉTODO 1: HÍBRIDO (SDK RfidWrite + TSPL limpio)
     // ==========================================
 
     /// <summary>
-    /// Imprime etiqueta RFID usando la API oficial del SDK (LabelMaker + RfidWrite)
+    /// Imprime etiqueta RFID usando el comando RFID del SDK (RfidWrite.ToString())
+    /// combinado con TSPL puro para el resto (sin variables ni boilerplate del SDK).
     /// </summary>
-    /// <param name="epcHex">EPC en hexadecimal (24 chars = 96 bits)</param>
-    /// <param name="labelText">Texto visible en la etiqueta</param>
-    /// <param name="barcodeData">Datos del código de barras</param>
     public bool PrintRfidLabel(string epcHex, string labelText, string barcodeData)
     {
         if (!IsConnected)
@@ -210,58 +217,43 @@ public class RfidPrinterService : IDisposable
             return false;
         }
 
-        // Limpiar y validar EPC
         var normalizedEpc = NormalizeEpc(epcHex);
         if (normalizedEpc == null) return false;
         epcHex = normalizedEpc;
 
-        Console.WriteLine($"🏷️ Preparando etiqueta RFID (SDK LabelMaker)...");
+        Console.WriteLine($"🏷️ [Híbrido] Preparando etiqueta RFID...");
         Console.WriteLine($"   EPC: {epcHex}");
         Console.WriteLine($"   Texto: {labelText}");
+        Console.WriteLine($"   Tamaño: {LABEL_WIDTH_MM}mm x {LABEL_HEIGHT_MM}mm");
 
         try
         {
-            // 1) Crear Label TSPL
-            var label = new Label("RfidLabel");
-
-            // 2) Agregar configuración de etiqueta via raw content
-            label.AddRawContent("SIZE 4,2");
-            label.AddRawContent("GAP 0.12,0");
-            label.AddRawContent("DIRECTION 1");
-            label.AddRawContent("CLS");
-
-            // 3) Agregar RFID Write usando la API oficial del SDK
+            // Obtener comando RFID del SDK (ya validado por la API oficial)
             var rfidWrite = new RfidWrite(RfidMemBlockEnum.EPC, epcHex);
-            label.AddObject(rfidWrite);
+            string rfidCommand = rfidWrite.ToString();
 
-            // 4) Agregar texto usando la API del SDK
-            var textTitle = new TextItem(50f, 30f, labelText);
-            var text = new Text(textTitle);
-            label.AddObject(text);
+            Console.WriteLine($"   RFID CMD (SDK): {rfidCommand.Trim()}");
 
-            var textEpc = new TextItem(50f, 80f, $"EPC: {epcHex}");
-            var text2 = new Text(textEpc);
-            label.AddObject(text2);
+            // Construir TSPL limpio (sin variables, sin boilerplate)
+            var sb = new StringBuilder();
+            sb.AppendLine($"SIZE {LABEL_WIDTH_MM} mm,{LABEL_HEIGHT_MM} mm");
+            sb.AppendLine($"GAP {LABEL_GAP_MM} mm,0");
+            sb.AppendLine("DIRECTION 1");
+            sb.AppendLine("CLS");
+            sb.Append(rfidCommand);  // SDK genera: RFID WRITE 0,H,0,96,EPC,"data"\n
+            sb.AppendLine($"TEXT 30,10,\"2\",0,1,1,\"{labelText}\"");
+            sb.AppendLine($"TEXT 30,45,\"1\",0,1,1,\"EPC: {epcHex}\"");
+            sb.AppendLine($"BARCODE 30,70,\"128\",40,1,0,2,2,\"{barcodeData}\"");
+            sb.AppendLine("PRINT 1,1");
 
-            // 5) Agregar código de barras
-            var barcodeItem = new BarcodeItem(50f, 130f, barcodeData);
-            var barcode = new Barcode1D(barcodeItem);
-            barcode.BarcodeType = BarcodeTypeEnum_1D.Code_128;
-            label.AddObject(barcode);
+            string tspl = sb.ToString();
 
-            // 6) Agregar comando PRINT
-            label.AddRawContent("PRINT 1,1");
-
-            // 7) Generar script TSPL completo
-            string tsplOutput = label.ToString();
-
-            Console.WriteLine("📤 Script TSPL generado por SDK:");
+            Console.WriteLine("📤 Script TSPL enviado:");
             Console.WriteLine("---");
-            Console.WriteLine(tsplOutput);
+            Console.Write(tspl);
             Console.WriteLine("---");
 
-            // 8) Enviar a impresora
-            if (SendCommand(tsplOutput))
+            if (SendCommand(tspl))
             {
                 Console.WriteLine("✅ Etiqueta RFID enviada a impresora");
                 return true;
@@ -276,8 +268,73 @@ public class RfidPrinterService : IDisposable
         return false;
     }
 
+    // ==========================================
+    // MÉTODO 2: TSPL PURO (sin SDK, comando RFID directo)
+    // ==========================================
+
     /// <summary>
-    /// Imprime etiqueta de prueba (sin RFID) usando SDK LabelMaker
+    /// Imprime etiqueta RFID usando TSPL 100% puro.
+    /// Usa la sintaxis RFID WRITE descubierta del SDK sin depender de él.
+    /// </summary>
+    public bool PrintRfidLabelRaw(string epcHex, string labelText, string barcodeData)
+    {
+        if (!IsConnected)
+        {
+            Console.WriteLine("❌ No conectado a la impresora");
+            return false;
+        }
+
+        var normalizedEpc = NormalizeEpc(epcHex);
+        if (normalizedEpc == null) return false;
+        epcHex = normalizedEpc;
+
+        int epcBits = epcHex.Length * 4;  // 24 hex chars = 96 bits
+
+        Console.WriteLine($"🏷️ [TSPL Puro] Preparando etiqueta RFID...");
+        Console.WriteLine($"   EPC: {epcHex} ({epcBits} bits)");
+        Console.WriteLine($"   Texto: {labelText}");
+
+        try
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine($"SIZE {LABEL_WIDTH_MM} mm,{LABEL_HEIGHT_MM} mm");
+            sb.AppendLine($"GAP {LABEL_GAP_MM} mm,0");
+            sb.AppendLine("DIRECTION 1");
+            sb.AppendLine("CLS");
+            // Comando RFID WRITE: retry=0, format=H(hex), offset=0, bits=96, bank=EPC
+            sb.AppendLine($"RFID WRITE 0,H,0,{epcBits},EPC,\"{epcHex}\"");
+            sb.AppendLine($"TEXT 30,10,\"2\",0,1,1,\"{labelText}\"");
+            sb.AppendLine($"TEXT 30,45,\"1\",0,1,1,\"EPC: {epcHex}\"");
+            sb.AppendLine($"BARCODE 30,70,\"128\",40,1,0,2,2,\"{barcodeData}\"");
+            sb.AppendLine("PRINT 1,1");
+
+            string tspl = sb.ToString();
+
+            Console.WriteLine("📤 Script TSPL enviado:");
+            Console.WriteLine("---");
+            Console.Write(tspl);
+            Console.WriteLine("---");
+
+            if (SendCommand(tspl))
+            {
+                Console.WriteLine("✅ Etiqueta RFID enviada a impresora");
+                return true;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error: {ex.Message}");
+            Console.WriteLine($"   Stack: {ex.StackTrace}");
+        }
+
+        return false;
+    }
+
+    // ==========================================
+    // ETIQUETA DE PRUEBA (sin RFID)
+    // ==========================================
+    /// <summary>
+    /// Imprime etiqueta de prueba (sin RFID) con TSPL puro
     /// </summary>
     public bool PrintTestLabel(string text)
     {
@@ -291,25 +348,20 @@ public class RfidPrinterService : IDisposable
 
         try
         {
-            var label = new Label("TestLabel");
-            label.AddRawContent("SIZE 4,2");
-            label.AddRawContent("GAP 0.12,0");
-            label.AddRawContent("DIRECTION 1");
-            label.AddRawContent("CLS");
+            var sb = new StringBuilder();
+            sb.AppendLine($"SIZE {LABEL_WIDTH_MM} mm,{LABEL_HEIGHT_MM} mm");
+            sb.AppendLine($"GAP {LABEL_GAP_MM} mm,0");
+            sb.AppendLine("DIRECTION 1");
+            sb.AppendLine("CLS");
+            sb.AppendLine($"TEXT 30,15,\"2\",0,1,1,\"{text}\"");
+            sb.AppendLine($"TEXT 30,50,\"1\",0,1,1,\"Prueba de conexion exitosa\"");
+            sb.AppendLine("PRINT 1,1");
 
-            var textItem1 = new TextItem(50f, 50f, text);
-            label.AddObject(new Text(textItem1));
-
-            var textItem2 = new TextItem(50f, 100f, "Prueba de conexion exitosa");
-            label.AddObject(new Text(textItem2));
-
-            label.AddRawContent("PRINT 1,1");
-
-            string tsplOutput = label.ToString();
+            string tspl = sb.ToString();
             Console.WriteLine("📤 Script generado:");
-            Console.WriteLine(tsplOutput);
+            Console.Write(tspl);
 
-            if (SendCommand(tsplOutput))
+            if (SendCommand(tspl))
             {
                 Console.WriteLine("✅ Etiqueta de prueba enviada");
                 return true;

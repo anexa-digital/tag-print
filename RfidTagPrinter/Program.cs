@@ -64,10 +64,11 @@ class Program
             Console.WriteLine("  2. Conectar por USB");
             Console.WriteLine("  3. Ver estado de impresora");
             Console.WriteLine("  4. Imprimir etiqueta de prueba (sin RFID)");
-            Console.WriteLine("  5. Imprimir etiqueta RFID (EPC de prueba)");
-            Console.WriteLine("  6. Imprimir etiqueta RFID con EPC personalizado");
-            Console.WriteLine("  7. Desconectar");
-            Console.WriteLine("  8. Enviar comando TSPL manual");
+            Console.WriteLine("  5. Imprimir etiqueta RFID - Híbrido (SDK + TSPL limpio)");
+            Console.WriteLine("  6. Imprimir etiqueta RFID - TSPL puro (sin SDK)");
+            Console.WriteLine("  7. Imprimir etiqueta RFID con EPC personalizado");
+            Console.WriteLine("  8. Desconectar");
+            Console.WriteLine("  9. Enviar comando TSPL manual");
             Console.WriteLine("  0. Salir");
             Console.WriteLine();
             Console.Write("Seleccione opción: ");
@@ -95,18 +96,22 @@ class Program
                     break;
 
                 case '5':
-                    PrintRfidTest();
+                    PrintRfidTestHybrid();
                     break;
 
                 case '6':
-                    PrintRfidCustom();
+                    PrintRfidTestRaw();
                     break;
 
                 case '7':
-                    DisconnectPrinter();
+                    PrintRfidCustom();
                     break;
 
                 case '8':
+                    DisconnectPrinter();
+                    break;
+
+                case '9':
                     SendManualCommand();
                     break;
 
@@ -232,7 +237,7 @@ class Program
         }
     }
 
-    static void PrintRfidTest()
+    static void PrintRfidTestHybrid()
     {
         if (_printer == null || !_printer.IsConnected)
         {
@@ -240,13 +245,35 @@ class Program
             return;
         }
         
-        Console.WriteLine("🏷️ Imprimiendo etiqueta RFID de prueba...");
+        Console.WriteLine("🏷️ [Método Híbrido] SDK RfidWrite + TSPL limpio");
         Console.WriteLine($"   EPC: {TEST_EPC}");
         Console.WriteLine($"   Texto: {TEST_LABEL_TEXT}");
         Console.WriteLine($"   Código: {TEST_BARCODE}");
         Console.WriteLine();
 
         if (_printer.PrintRfidLabel(TEST_EPC, TEST_LABEL_TEXT, TEST_BARCODE))
+        {
+            Console.WriteLine();
+            Console.WriteLine("✅ Etiqueta RFID enviada!");
+            Console.WriteLine("   Verifica con un lector RFID que el EPC se escribió correctamente.");
+        }
+    }
+
+    static void PrintRfidTestRaw()
+    {
+        if (_printer == null || !_printer.IsConnected)
+        {
+            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
+            return;
+        }
+        
+        Console.WriteLine("🏷️ [Método TSPL Puro] Sin SDK - comando RFID WRITE directo");
+        Console.WriteLine($"   EPC: {TEST_EPC}");
+        Console.WriteLine($"   Texto: {TEST_LABEL_TEXT}");
+        Console.WriteLine($"   Código: {TEST_BARCODE}");
+        Console.WriteLine();
+
+        if (_printer.PrintRfidLabelRaw(TEST_EPC, TEST_LABEL_TEXT, TEST_BARCODE))
         {
             Console.WriteLine();
             Console.WriteLine("✅ Etiqueta RFID enviada!");
@@ -306,7 +333,7 @@ class Program
 
         if (command.ToLower() == "test")
         {
-            command = "SIZE 4,2\nGAP 0.12,0\nCLS\nTEXT 50,50,\"3\",0,1,1,\"TEST MANUAL\"\nPRINT 1,1\n";
+            command = "SIZE 80 mm,20 mm\nGAP 3 mm,0\nCLS\nTEXT 30,15,\"2\",0,1,1,\"TEST MANUAL\"\nPRINT 1,1\n";
             Console.WriteLine($"Enviando comando de prueba:");
             Console.WriteLine(command);
         }
