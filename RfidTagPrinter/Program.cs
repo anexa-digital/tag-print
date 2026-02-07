@@ -64,11 +64,10 @@ class Program
             Console.WriteLine("  2. Conectar por USB");
             Console.WriteLine("  3. Ver estado de impresora");
             Console.WriteLine("  4. Imprimir etiqueta de prueba (sin RFID)");
-            Console.WriteLine("  5. Imprimir etiqueta RFID (formato RFIDTAG)");
+            Console.WriteLine("  5. Imprimir etiqueta RFID (EPC de prueba)");
             Console.WriteLine("  6. Imprimir etiqueta RFID con EPC personalizado");
             Console.WriteLine("  7. Desconectar");
-            Console.WriteLine("  8. Probar comando RFID alternativo (RFIDENCODE)");
-            Console.WriteLine("  9. Enviar comando TSPL manual");
+            Console.WriteLine("  8. Enviar comando TSPL manual");
             Console.WriteLine("  0. Salir");
             Console.WriteLine();
             Console.Write("Seleccione opción: ");
@@ -108,10 +107,6 @@ class Program
                     break;
 
                 case '8':
-                    PrintRfidAlternative();
-                    break;
-
-                case '9':
                     SendManualCommand();
                     break;
 
@@ -294,25 +289,6 @@ class Program
         if (_printer.PrintRfidLabel(epc, text, barcode))
         {
             Console.WriteLine("✅ Etiqueta RFID personalizada enviada!");
-        }
-    }
-
-    static void PrintRfidAlternative()
-    {
-        if (_printer == null || !_printer.IsConnected)
-        {
-            Console.WriteLine("❌ No hay conexión. Use opción 1 o 2 para conectar.");
-            return;
-        }
-        
-        Console.WriteLine("🏷️ Probando con formato RFIDENCODE alternativo...");
-        Console.WriteLine($"   EPC: {TEST_EPC}");
-        Console.WriteLine();
-
-        if (_printer.PrintRfidLabelAlternative(TEST_EPC, TEST_LABEL_TEXT))
-        {
-            Console.WriteLine();
-            Console.WriteLine("✅ Etiqueta enviada con formato alternativo!");
         }
     }
 

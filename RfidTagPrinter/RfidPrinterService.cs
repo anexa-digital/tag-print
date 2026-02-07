@@ -1,5 +1,7 @@
 using System.Text;
 using UniPRT.Sdk.Comm;
+using UniPRT.Sdk.LabelMaker.TSPL;
+using UniPRT.Sdk.LabelMaker.Interfaces;
 
 namespace RfidTagPrinter;
 
@@ -14,7 +16,7 @@ public enum ConnectionType
 
 /// <summary>
 /// Servicio para impresión de etiquetas RFID en Printronix T820
-/// Usando el SDK oficial UniPRT de TSC
+/// Usando el SDK oficial UniPRT de TSC (LabelMaker API)
 /// </summary>
 public class RfidPrinterService : IDisposable
 {
@@ -28,11 +30,13 @@ public class RfidPrinterService : IDisposable
     private bool _isConnected;
     private string _connectionInfo = "";
 
+    // ==========================================
+    // CONSTRUCTORES
+    // ==========================================
+
     /// <summary>
     /// Constructor para conexión por red TCP/IP
     /// </summary>
-    /// <param name="ipAddress">IP de la impresora (ej: 192.168.3.38)</param>
-    /// <param name="port">Puerto TCP (default: 9100)</param>
     public RfidPrinterService(string ipAddress, int port = 9100)
     {
         _printerIp = ipAddress;
@@ -51,26 +55,29 @@ public class RfidPrinterService : IDisposable
         _usbDeviceIndex = usbDeviceIndex;
     }
 
+    // ==========================================
+    // CONEXIÓN
+    // ==========================================
+
     /// <summary>
     /// Lista los dispositivos USB disponibles
     /// </summary>
     public static List<(ushort vendorId, ushort productId, string description)> ListUsbDevices()
     {
         var result = new List<(ushort vendorId, ushort productId, string description)>();
-        
         try
         {
             var devices = UsbConnection.AvaliableDevices();
             foreach (var device in devices)
             {
-                result.Add(((ushort)device.vendorID, (ushort)device.productID, $"VID:{device.vendorID:X4} PID:{device.productID:X4}"));
+                result.Add(((ushort)device.vendorID, (ushort)device.productID, 
+                    $"VID:{device.vendorID:X4} PID:{device.productID:X4}"));
             }
         }
         catch (Exception ex)
         {
             Console.WriteLine($"❌ Error listando dispositivos USB: {ex.Message}");
         }
-        
         return result;
     }
 
@@ -81,14 +88,9 @@ public class RfidPrinterService : IDisposable
     {
         try
         {
-            if (_connectionType == ConnectionType.Ethernet)
-            {
-                return ConnectEthernet();
-            }
-            else
-            {
-                return ConnectUsb();
-            }
+            return _connectionType == ConnectionType.Ethernet 
+                ? ConnectEthernet() 
+                : ConnectUsb();
         }
         catch (Exception ex)
         {
@@ -101,31 +103,18 @@ public class RfidPrinterService : IDisposable
     private bool ConnectEthernet()
     {
         Console.WriteLine($"📡 Conectando a {_printerIp}:{_printerPort}...");
-        
         _tcpConnection = new TcpConnection(_printerIp, _printerPort);
         _tcpConnection.Open();
-        
         _isConnected = _tcpConnection.Connected;
         _connectionInfo = $"{_printerIp}:{_printerPort}";
-
-        if (_isConnected)
-        {
-            Console.WriteLine("✅ Conexión Ethernet establecida");
-        }
-        else
-        {
-            Console.WriteLine("❌ No se pudo conectar por Ethernet");
-        }
-
+        Console.WriteLine(_isConnected ? "✅ Conexión Ethernet establecida" : "❌ No se pudo conectar");
         return _isConnected;
     }
 
     private bool ConnectUsb()
     {
         Console.WriteLine("🔌 Buscando impresoras USB...");
-        
         var devices = UsbConnection.AvaliableDevices();
-        
         if (devices.Count == 0)
         {
             Console.WriteLine("❌ No se encontraron impresoras USB");
@@ -134,58 +123,43 @@ public class RfidPrinterService : IDisposable
 
         Console.WriteLine($"   Encontrados {devices.Count} dispositivo(s):");
         for (int i = 0; i < devices.Count; i++)
-        {
             Console.WriteLine($"   [{i}] VID:{devices[i].vendorID:X4} PID:{devices[i].productID:X4}");
-        }
 
         if (_usbDeviceIndex < 0 || _usbDeviceIndex >= devices.Count)
         {
-            Console.WriteLine($"❌ Índice USB inválido: {_usbDeviceIndex}. Rango válido: 0..{devices.Count - 1}");
+            Console.WriteLine($"❌ Índice USB inválido: {_usbDeviceIndex}");
             return false;
         }
 
-        // Usar el dispositivo seleccionado
         var device = devices[_usbDeviceIndex];
-        Console.WriteLine($"📡 Conectando a dispositivo USB VID:{device.vendorID:X4} PID:{device.productID:X4}...");
-        
+        Console.WriteLine($"📡 Conectando USB VID:{device.vendorID:X4} PID:{device.productID:X4}...");
         _usbConnection = new UsbConnection(device.vendorID, device.productID);
         _usbConnection.Open();
-        
         _isConnected = _usbConnection.Connected;
         _connectionInfo = $"USB VID:{device.vendorID:X4} PID:{device.productID:X4}";
-
-        if (_isConnected)
-        {
-            Console.WriteLine("✅ Conexión USB establecida");
-        }
-        else
-        {
-            Console.WriteLine("❌ No se pudo conectar por USB");
-        }
-
+        Console.WriteLine(_isConnected ? "✅ Conexión USB establecida" : "❌ No se pudo conectar");
         return _isConnected;
     }
 
-    /// <summary>
-    /// Verifica si la impresora está conectada
-    /// </summary>
     public bool IsConnected
     {
         get
         {
             if (!_isConnected) return false;
-            
-            if (_connectionType == ConnectionType.Ethernet)
-                return _tcpConnection?.Connected ?? false;
-            else
-                return _usbConnection?.Connected ?? false;
+            return _connectionType == ConnectionType.Ethernet
+                ? _tcpConnection?.Connected ?? false
+                : _usbConnection?.Connected ?? false;
         }
     }
 
+    // ==========================================
+    // ENVÍO DE DATOS
+    // ==========================================
+
     /// <summary>
-    /// Envía comandos TSPL a la impresora
+    /// Envía bytes a la impresora
     /// </summary>
-    private bool SendCommand(string command)
+    private bool SendBytes(byte[] data)
     {
         if (!IsConnected)
         {
@@ -195,35 +169,38 @@ public class RfidPrinterService : IDisposable
 
         try
         {
-            byte[] data = Encoding.ASCII.GetBytes(command);
-            
             if (_connectionType == ConnectionType.Ethernet && _tcpConnection != null)
-            {
                 _tcpConnection.Write(data);
-            }
             else if (_connectionType == ConnectionType.Usb && _usbConnection != null)
-            {
                 _usbConnection.Write(data);
-            }
             else
-            {
                 return false;
-            }
-            
             return true;
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"❌ Error enviando comando: {ex.Message}");
+            Console.WriteLine($"❌ Error enviando datos: {ex.Message}");
             return false;
         }
     }
 
     /// <summary>
-    /// Imprime una etiqueta RFID con EPC personalizado
+    /// Envía string como bytes ASCII a la impresora
     /// </summary>
-    /// <param name="epcHex">Código EPC en hexadecimal (24 caracteres para 96 bits)</param>
-    /// <param name="labelText">Texto a imprimir en la etiqueta</param>
+    private bool SendCommand(string command)
+    {
+        return SendBytes(Encoding.ASCII.GetBytes(command));
+    }
+
+    // ==========================================
+    // IMPRESIÓN CON API LabelMaker (OFICIAL SDK)
+    // ==========================================
+
+    /// <summary>
+    /// Imprime etiqueta RFID usando la API oficial del SDK (LabelMaker + RfidWrite)
+    /// </summary>
+    /// <param name="epcHex">EPC en hexadecimal (24 chars = 96 bits)</param>
+    /// <param name="labelText">Texto visible en la etiqueta</param>
     /// <param name="barcodeData">Datos del código de barras</param>
     public bool PrintRfidLabel(string epcHex, string labelText, string barcodeData)
     {
@@ -234,78 +211,72 @@ public class RfidPrinterService : IDisposable
         }
 
         // Limpiar y validar EPC
-        epcHex = epcHex.ToUpper().Replace(" ", "");
-        
-        // Validar que solo contenga caracteres hex válidos
-        if (!System.Text.RegularExpressions.Regex.IsMatch(epcHex, "^[0-9A-F]+$"))
-        {
-            Console.WriteLine("❌ Error: EPC contiene caracteres no hexadecimales");
-            return false;
-        }
+        var normalizedEpc = NormalizeEpc(epcHex);
+        if (normalizedEpc == null) return false;
+        epcHex = normalizedEpc;
 
-        // Validar EPC (debe ser 24 caracteres hex para 96 bits)
-        if (epcHex.Length != 24)
-        {
-            Console.WriteLine($"⚠️ Advertencia: EPC debería tener 24 caracteres hex (96 bits). Actual: {epcHex.Length}");
-            // Rellenar con ceros si es muy corto
-            if (epcHex.Length < 24)
-            {
-                epcHex = epcHex.PadRight(24, '0');
-                Console.WriteLine($"   Ajustado a: {epcHex}");
-            }
-            else if (epcHex.Length > 24)
-            {
-                epcHex = epcHex.Substring(0, 24);
-                Console.WriteLine($"   Truncado a: {epcHex}");
-            }
-        }
-
-        Console.WriteLine($"🏷️ Preparando etiqueta RFID...");
+        Console.WriteLine($"🏷️ Preparando etiqueta RFID (SDK LabelMaker)...");
         Console.WriteLine($"   EPC: {epcHex}");
         Console.WriteLine($"   Texto: {labelText}");
 
-        // Construir script TSPL completo con terminadores de línea correctos
-        // Usar StringBuilder para mayor control
-        var sb = new StringBuilder();
-        sb.AppendLine("SIZE 4,2");
-        sb.AppendLine("GAP 0.12,0");
-        sb.AppendLine("DIRECTION 1");
-        sb.AppendLine("CLS");
-        sb.AppendLine("RFIDDETECT AUTO");
-        sb.AppendLine("RFIDSETUP 0,5,2");
-        sb.AppendLine($"RFIDTAG EPC,{epcHex}");
-        sb.AppendLine($"TEXT 50,30,\"3\",0,1,1,\"{SanitizeText(labelText)}\"");
-        sb.AppendLine($"TEXT 50,80,\"2\",0,1,1,\"EPC: {epcHex}\"");
-        sb.AppendLine($"BARCODE 50,130,\"128\",60,1,0,2,2,\"{SanitizeText(barcodeData)}\"");
-        sb.AppendLine("PRINT 1,1");
-
-        string tsplScript = sb.ToString();
-        
-        Console.WriteLine("📤 Enviando comandos TSPL:");
-        Console.WriteLine("---");
-        Console.WriteLine(tsplScript);
-        Console.WriteLine("---");
-
-        if (SendCommand(tsplScript))
+        try
         {
-            Console.WriteLine("✅ Etiqueta RFID enviada a impresora");
-            return true;
+            // 1) Crear Label TSPL
+            var label = new Label("RfidLabel");
+
+            // 2) Agregar configuración de etiqueta via raw content
+            label.AddRawContent("SIZE 4,2");
+            label.AddRawContent("GAP 0.12,0");
+            label.AddRawContent("DIRECTION 1");
+            label.AddRawContent("CLS");
+
+            // 3) Agregar RFID Write usando la API oficial del SDK
+            var rfidWrite = new RfidWrite(RfidMemBlockEnum.EPC, epcHex);
+            label.AddObject(rfidWrite);
+
+            // 4) Agregar texto usando la API del SDK
+            var textTitle = new TextItem(50f, 30f, labelText);
+            var text = new Text(textTitle);
+            label.AddObject(text);
+
+            var textEpc = new TextItem(50f, 80f, $"EPC: {epcHex}");
+            var text2 = new Text(textEpc);
+            label.AddObject(text2);
+
+            // 5) Agregar código de barras
+            var barcodeItem = new BarcodeItem(50f, 130f, barcodeData);
+            var barcode = new Barcode1D(barcodeItem);
+            label.AddObject(barcode);
+
+            // 6) Agregar comando PRINT
+            label.AddRawContent("PRINT 1,1");
+
+            // 7) Generar script TSPL completo
+            string tsplOutput = label.ToString();
+
+            Console.WriteLine("📤 Script TSPL generado por SDK:");
+            Console.WriteLine("---");
+            Console.WriteLine(tsplOutput);
+            Console.WriteLine("---");
+
+            // 8) Enviar a impresora
+            if (SendCommand(tsplOutput))
+            {
+                Console.WriteLine("✅ Etiqueta RFID enviada a impresora");
+                return true;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error: {ex.Message}");
+            Console.WriteLine($"   Stack: {ex.StackTrace}");
         }
 
         return false;
     }
 
     /// <summary>
-    /// Limpia texto para uso seguro en comandos TSPL
-    /// </summary>
-    private string SanitizeText(string text)
-    {
-        // Remover caracteres especiales que puedan causar problemas
-        return text.Replace("\"", "'").Replace("\r", "").Replace("\n", " ");
-    }
-
-    /// <summary>
-    /// Imprime etiqueta de prueba solo con texto (sin RFID)
+    /// Imprime etiqueta de prueba (sin RFID) usando SDK LabelMaker
     /// </summary>
     public bool PrintTestLabel(string text)
     {
@@ -317,60 +288,38 @@ public class RfidPrinterService : IDisposable
 
         Console.WriteLine($"🏷️ Imprimiendo etiqueta de prueba: {text}");
 
-        string tsplScript = $@"SIZE 4,2
-GAP 0.12,0
-DIRECTION 1
-CLS
-TEXT 50,50,""4"",0,1,1,""{text}""
-TEXT 50,100,""2"",0,1,1,""Prueba de conexion exitosa""
-PRINT 1,1
-";
-
-        if (SendCommand(tsplScript))
+        try
         {
-            Console.WriteLine("✅ Etiqueta de prueba enviada");
-            return true;
+            var label = new Label("TestLabel");
+            label.AddRawContent("SIZE 4,2");
+            label.AddRawContent("GAP 0.12,0");
+            label.AddRawContent("DIRECTION 1");
+            label.AddRawContent("CLS");
+
+            var textItem1 = new TextItem(50f, 50f, text);
+            label.AddObject(new Text(textItem1));
+
+            var textItem2 = new TextItem(50f, 100f, "Prueba de conexion exitosa");
+            label.AddObject(new Text(textItem2));
+
+            label.AddRawContent("PRINT 1,1");
+
+            string tsplOutput = label.ToString();
+            Console.WriteLine("📤 Script generado:");
+            Console.WriteLine(tsplOutput);
+
+            if (SendCommand(tsplOutput))
+            {
+                Console.WriteLine("✅ Etiqueta de prueba enviada");
+                return true;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"❌ Error: {ex.Message}");
         }
 
         return false;
-    }
-
-    /// <summary>
-    /// Imprime etiqueta RFID usando formato alternativo RFIDENCODE
-    /// </summary>
-    public bool PrintRfidLabelAlternative(string epcHex, string labelText)
-    {
-        if (!IsConnected)
-        {
-            Console.WriteLine("❌ No conectado a la impresora");
-            return false;
-        }
-
-        epcHex = epcHex.ToUpper().Replace(" ", "").PadRight(24, '0').Substring(0, 24);
-
-        Console.WriteLine($"🏷️ Usando formato RFIDENCODE...");
-        Console.WriteLine($"   EPC: {epcHex}");
-
-        var sb = new StringBuilder();
-        sb.AppendLine("SIZE 4,2");
-        sb.AppendLine("GAP 0.12,0");
-        sb.AppendLine("DIRECTION 1");
-        sb.AppendLine("CLS");
-        
-        // Formato alternativo con RFIDENCODE
-        sb.AppendLine("RFIDDETECT AUTO");
-        sb.AppendLine("RFIDSETUP 0,3,2");  // menos reintentos
-        sb.AppendLine($"RFIDENCODE EPC,0,96,\"{epcHex}\"");
-        
-        sb.AppendLine($"TEXT 50,50,\"3\",0,1,1,\"{SanitizeText(labelText)}\"");
-        sb.AppendLine("PRINT 1,1");
-
-        string tsplScript = sb.ToString();
-        
-        Console.WriteLine("📤 Comandos:");
-        Console.WriteLine(tsplScript);
-
-        return SendCommand(tsplScript);
     }
 
     /// <summary>
@@ -383,57 +332,61 @@ PRINT 1,1
             Console.WriteLine("❌ No conectado a la impresora");
             return false;
         }
-
-        // Asegurar que tenga saltos de línea correctos
-        command = command.Replace("\\n", "\n").Replace("\\r", "\r");
-        
         return SendCommand(command);
     }
 
+    // ==========================================
+    // UTILIDADES
+    // ==========================================
+
     /// <summary>
-    /// Obtiene el estado de la impresora
+    /// Normaliza y valida el EPC hex
     /// </summary>
-    public string GetStatus()
+    private string? NormalizeEpc(string epcHex)
     {
-        if (!IsConnected)
+        epcHex = epcHex.ToUpper().Replace(" ", "");
+        
+        if (!System.Text.RegularExpressions.Regex.IsMatch(epcHex, "^[0-9A-F]+$"))
         {
-            return "❌ No conectado";
+            Console.WriteLine("❌ Error: EPC contiene caracteres no hexadecimales");
+            return null;
         }
 
-        return $"✅ Conectado ({_connectionType}): {_connectionInfo}";
+        if (epcHex.Length < 24)
+        {
+            epcHex = epcHex.PadRight(24, '0');
+            Console.WriteLine($"⚠️ EPC rellenado a 24 chars: {epcHex}");
+        }
+        else if (epcHex.Length > 24)
+        {
+            epcHex = epcHex.Substring(0, 24);
+            Console.WriteLine($"⚠️ EPC truncado a 24 chars: {epcHex}");
+        }
+
+        return epcHex;
     }
 
-    /// <summary>
-    /// Desconecta de la impresora
-    /// </summary>
+    public string GetStatus()
+    {
+        return IsConnected 
+            ? $"✅ Conectado ({_connectionType}): {_connectionInfo}" 
+            : "❌ No conectado";
+    }
+
     public void Disconnect()
     {
         try
         {
-            if (_tcpConnection != null)
-            {
-                _tcpConnection.Close();
-                _tcpConnection = null;
-            }
-            
-            if (_usbConnection != null)
-            {
-                _usbConnection.Close();
-                _usbConnection = null;
-            }
-            
+            _tcpConnection?.Close();
+            _tcpConnection = null;
+            _usbConnection?.Close();
+            _usbConnection = null;
             if (_isConnected)
-            {
                 Console.WriteLine("🔌 Desconectado de la impresora");
-            }
         }
         catch { }
-        
         _isConnected = false;
     }
 
-    public void Dispose()
-    {
-        Disconnect();
-    }
+    public void Dispose() => Disconnect();
 }
