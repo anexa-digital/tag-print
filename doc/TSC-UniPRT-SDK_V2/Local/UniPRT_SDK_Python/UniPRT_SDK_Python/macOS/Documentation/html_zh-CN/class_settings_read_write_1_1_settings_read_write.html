@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: SettingsReadWrite.SettingsReadWrite类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">UniPRT SDK<span id="projectnumber">&#160;v２.0.0.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_settings_read_write_1_1_settings_read_write.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="class_settings_read_write_1_1_settings_read_write-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">SettingsReadWrite.SettingsReadWrite类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:aeead55ac39eb713f504472fc111f6bd1" id="r_aeead55ac39eb713f504472fc111f6bd1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeead55ac39eb713f504472fc111f6bd1">__init__</a> (self, connection=None, mgmt_comm=None, comm_descriptor=None)</td></tr>
+<tr class="memdesc:aeead55ac39eb713f504472fc111f6bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">必须传递一个打开的TcpComm或UsbComm连接，如果监听来自打印机的未请求消息，该连接可以保持打开状态。  <br /></td></tr>
+<tr class="separator:aeead55ac39eb713f504472fc111f6bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40289fd495568e4287cc259d5db4cd8d" id="r_a40289fd495568e4287cc259d5db4cd8d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40289fd495568e4287cc259d5db4cd8d">get_all_values</a> (self, timeout)</td></tr>
+<tr class="memdesc:a40289fd495568e4287cc259d5db4cd8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取所有设置的键/值对。  <br /></td></tr>
+<tr class="separator:a40289fd495568e4287cc259d5db4cd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5193981c417677d977582c73827fdea0" id="r_a5193981c417677d977582c73827fdea0"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5193981c417677d977582c73827fdea0">get_value_for_key</a> (self, str key)</td></tr>
+<tr class="memdesc:a5193981c417677d977582c73827fdea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取与给定键关联的设置。  <br /></td></tr>
+<tr class="separator:a5193981c417677d977582c73827fdea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea5480bbe83d36179538de03fd0dc861" id="r_aea5480bbe83d36179538de03fd0dc861"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea5480bbe83d36179538de03fd0dc861">get_values_for_keys</a> (self, list keys, timeout)</td></tr>
+<tr class="memdesc:aea5480bbe83d36179538de03fd0dc861"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取与给定键列表关联的多个设置。  <br /></td></tr>
+<tr class="separator:aea5480bbe83d36179538de03fd0dc861"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7cbd7d57bf95d00ceebe31cd6e7eece" id="r_ad7cbd7d57bf95d00ceebe31cd6e7eece"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7cbd7d57bf95d00ceebe31cd6e7eece">set_value</a> (self, str value, str key, timeout)</td></tr>
+<tr class="memdesc:ad7cbd7d57bf95d00ceebe31cd6e7eece"><td class="mdescLeft">&#160;</td><td class="mdescRight">写入与给定键关联的设置值。 如果写入成功，则返回 true。  <br /></td></tr>
+<tr class="separator:ad7cbd7d57bf95d00ceebe31cd6e7eece"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75e80b79cfd4d9fd522dc30df72b3a99" id="r_a75e80b79cfd4d9fd522dc30df72b3a99"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75e80b79cfd4d9fd522dc30df72b3a99">set_values</a> (self, dict keys_to_set, timeout)</td></tr>
+<tr class="memdesc:a75e80b79cfd4d9fd522dc30df72b3a99"><td class="mdescLeft">&#160;</td><td class="mdescRight">写入与给定键关联的多个设置。 如果写入成功，则返回 true。  <br /></td></tr>
+<tr class="separator:a75e80b79cfd4d9fd522dc30df72b3a99"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0851cab7574f65d06b2d715b080b66b8" id="r_a0851cab7574f65d06b2d715b080b66b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_settings_read_write_1_1_setting.html">Setting</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0851cab7574f65d06b2d715b080b66b8">get_properties_for_key</a> (self, str key, timeout)</td></tr>
+<tr class="memdesc:a0851cab7574f65d06b2d715b080b66b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取与给定键关联的属性。 实现在SettingsReadWrite中。  <br /></td></tr>
+<tr class="separator:a0851cab7574f65d06b2d715b080b66b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c2f0c6018a106a5732f31a25459d1b" id="r_ac5c2f0c6018a106a5732f31a25459d1b"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5c2f0c6018a106a5732f31a25459d1b">get_properties_for_keys</a> (self, list keys, timeout)</td></tr>
+<tr class="memdesc:ac5c2f0c6018a106a5732f31a25459d1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取与给定键列表关联的属性。 实现在SettingsReadWrite中。  <br /></td></tr>
+<tr class="separator:ac5c2f0c6018a106a5732f31a25459d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad66121bf50cdf0a29082ba928c207939" id="r_ad66121bf50cdf0a29082ba928c207939"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad66121bf50cdf0a29082ba928c207939">get_all_properties</a> (self, timeout)</td></tr>
+<tr class="memdesc:ad66121bf50cdf0a29082ba928c207939"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取所有属性。 实现在SettingsReadWrite中。  <br /></td></tr>
+<tr class="separator:ad66121bf50cdf0a29082ba928c207939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a id="aeead55ac39eb713f504472fc111f6bd1" name="aeead55ac39eb713f504472fc111f6bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeead55ac39eb713f504472fc111f6bd1">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SettingsReadWrite.SettingsReadWrite.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>connection</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mgmt_comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>comm_descriptor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>必须传递一个打开的TcpComm或UsbComm连接，如果监听来自打印机的未请求消息，该连接可以保持打开状态。 </p>
+<p>发送/接收打印机状态消息需要一个连接。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">connection</td><td>TCP或USB通信对象。 </td></tr>
+    <tr><td class="paramname">mgmt_comm</td><td>JSON通信对象。 </td></tr>
+    <tr><td class="paramname">comm_descriptor</td><td>通信描述符。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>一个初始化的SettingsReadWrite实例，如果对象无法创建则返回nil。 </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ad66121bf50cdf0a29082ba928c207939" name="ad66121bf50cdf0a29082ba928c207939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad66121bf50cdf0a29082ba928c207939">&#9670;&#160;</a></span>get_all_properties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> dict SettingsReadWrite.SettingsReadWrite.get_all_properties </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读取所有属性。 实现在SettingsReadWrite中。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>设置接收消息的延迟时间。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>包含所有键及其对应Setting对象的字典。 </dd></dl>
+
+</div>
+</div>
+<a id="a40289fd495568e4287cc259d5db4cd8d" name="a40289fd495568e4287cc259d5db4cd8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40289fd495568e4287cc259d5db4cd8d">&#9670;&#160;</a></span>get_all_values()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SettingsReadWrite.SettingsReadWrite.get_all_values </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读取所有设置的键/值对。 </p>
+<p>实现在SettingsReadWrite中。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>设置接收消息的延迟时间。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>包含所有设置键及其对应值的字典。 </dd></dl>
+
+</div>
+</div>
+<a id="a0851cab7574f65d06b2d715b080b66b8" name="a0851cab7574f65d06b2d715b080b66b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0851cab7574f65d06b2d715b080b66b8">&#9670;&#160;</a></span>get_properties_for_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="class_settings_read_write_1_1_setting.html">Setting</a> SettingsReadWrite.SettingsReadWrite.get_properties_for_key </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读取与给定键关联的属性。 实现在SettingsReadWrite中。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>要获取其属性的键。 </td></tr>
+    <tr><td class="paramname">timeout</td><td>设置接收消息的延迟时间。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>包含指定键属性的Setting对象。 </dd></dl>
+
+</div>
+</div>
+<a id="ac5c2f0c6018a106a5732f31a25459d1b" name="ac5c2f0c6018a106a5732f31a25459d1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c2f0c6018a106a5732f31a25459d1b">&#9670;&#160;</a></span>get_properties_for_keys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> dict SettingsReadWrite.SettingsReadWrite.get_properties_for_keys </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list</td>          <td class="paramname"><span class="paramname"><em>keys</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读取与给定键列表关联的属性。 实现在SettingsReadWrite中。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keys</td><td>要获取其属性的键数组。 </td></tr>
+    <tr><td class="paramname">timeout</td><td>设置接收消息的延迟时间。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>包含指定键及其对应Setting对象的字典。 </dd></dl>
+
+</div>
+</div>
+<a id="a5193981c417677d977582c73827fdea0" name="a5193981c417677d977582c73827fdea0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5193981c417677d977582c73827fdea0">&#9670;&#160;</a></span>get_value_for_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str SettingsReadWrite.SettingsReadWrite.get_value_for_key </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读取与给定键关联的设置。 </p>
+<p>实现在SettingsReadWrite中。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>要获取其值的键。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>与指定键关联的值。 </dd></dl>
+
+</div>
+</div>
+<a id="aea5480bbe83d36179538de03fd0dc861" name="aea5480bbe83d36179538de03fd0dc861"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea5480bbe83d36179538de03fd0dc861">&#9670;&#160;</a></span>get_values_for_keys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> dict SettingsReadWrite.SettingsReadWrite.get_values_for_keys </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">list</td>          <td class="paramname"><span class="paramname"><em>keys</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>读取与给定键列表关联的多个设置。 </p>
+<p>实现在SettingsReadWrite中。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keys</td><td>要获取其值的键数组。 </td></tr>
+    <tr><td class="paramname">timeout</td><td>设置接收消息的延迟时间。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>包含指定键及其对应值的字典。 </dd></dl>
+
+</div>
+</div>
+<a id="ad7cbd7d57bf95d00ceebe31cd6e7eece" name="ad7cbd7d57bf95d00ceebe31cd6e7eece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7cbd7d57bf95d00ceebe31cd6e7eece">&#9670;&#160;</a></span>set_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> bool SettingsReadWrite.SettingsReadWrite.set_value </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>写入与给定键关联的设置值。 如果写入成功，则返回 true。 </p>
+<p>注意：作为字符串处理的值应加引号。例如，value = SomeString 和 value = "SomeString" 将按接收到的内容发送，但打印机可能会以不同方式处理它们。</p>
+<p>实现在SettingsReadWrite中。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>要设置的值。 </td></tr>
+    <tr><td class="paramname">key</td><td>要设置其值的键。 </td></tr>
+    <tr><td class="paramname">timeout</td><td>设置接收消息的延迟时间。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果值设置成功，则返回YES，否则返回NO。 </dd></dl>
+
+</div>
+</div>
+<a id="a75e80b79cfd4d9fd522dc30df72b3a99" name="a75e80b79cfd4d9fd522dc30df72b3a99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75e80b79cfd4d9fd522dc30df72b3a99">&#9670;&#160;</a></span>set_values()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> bool SettingsReadWrite.SettingsReadWrite.set_values </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dict</td>          <td class="paramname"><span class="paramname"><em>keys_to_set</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>写入与给定键关联的多个设置。 如果写入成功，则返回 true。 </p>
+<p>注意：作为字符串处理的值应加引号。例如，value = SomeString 和 value = "SomeString" 将按接收到的内容发送，但打印机可能会以不同方式处理它们。</p>
+<p>实现在SettingsReadWrite中。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keys_to_set</td><td>包含要设置的键和值的字典。 </td></tr>
+    <tr><td class="paramname">timeout</td><td>设置接收消息的延迟时间。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>如果值设置成功，则返回YES，否则返回NO。 </dd></dl>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>/Users/bob_huang/Documents/Project/UniPRTSDK_python/Json/<b>SettingsReadWrite.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_settings_read_write.html">SettingsReadWrite</a></li><li class="navelem"><a class="el" href="class_settings_read_write_1_1_settings_read_write.html">SettingsReadWrite</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

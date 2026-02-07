@@ -1,0 +1,26 @@
+var class_tcp_comm_1_1_tcp_comm =
+[
+    [ "__init__", "class_tcp_comm_1_1_tcp_comm.html#a1ed66bfe0f11886f96690e47da86fe84", null ],
+    [ "_get_interface_index", "class_tcp_comm_1_1_tcp_comm.html#a4cc47f71cd94b3a00658260611c8fd6e", null ],
+    [ "close", "class_tcp_comm_1_1_tcp_comm.html#abe2dc7199d9f357ae5f2d69e45bf1f45", null ],
+    [ "connection_settings", "class_tcp_comm_1_1_tcp_comm.html#adea90754b4f9c8b0ff914b63661254d6", null ],
+    [ "descriptor_use_ip", "class_tcp_comm_1_1_tcp_comm.html#a77726696db75c1ddeb4c8689a366bd22", null ],
+    [ "descriptor_validate", "class_tcp_comm_1_1_tcp_comm.html#a7eef4a40bad79754325a651bb6020e7c", null ],
+    [ "from_descriptor", "class_tcp_comm_1_1_tcp_comm.html#a22ab00a2def5bfc21cd31b83d120e921", null ],
+    [ "get_ip_address", "class_tcp_comm_1_1_tcp_comm.html#a38b0f34b5783673f2e89cec1a7e77bc3", null ],
+    [ "is_connected", "class_tcp_comm_1_1_tcp_comm.html#acfc5ec92ee7714f495a1031df80f5ba1", null ],
+    [ "open", "class_tcp_comm_1_1_tcp_comm.html#a7e20b727c5584cb6d41c9d7d2622cf71", null ],
+    [ "parse_descriptor", "class_tcp_comm_1_1_tcp_comm.html#a234b383034022e14a340a5bfd92511f7", null ],
+    [ "read", "class_tcp_comm_1_1_tcp_comm.html#a3c3a956be907453c06ad3260dba5749a", null ],
+    [ "send_print_string", "class_tcp_comm_1_1_tcp_comm.html#ab39cf5fea9676b3aa4e6492f6d3cfd35", null ],
+    [ "send_printer_file", "class_tcp_comm_1_1_tcp_comm.html#a09a7401cc3ee61cd8ac174eaa9f38cc1", null ],
+    [ "wait_for_data", "class_tcp_comm_1_1_tcp_comm.html#a86bfb2934ca9f09405148ef27d43e911", null ],
+    [ "write", "class_tcp_comm_1_1_tcp_comm.html#acb709b1de7170b7f420968cd3479711b", null ],
+    [ "write_and_wait_for_response", "class_tcp_comm_1_1_tcp_comm.html#a0ad1ca31abc16553ad28edbd5bffe22a", null ],
+    [ "write_and_wait_for_response_json", "class_tcp_comm_1_1_tcp_comm.html#a63571fc3f805c6a4f23c1103f27c2db8", null ],
+    [ "write_printer_file", "class_tcp_comm_1_1_tcp_comm.html#a3cad482ab3a40b1c701b89e360eef1b9", null ],
+    [ "_connected", "class_tcp_comm_1_1_tcp_comm.html#ab8a110bdfdbb5ff80254b74f306eb817", null ],
+    [ "_ip", "class_tcp_comm_1_1_tcp_comm.html#a11d16c75c6a1687187b1defa53808192", null ],
+    [ "_port", "class_tcp_comm_1_1_tcp_comm.html#a3ffff010448e06661c1ead6acb0c9015", null ],
+    [ "_socket", "class_tcp_comm_1_1_tcp_comm.html#aece2e45ea9aeb06325513d6f47663d67", null ]
+];

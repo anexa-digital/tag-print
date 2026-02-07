@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['comm_340',['Comm',['../namespace_uni_p_r_t_1_1_sdk_1_1_comm.html',1,'UniPRT::Sdk']]],
+  ['discovery_341',['Discovery',['../namespace_uni_p_r_t_1_1_sdk_1_1_discovery.html',1,'UniPRT::Sdk']]],
+  ['interfaces_342',['Interfaces',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html',1,'UniPRT::Sdk::LabelMaker']]],
+  ['json_343',['Json',['../namespace_uni_p_r_t_1_1_sdk_1_1_json.html',1,'UniPRT::Sdk']]],
+  ['labelmaker_344',['LabelMaker',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker.html',1,'UniPRT::Sdk']]],
+  ['mgmt_345',['Mgmt',['../namespace_uni_p_r_t_1_1_sdk_1_1_mgmt.html',1,'UniPRT::Sdk']]],
+  ['monitor_346',['Monitor',['../namespace_uni_p_r_t_1_1_sdk_1_1_monitor.html',1,'UniPRT::Sdk']]],
+  ['pgl_347',['PGL',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_p_g_l.html',1,'UniPRT::Sdk::LabelMaker']]],
+  ['pgllib_348',['PglLib',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_pgl_lib.html',1,'UniPRT::Sdk::LabelMaker']]],
+  ['reports_349',['Reports',['../namespace_uni_p_r_t_1_1_sdk_1_1_reports.html',1,'UniPRT::Sdk']]],
+  ['sdk_350',['Sdk',['../namespace_uni_p_r_t_1_1_sdk.html',1,'UniPRT']]],
+  ['settings_351',['Settings',['../namespace_uni_p_r_t_1_1_sdk_1_1_settings.html',1,'UniPRT::Sdk']]],
+  ['tspl_352',['TSPL',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_t_s_p_l.html',1,'UniPRT::Sdk::LabelMaker']]],
+  ['tspllib_353',['TsplLib',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_tspl_lib.html',1,'UniPRT::Sdk::LabelMaker']]],
+  ['uniprt_354',['UniPRT',['../namespace_uni_p_r_t.html',1,'']]],
+  ['unknown_355',['UNKNOWN',['../class_uni_p_r_t_1_1_sdk_1_1_reports_1_1_rfid_report.html#a70d73db9fd932e543bdbf3de0261792aa696b031073e74bf2cb98e5ef201d4aa3',1,'UniPRT::Sdk::Reports::RfidReport']]],
+  ['unlock_356',['Unlock',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a6b4e5a7e993ae325d8381638d2840d44a7e7123b0d269ad5d9ec8d12c52a8ed8a',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['unreadmsgcount_357',['UnreadMsgCount',['../interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#aa8b3c032411cf5fd891614400545ae2e',1,'UniPRT::Sdk::Mgmt::IMgmtMessenger']]],
+  ['unsolicited_5fmsgs_5fonly_358',['UNSOLICITED_MSGS_ONLY',['../namespace_uni_p_r_t_1_1_sdk_1_1_mgmt.html#a94692bd123c8a35df7531ba05da27a92ad275f18d813585604de35db67ed88aea',1,'UniPRT::Sdk::Mgmt']]],
+  ['usbconnection_359',['UsbConnection',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html',1,'UniPRT.Sdk.Comm.UsbConnection'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad7cd011a94509307f89b98b7a0b916af',1,'UniPRT.Sdk.Comm.UsbConnection.UsbConnection(string descriptor)'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14',1,'UniPRT.Sdk.Comm.UsbConnection.UsbConnection()']]],
+  ['user_360',['User',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a161400a0b863035638de73670c4c4d03a8f9bfe9d1345237cb3b2b205864da075',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['usr_361',['USR',['../class_uni_p_r_t_1_1_sdk_1_1_reports_1_1_rfid_report.html#a70d73db9fd932e543bdbf3de0261792aa2b6cc9c30eaad9c109091ea928529cbd',1,'UniPRT::Sdk::Reports::RfidReport']]],
+  ['utilities_362',['Utilities',['../class_uni_p_r_t_1_1_sdk_1_1_utilities_1_1_utilities.html',1,'UniPRT.Sdk.Utilities.Utilities'],['../namespace_uni_p_r_t_1_1_sdk_1_1_utilities.html',1,'UniPRT.Sdk.Utilities']]]
+];

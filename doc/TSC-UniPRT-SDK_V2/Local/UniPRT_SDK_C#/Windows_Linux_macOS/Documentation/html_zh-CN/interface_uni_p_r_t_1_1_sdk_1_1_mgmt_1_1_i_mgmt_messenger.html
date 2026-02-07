@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: UniPRT.Sdk.Mgmt.IMgmtMessenger接口 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">UniPRT SDK
+   &#160;<span id="projectnumber">v2.0.0.3</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#properties">属性</a> &#124;
+<a href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">UniPRT.Sdk.Mgmt.IMgmtMessenger接口 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>用于发送/接收 JSON 管理讯息的接口。  
+ <a href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#details">更多...</a></p>
+<div class="dynheader">
+类 UniPRT.Sdk.Mgmt.IMgmtMessenger 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.png" usemap="#UniPRT.Sdk.Mgmt.IMgmtMessenger_map" alt=""/>
+  <map id="UniPRT.Sdk.Mgmt.IMgmtMessenger_map" name="UniPRT.Sdk.Mgmt.IMgmtMessenger_map">
+<area href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_messenger.html" title="用于促进与印表机进行管理讯息通信的类。" alt="UniPRT.Sdk.Mgmt.Messenger" shape="rect" coords="0,56,212,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a98d1ec177c3253ce62455e487f4b7306"><td class="memItemLeft" align="right" valign="top"><a id="a98d1ec177c3253ce62455e487f4b7306"></a>
+<a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_mgmt_msg.html">MgmtMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#a98d1ec177c3253ce62455e487f4b7306">ReadNextMsg</a> ()</td></tr>
+<tr class="memdesc:a98d1ec177c3253ce62455e487f4b7306"><td class="mdescLeft">&#160;</td><td class="mdescRight">读取可能已经从印表机异步接收的下一条讯息。 <br /></td></tr>
+<tr class="separator:a98d1ec177c3253ce62455e487f4b7306"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37cdad9c451729069c6ba97aba1f9153"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#a37cdad9c451729069c6ba97aba1f9153">SendMsg</a> (string command, string content, string TrackNo=&quot;&quot;)</td></tr>
+<tr class="memdesc:a37cdad9c451729069c6ba97aba1f9153"><td class="mdescLeft">&#160;</td><td class="mdescRight">发送管理命令和数据/内容到印表机。  <a href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#a37cdad9c451729069c6ba97aba1f9153">更多...</a><br /></td></tr>
+<tr class="separator:a37cdad9c451729069c6ba97aba1f9153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0847aad7d8a7e4eeb9450b8bd6ddef65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_mgmt_msg.html">MgmtMsg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#a0847aad7d8a7e4eeb9450b8bd6ddef65">SendMsgAndWaitForResponse</a> (string command, string content, int maxWaitTimeSecs=6)</td></tr>
+<tr class="memdesc:a0847aad7d8a7e4eeb9450b8bd6ddef65"><td class="mdescLeft">&#160;</td><td class="mdescRight">发送管理命令和数据/内容到印表机并等待响应，最多等待 <b>maxWaitTimeSecs</b> 秒。  <a href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#a0847aad7d8a7e4eeb9450b8bd6ddef65">更多...</a><br /></td></tr>
+<tr class="separator:a0847aad7d8a7e4eeb9450b8bd6ddef65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad243e573fdde276464969afd804df5fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#ad243e573fdde276464969afd804df5fe">SendMsgRaw</a> (string dataToSend)</td></tr>
+<tr class="memdesc:ad243e573fdde276464969afd804df5fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">将内容不进行任何讯息格式化直接发送到印表机。  <a href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#ad243e573fdde276464969afd804df5fe">更多...</a><br /></td></tr>
+<tr class="separator:ad243e573fdde276464969afd804df5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+属性</h2></td></tr>
+<tr class="memitem:aa8b3c032411cf5fd891614400545ae2e"><td class="memItemLeft" align="right" valign="top"><a id="aa8b3c032411cf5fd891614400545ae2e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html#aa8b3c032411cf5fd891614400545ae2e">UnreadMsgCount</a><code> [get]</code></td></tr>
+<tr class="memdesc:aa8b3c032411cf5fd891614400545ae2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取收到但未读取的讯息数量。 <br /></td></tr>
+<tr class="separator:aa8b3c032411cf5fd891614400545ae2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>用于发送/接收 JSON 管理讯息的接口。 </p>
+<p>适合需要保持连续连接进行设备管理的情况。 <br  />
+<br  />
+ For JSON command format refer to: [JSON data-interchange with printer](<a class="el" href="_json_data_interchange_with_printer.html">JSON 与印表机的资料交换</a>)<br  />
+ </p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a37cdad9c451729069c6ba97aba1f9153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37cdad9c451729069c6ba97aba1f9153">&#9670;&nbsp;</a></span>SendMsg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string UniPRT.Sdk.Mgmt.IMgmtMessenger.SendMsg </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>TrackNo</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>发送管理命令和数据/内容到印表机。 </p>
+<p>可选的 <b>TrackNo</b> 是发送到印表机的 JSON 命令结构中的字段，调用者可以使用该字段检查印表机的响应。如果未提供 <b>TrackNo</b>，则会自动生成一个。<br  />
+<br  />
+返回的字符串是发送到印表机的 JSON 讯息中使用的 <b>TrackNo</b> 字段，允许调用者通过比较印表机响应中 <b>TrackNo</b> 字段来区分与发送的讯息相关的任何响应。 </p>
+
+<p>在 <a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_messenger.html#a28f36cee4c8b98bc62bceb7fb49ea2ce">UniPRT.Sdk.Mgmt.Messenger</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="a0847aad7d8a7e4eeb9450b8bd6ddef65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0847aad7d8a7e4eeb9450b8bd6ddef65">&#9670;&nbsp;</a></span>SendMsgAndWaitForResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_mgmt_msg.html">MgmtMsg</a> UniPRT.Sdk.Mgmt.IMgmtMessenger.SendMsgAndWaitForResponse </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxWaitTimeSecs</em> = <code>6</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>发送管理命令和数据/内容到印表机并等待响应，最多等待 <b>maxWaitTimeSecs</b> 秒。 </p>
+<p>如果在超时之前未收到响应，则返回空对象。<br  />
+所有讯息将被丢弃，直到接收到发送的特定讯息的响应。丢弃的讯息可能包括在调用此方法之前等待被读取的任何未读取/旧的讯息。 </p>
+
+<p>在 <a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_messenger.html#a600b881a64ab26b357e075fdb079d2b5">UniPRT.Sdk.Mgmt.Messenger</a> 内被实现.</p>
+
+</div>
+</div>
+<a id="ad243e573fdde276464969afd804df5fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad243e573fdde276464969afd804df5fe">&#9670;&nbsp;</a></span>SendMsgRaw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UniPRT.Sdk.Mgmt.IMgmtMessenger.SendMsgRaw </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>dataToSend</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将内容不进行任何讯息格式化直接发送到印表机。 </p>
+<p>适用于需要发送未经任何管理讯息格式化的数据的情况。 如果需要在同时用于数据和管理的端口中发送特别的管理讯息或数据，可以使用此方法直接将数据发送到印表机。 </p>
+
+<p>在 <a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_messenger.html#aea4ff5964a352d27f4562b24d896a035">UniPRT.Sdk.Mgmt.Messenger</a> 内被实现.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_uni_p_r_t.html">UniPRT</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk.html">Sdk</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk_1_1_mgmt.html">Mgmt</a></li><li class="navelem"><a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_messenger.html">IMgmtMessenger</a></li>
+    <li class="footer">制作者
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
+</body>
+</html>

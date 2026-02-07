@@ -1,0 +1,888 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: TcpComm.TcpComm类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">UniPRT SDK<span id="projectnumber">&#160;v２.0.0.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_tcp_comm_1_1_tcp_comm.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pro-static-methods">静态 Protected 成员函数</a> &#124;
+<a href="#pro-attribs">Protected 属性</a> &#124;
+<a href="class_tcp_comm_1_1_tcp_comm-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">TcpComm.TcpComm类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a1ed66bfe0f11886f96690e47da86fe84" id="r_a1ed66bfe0f11886f96690e47da86fe84"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ed66bfe0f11886f96690e47da86fe84">__init__</a> (self, str ipAddress, int port)</td></tr>
+<tr class="memdesc:a1ed66bfe0f11886f96690e47da86fe84"><td class="mdescLeft">&#160;</td><td class="mdescRight">初始化一个新的实例，使用指定的 IP 地址和端口号。  <br /></td></tr>
+<tr class="separator:a1ed66bfe0f11886f96690e47da86fe84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22ab00a2def5bfc21cd31b83d120e921" id="r_a22ab00a2def5bfc21cd31b83d120e921"><td class="memItemLeft" align="right" valign="top">&quot;TcpComm&quot;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22ab00a2def5bfc21cd31b83d120e921">from_descriptor</a> (cls, str descriptor, <a class="el" href="class_tcp_comm_1_1_descriptor_port_type.html">DescriptorPortType</a> port_type)</td></tr>
+<tr class="memdesc:a22ab00a2def5bfc21cd31b83d120e921"><td class="mdescLeft">&#160;</td><td class="mdescRight">从描述符字符串和端口类型创建一个 <a class="el" href="class_tcp_comm_1_1_tcp_comm.html">TcpComm</a> 对象。  <br /></td></tr>
+<tr class="separator:a22ab00a2def5bfc21cd31b83d120e921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e20b727c5584cb6d41c9d7d2622cf71" id="r_a7e20b727c5584cb6d41c9d7d2622cf71"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e20b727c5584cb6d41c9d7d2622cf71">open</a> (self)</td></tr>
+<tr class="memdesc:a7e20b727c5584cb6d41c9d7d2622cf71"><td class="mdescLeft">&#160;</td><td class="mdescRight">打开与TCP服务器的连接。  <br /></td></tr>
+<tr class="separator:a7e20b727c5584cb6d41c9d7d2622cf71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b0f34b5783673f2e89cec1a7e77bc3" id="r_a38b0f34b5783673f2e89cec1a7e77bc3"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38b0f34b5783673f2e89cec1a7e77bc3">get_ip_address</a> (self)</td></tr>
+<tr class="memdesc:a38b0f34b5783673f2e89cec1a7e77bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取远程服务器的IP地址。  <br /></td></tr>
+<tr class="separator:a38b0f34b5783673f2e89cec1a7e77bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adea90754b4f9c8b0ff914b63661254d6" id="r_adea90754b4f9c8b0ff914b63661254d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adea90754b4f9c8b0ff914b63661254d6">connection_settings</a> (self, ip_address, port)</td></tr>
+<tr class="memdesc:adea90754b4f9c8b0ff914b63661254d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用指定的IP地址和端口配置连接设置。  <br /></td></tr>
+<tr class="separator:adea90754b4f9c8b0ff914b63661254d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc5ec92ee7714f495a1031df80f5ba1" id="r_acfc5ec92ee7714f495a1031df80f5ba1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfc5ec92ee7714f495a1031df80f5ba1">is_connected</a> (self)</td></tr>
+<tr class="memdesc:acfc5ec92ee7714f495a1031df80f5ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">指示连接是否已建立的标志。  <br /></td></tr>
+<tr class="separator:acfc5ec92ee7714f495a1031df80f5ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe2dc7199d9f357ae5f2d69e45bf1f45" id="r_abe2dc7199d9f357ae5f2d69e45bf1f45"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe2dc7199d9f357ae5f2d69e45bf1f45">close</a> (self)</td></tr>
+<tr class="memdesc:abe2dc7199d9f357ae5f2d69e45bf1f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">关闭与TCP服务器的连接。  <br /></td></tr>
+<tr class="separator:abe2dc7199d9f357ae5f2d69e45bf1f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb709b1de7170b7f420968cd3479711b" id="r_acb709b1de7170b7f420968cd3479711b"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb709b1de7170b7f420968cd3479711b">write</a> (self, bytes text)</td></tr>
+<tr class="memdesc:acb709b1de7170b7f420968cd3479711b"><td class="mdescLeft">&#160;</td><td class="mdescRight">将数据写入TCP服务器。  <br /></td></tr>
+<tr class="separator:acb709b1de7170b7f420968cd3479711b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3a956be907453c06ad3260dba5749a" id="r_a3c3a956be907453c06ad3260dba5749a"><td class="memItemLeft" align="right" valign="top">Optional[bytes]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c3a956be907453c06ad3260dba5749a">read</a> (self)</td></tr>
+<tr class="memdesc:a3c3a956be907453c06ad3260dba5749a"><td class="mdescLeft">&#160;</td><td class="mdescRight">从TCP服务器读取数据。  <br /></td></tr>
+<tr class="separator:a3c3a956be907453c06ad3260dba5749a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86bfb2934ca9f09405148ef27d43e911" id="r_a86bfb2934ca9f09405148ef27d43e911"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86bfb2934ca9f09405148ef27d43e911">wait_for_data</a> (self, int msTimeout)</td></tr>
+<tr class="memdesc:a86bfb2934ca9f09405148ef27d43e911"><td class="mdescLeft">&#160;</td><td class="mdescRight">等待TCP连接上有数据可用。  <br /></td></tr>
+<tr class="separator:a86bfb2934ca9f09405148ef27d43e911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad1ca31abc16553ad28edbd5bffe22a" id="r_a0ad1ca31abc16553ad28edbd5bffe22a"><td class="memItemLeft" align="right" valign="top">Optional[bytes]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ad1ca31abc16553ad28edbd5bffe22a">write_and_wait_for_response</a> (self, bytes text, int responseStartTimeout, int responseEndTimeout, str completionToken=&quot;&quot;)</td></tr>
+<tr class="memdesc:a0ad1ca31abc16553ad28edbd5bffe22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">将数据写入TCP服务器并等待响应。  <br /></td></tr>
+<tr class="separator:a0ad1ca31abc16553ad28edbd5bffe22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63571fc3f805c6a4f23c1103f27c2db8" id="r_a63571fc3f805c6a4f23c1103f27c2db8"><td class="memItemLeft" align="right" valign="top">Optional[bytes]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63571fc3f805c6a4f23c1103f27c2db8">write_and_wait_for_response_json</a> (self, bytes text, int responseStartTimeout, int responseEndTimeout, str completionToken=&quot;&quot;)</td></tr>
+<tr class="memdesc:a63571fc3f805c6a4f23c1103f27c2db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">将JSON数据写入TCP服务器并等待响应。  <br /></td></tr>
+<tr class="separator:a63571fc3f805c6a4f23c1103f27c2db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cad482ab3a40b1c701b89e360eef1b9" id="r_a3cad482ab3a40b1c701b89e360eef1b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cad482ab3a40b1c701b89e360eef1b9">write_printer_file</a> (self, str fileName)</td></tr>
+<tr class="memdesc:a3cad482ab3a40b1c701b89e360eef1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">将文件写入打印机。  <br /></td></tr>
+<tr class="separator:a3cad482ab3a40b1c701b89e360eef1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09a7401cc3ee61cd8ac174eaa9f38cc1" id="r_a09a7401cc3ee61cd8ac174eaa9f38cc1"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09a7401cc3ee61cd8ac174eaa9f38cc1">send_printer_file</a> (self, str ipAddress, str fileName)</td></tr>
+<tr class="memdesc:a09a7401cc3ee61cd8ac174eaa9f38cc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">发送打印文件到指定的IP地址。  <br /></td></tr>
+<tr class="separator:a09a7401cc3ee61cd8ac174eaa9f38cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39cf5fea9676b3aa4e6492f6d3cfd35" id="r_ab39cf5fea9676b3aa4e6492f6d3cfd35"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab39cf5fea9676b3aa4e6492f6d3cfd35">send_print_string</a> (self, str ipAddress, bytes data)</td></tr>
+<tr class="memdesc:ab39cf5fea9676b3aa4e6492f6d3cfd35"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用 <b>TSPL</b> 或 <b>PGL</b> 将打印字符串发送到指定的IP地址。  <br /></td></tr>
+<tr class="separator:ab39cf5fea9676b3aa4e6492f6d3cfd35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a234b383034022e14a340a5bfd92511f7" id="r_a234b383034022e14a340a5bfd92511f7"><td class="memItemLeft" align="right" valign="top">Tuple[str, int]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a234b383034022e14a340a5bfd92511f7">parse_descriptor</a> (str descriptor, <a class="el" href="class_tcp_comm_1_1_descriptor_port_type.html">DescriptorPortType</a> port_type)</td></tr>
+<tr class="separator:a234b383034022e14a340a5bfd92511f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eef4a40bad79754325a651bb6020e7c" id="r_a7eef4a40bad79754325a651bb6020e7c"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7eef4a40bad79754325a651bb6020e7c">descriptor_validate</a> (str descriptor_hint, <a class="el" href="class_tcp_comm_1_1_descriptor_port_type.html">DescriptorPortType</a> port_type_hint)</td></tr>
+<tr class="memdesc:a7eef4a40bad79754325a651bb6020e7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用指定的提示和端口类型验证描述符。  <br /></td></tr>
+<tr class="separator:a7eef4a40bad79754325a651bb6020e7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77726696db75c1ddeb4c8689a366bd22" id="r_a77726696db75c1ddeb4c8689a366bd22"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77726696db75c1ddeb4c8689a366bd22">descriptor_use_ip</a> (str ip, int port)</td></tr>
+<tr class="memdesc:a77726696db75c1ddeb4c8689a366bd22"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用指定的IP和端口返回一个描述符字符串。  <br /></td></tr>
+<tr class="separator:a77726696db75c1ddeb4c8689a366bd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+静态 Protected 成员函数</h2></td></tr>
+<tr class="memitem:a4cc47f71cd94b3a00658260611c8fd6e" id="r_a4cc47f71cd94b3a00658260611c8fd6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4cc47f71cd94b3a00658260611c8fd6e">_get_interface_index</a> (str ifname)</td></tr>
+<tr class="separator:a4cc47f71cd94b3a00658260611c8fd6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected 属性</h2></td></tr>
+<tr class="memitem:aece2e45ea9aeb06325513d6f47663d67" id="r_aece2e45ea9aeb06325513d6f47663d67"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aece2e45ea9aeb06325513d6f47663d67">_socket</a> = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)</td></tr>
+<tr class="separator:aece2e45ea9aeb06325513d6f47663d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ffff010448e06661c1ead6acb0c9015" id="r_a3ffff010448e06661c1ead6acb0c9015"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ffff010448e06661c1ead6acb0c9015">_port</a> = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</td></tr>
+<tr class="separator:a3ffff010448e06661c1ead6acb0c9015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8a110bdfdbb5ff80254b74f306eb817" id="r_ab8a110bdfdbb5ff80254b74f306eb817"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8a110bdfdbb5ff80254b74f306eb817">_connected</a> = True</td></tr>
+<tr class="separator:ab8a110bdfdbb5ff80254b74f306eb817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11d16c75c6a1687187b1defa53808192" id="r_a11d16c75c6a1687187b1defa53808192"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11d16c75c6a1687187b1defa53808192">_ip</a> = ip_address</td></tr>
+<tr class="separator:a11d16c75c6a1687187b1defa53808192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a1ed66bfe0f11886f96690e47da86fe84" name="a1ed66bfe0f11886f96690e47da86fe84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ed66bfe0f11886f96690e47da86fe84">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None TcpComm.TcpComm.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>ipAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>port</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>初始化一个新的实例，使用指定的 IP 地址和端口号。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ipAddress</td><td>TCP 服务器的 IP 地址。 </td></tr>
+    <tr><td class="paramname">port</td><td>TCP 服务器的端口号。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a4cc47f71cd94b3a00658260611c8fd6e" name="a4cc47f71cd94b3a00658260611c8fd6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cc47f71cd94b3a00658260611c8fd6e">&#9670;&#160;</a></span>_get_interface_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int TcpComm.TcpComm._get_interface_index </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>ifname</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Get the interface index (scope id) from name like 'en0'</pre> 
+</div>
+</div>
+<a id="abe2dc7199d9f357ae5f2d69e45bf1f45" name="abe2dc7199d9f357ae5f2d69e45bf1f45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe2dc7199d9f357ae5f2d69e45bf1f45">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None TcpComm.TcpComm.close </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>关闭与TCP服务器的连接。 </p>
+
+</div>
+</div>
+<a id="adea90754b4f9c8b0ff914b63661254d6" name="adea90754b4f9c8b0ff914b63661254d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adea90754b4f9c8b0ff914b63661254d6">&#9670;&#160;</a></span>connection_settings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TcpComm.TcpComm.connection_settings </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ip_address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>port</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用指定的IP地址和端口配置连接设置。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip_address</td><td>远程服务器的IP地址。 </td></tr>
+    <tr><td class="paramname">port</td><td>连接到远程服务器的端口号。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a77726696db75c1ddeb4c8689a366bd22" name="a77726696db75c1ddeb4c8689a366bd22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77726696db75c1ddeb4c8689a366bd22">&#9670;&#160;</a></span>descriptor_use_ip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str TcpComm.TcpComm.descriptor_use_ip </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>ip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>port</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>使用指定的IP和端口返回一个描述符字符串。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip</td><td>用于描述符的IP地址。 </td></tr>
+    <tr><td class="paramname">port</td><td>用于描述符的端口。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>一个描述符字符串。 </dd></dl>
+
+</div>
+</div>
+<a id="a7eef4a40bad79754325a651bb6020e7c" name="a7eef4a40bad79754325a651bb6020e7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eef4a40bad79754325a651bb6020e7c">&#9670;&#160;</a></span>descriptor_validate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str TcpComm.TcpComm.descriptor_validate </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>descriptor_hint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tcp_comm_1_1_descriptor_port_type.html">DescriptorPortType</a>
+    </td>          <td class="paramname"><span class="paramname"><em>port_type_hint</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>使用指定的提示和端口类型验证描述符。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descriptor_hint</td><td>描述符的提示。 </td></tr>
+    <tr><td class="paramname">port_type_hint</td><td>要验证的端口类型。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>一个验证后的描述符字符串。 </dd></dl>
+
+</div>
+</div>
+<a id="a22ab00a2def5bfc21cd31b83d120e921" name="a22ab00a2def5bfc21cd31b83d120e921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ab00a2def5bfc21cd31b83d120e921">&#9670;&#160;</a></span>from_descriptor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> &quot;TcpComm&quot; TcpComm.TcpComm.from_descriptor </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>cls</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>descriptor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tcp_comm_1_1_descriptor_port_type.html">DescriptorPortType</a>
+    </td>          <td class="paramname"><span class="paramname"><em>port_type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从描述符字符串和端口类型创建一个 <a class="el" href="class_tcp_comm_1_1_tcp_comm.html">TcpComm</a> 对象。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">descriptor</td><td>表示连接的描述符字符串。 </td></tr>
+    <tr><td class="paramname">port_type</td><td>要用于连接的端口类型。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd><a class="el" href="class_tcp_comm_1_1_tcp_comm.html">TcpComm</a> 类的一个实例。 </dd></dl>
+
+</div>
+</div>
+<a id="a38b0f34b5783673f2e89cec1a7e77bc3" name="a38b0f34b5783673f2e89cec1a7e77bc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b0f34b5783673f2e89cec1a7e77bc3">&#9670;&#160;</a></span>get_ip_address()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str TcpComm.TcpComm.get_ip_address </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取远程服务器的IP地址。 </p>
+<dl class="section return"><dt>返回</dt><dd>远程服务器的IP地址。 </dd></dl>
+
+</div>
+</div>
+<a id="acfc5ec92ee7714f495a1031df80f5ba1" name="acfc5ec92ee7714f495a1031df80f5ba1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfc5ec92ee7714f495a1031df80f5ba1">&#9670;&#160;</a></span>is_connected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> bool TcpComm.TcpComm.is_connected </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>指示连接是否已建立的标志。 </p>
+<dl class="section return"><dt>返回</dt><dd>如果连接已打开，则返回True，否则返回False。 </dd></dl>
+
+</div>
+</div>
+<a id="a7e20b727c5584cb6d41c9d7d2622cf71" name="a7e20b727c5584cb6d41c9d7d2622cf71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e20b727c5584cb6d41c9d7d2622cf71">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None TcpComm.TcpComm.open </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>打开与TCP服务器的连接。 </p>
+
+</div>
+</div>
+<a id="a234b383034022e14a340a5bfd92511f7" name="a234b383034022e14a340a5bfd92511f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a234b383034022e14a340a5bfd92511f7">&#9670;&#160;</a></span>parse_descriptor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Tuple[str, int] TcpComm.TcpComm.parse_descriptor </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>descriptor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_tcp_comm_1_1_descriptor_port_type.html">DescriptorPortType</a>
+    </td>          <td class="paramname"><span class="paramname"><em>port_type</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c3a956be907453c06ad3260dba5749a" name="a3c3a956be907453c06ad3260dba5749a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c3a956be907453c06ad3260dba5749a">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional[bytes] TcpComm.TcpComm.read </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>从TCP服务器读取数据。 </p>
+<dl class="section return"><dt>返回</dt><dd>从服务器读取的数据。 </dd></dl>
+
+</div>
+</div>
+<a id="ab39cf5fea9676b3aa4e6492f6d3cfd35" name="ab39cf5fea9676b3aa4e6492f6d3cfd35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39cf5fea9676b3aa4e6492f6d3cfd35">&#9670;&#160;</a></span>send_print_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None TcpComm.TcpComm.send_print_string </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>ipAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bytes</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用 <b>TSPL</b> 或 <b>PGL</b> 将打印字符串发送到指定的IP地址。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ipAddress</td><td>打印机的IP地址。 </td></tr>
+    <tr><td class="paramname">data</td><td>要打印的数据。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a09a7401cc3ee61cd8ac174eaa9f38cc1" name="a09a7401cc3ee61cd8ac174eaa9f38cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09a7401cc3ee61cd8ac174eaa9f38cc1">&#9670;&#160;</a></span>send_printer_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None TcpComm.TcpComm.send_printer_file </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>ipAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>fileName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>发送打印文件到指定的IP地址。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ipAddress</td><td>打印机的IP地址。 </td></tr>
+    <tr><td class="paramname">fileName</td><td>要打印的文件名。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86bfb2934ca9f09405148ef27d43e911" name="a86bfb2934ca9f09405148ef27d43e911"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86bfb2934ca9f09405148ef27d43e911">&#9670;&#160;</a></span>wait_for_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None TcpComm.TcpComm.wait_for_data </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>msTimeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>等待TCP连接上有数据可用。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msTimeout</td><td>超时间隔（毫秒）。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acb709b1de7170b7f420968cd3479711b" name="acb709b1de7170b7f420968cd3479711b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb709b1de7170b7f420968cd3479711b">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None TcpComm.TcpComm.write </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bytes</td>          <td class="paramname"><span class="paramname"><em>text</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将数据写入TCP服务器。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>要写入服务器的数据。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0ad1ca31abc16553ad28edbd5bffe22a" name="a0ad1ca31abc16553ad28edbd5bffe22a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad1ca31abc16553ad28edbd5bffe22a">&#9670;&#160;</a></span>write_and_wait_for_response()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional[bytes] TcpComm.TcpComm.write_and_wait_for_response </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bytes</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>responseStartTimeout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>responseEndTimeout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>completionToken</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将数据写入TCP服务器并等待响应。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>要写入服务器的数据。 </td></tr>
+    <tr><td class="paramname">responseStartTimeout</td><td>响应开始的超时间隔。 </td></tr>
+    <tr><td class="paramname">responseEndTimeout</td><td>响应结束的超时间隔。 </td></tr>
+    <tr><td class="paramname">completionToken</td><td>表示响应完成的令牌。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>从服务器接收到的响应数据。 </dd></dl>
+
+</div>
+</div>
+<a id="a63571fc3f805c6a4f23c1103f27c2db8" name="a63571fc3f805c6a4f23c1103f27c2db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63571fc3f805c6a4f23c1103f27c2db8">&#9670;&#160;</a></span>write_and_wait_for_response_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Optional[bytes] TcpComm.TcpComm.write_and_wait_for_response_json </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bytes</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>responseStartTimeout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>responseEndTimeout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str </td>          <td class="paramname"><span class="paramname"><em>completionToken</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将JSON数据写入TCP服务器并等待响应。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>要写入服务器的JSON数据。 </td></tr>
+    <tr><td class="paramname">responseStartTimeout</td><td>响应开始的超时间隔。 </td></tr>
+    <tr><td class="paramname">responseEndTimeout</td><td>响应结束的超时间隔。 </td></tr>
+    <tr><td class="paramname">completionToken</td><td>表示响应完成的令牌。 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>从服务器接收到的响应数据。 </dd></dl>
+
+</div>
+</div>
+<a id="a3cad482ab3a40b1c701b89e360eef1b9" name="a3cad482ab3a40b1c701b89e360eef1b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cad482ab3a40b1c701b89e360eef1b9">&#9670;&#160;</a></span>write_printer_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TcpComm.TcpComm.write_printer_file </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>fileName</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>将文件写入打印机。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileName</td><td>要写入打印机的文件名。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="ab8a110bdfdbb5ff80254b74f306eb817" name="ab8a110bdfdbb5ff80254b74f306eb817"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8a110bdfdbb5ff80254b74f306eb817">&#9670;&#160;</a></span>_connected</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TcpComm.TcpComm._connected = True</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11d16c75c6a1687187b1defa53808192" name="a11d16c75c6a1687187b1defa53808192"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11d16c75c6a1687187b1defa53808192">&#9670;&#160;</a></span>_ip</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TcpComm.TcpComm._ip = ip_address</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ffff010448e06661c1ead6acb0c9015" name="a3ffff010448e06661c1ead6acb0c9015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ffff010448e06661c1ead6acb0c9015">&#9670;&#160;</a></span>_port</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TcpComm.TcpComm._port = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aece2e45ea9aeb06325513d6f47663d67" name="aece2e45ea9aeb06325513d6f47663d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aece2e45ea9aeb06325513d6f47663d67">&#9670;&#160;</a></span>_socket</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TcpComm.TcpComm._socket = socket.socket(socket.AF_INET6, socket.SOCK_STREAM)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>/Users/bob_huang/Documents/Project/UniPRTSDK_python/Comm/<b>TcpComm.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_tcp_comm.html">TcpComm</a></li><li class="navelem"><a class="el" href="class_tcp_comm_1_1_tcp_comm.html">TcpComm</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

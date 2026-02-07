@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: UniPRT.Sdk.Json.JsonComm  類別 參考文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">UniPRT SDK
+   &#160;<span id="projectnumber">v2.0.0.3</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜尋" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 產生者: Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜尋');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開方法(Public Methods)</a> &#124;
+<a href="#pub-static-methods">靜態公開方法(Static Public Methods)</a> &#124;
+<a href="#pro-methods">保護方法(Protected Methods)</a> &#124;
+<a href="#properties">屬性(properties)</a> &#124;
+<a href="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm-members.html">全部成員列表</a>  </div>
+  <div class="headertitle">
+<div class="title">UniPRT.Sdk.Json.JsonComm 類別 參考文件</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>使用 JSON 格式的管理 (<a class="el" href="namespace_uni_p_r_t_1_1_sdk_1_1_mgmt.html">Mgmt</a>) Comm。負責完整/格式良好的 Mgmt/JSON 訊息框架，並通過通道轉發給任何監聽者。  
+ <a href="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.html#details">更多...</a></p>
+<div class="dynheader">
+類別UniPRT.Sdk.Json.JsonComm的繼承圖:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.png" alt=""/>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開方法(Public Methods)</h2></td></tr>
+<tr class="memitem:ae1b1fc47893a1fad5962721b44c7ddec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.html#ae1b1fc47893a1fad5962721b44c7ddec">JsonComm</a> (<a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html">IComm</a> commToPtr)</td></tr>
+<tr class="memdesc:ae1b1fc47893a1fad5962721b44c7ddec"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用傳入的連接開始 JSON 通訊。  <a href="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.html#ae1b1fc47893a1fad5962721b44c7ddec">更多...</a><br /></td></tr>
+<tr class="separator:ae1b1fc47893a1fad5962721b44c7ddec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0819979fa753c0a85492c721794576f"><td class="memItemLeft" align="right" valign="top"><a id="ab0819979fa753c0a85492c721794576f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Dispose</b> ()</td></tr>
+<tr class="separator:ab0819979fa753c0a85492c721794576f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab009cc5e26d36baeece2a2878aa51039"><td class="memItemLeft" align="right" valign="top"><a id="ab009cc5e26d36baeece2a2878aa51039"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.html#ab009cc5e26d36baeece2a2878aa51039">Send</a> (string mgmtMsgToSend)</td></tr>
+<tr class="memdesc:ab009cc5e26d36baeece2a2878aa51039"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用在創建物件時傳入的連接發送 JSON <b>mgmtMsgToSend。</b> <br /></td></tr>
+<tr class="separator:ab009cc5e26d36baeece2a2878aa51039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57e8d79caf33ea320eb54985d273c8a1"><td class="memItemLeft" align="right" valign="top"><a id="a57e8d79caf33ea320eb54985d273c8a1"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.html#a57e8d79caf33ea320eb54985d273c8a1">SendAndWaitForResponse</a> (string mgmtMsg, int respTimeoutMs)</td></tr>
+<tr class="memdesc:a57e8d79caf33ea320eb54985d273c8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">發送 JSON 訊息 <b>mgmtMsg</b> 並等待 <b>respTimeoutMs</b> 後返回回應。 如果超時後未收到回應，則返回空字符串 ""。 <br /></td></tr>
+<tr class="separator:a57e8d79caf33ea320eb54985d273c8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+靜態公開方法(Static Public Methods)</h2></td></tr>
+<tr class="memitem:a019fb35d22e3b59af0b3b156052f2047"><td class="memItemLeft" align="right" valign="top"><a id="a019fb35d22e3b59af0b3b156052f2047"></a>
+static string&#160;</td><td class="memItemRight" valign="bottom"><b>ReplaceJsonArrayValues</b> (string json)</td></tr>
+<tr class="separator:a019fb35d22e3b59af0b3b156052f2047"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+保護方法(Protected Methods)</h2></td></tr>
+<tr class="memitem:ad9b605b308662f63b853d3aa62fe86f3"><td class="memItemLeft" align="right" valign="top"><a id="ad9b605b308662f63b853d3aa62fe86f3"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Dispose</b> (bool disposing)</td></tr>
+<tr class="separator:ad9b605b308662f63b853d3aa62fe86f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+屬性(properties)</h2></td></tr>
+<tr class="memitem:aa296af7add592c1bd334ee526b4ad5ac"><td class="memItemLeft" align="right" valign="top"><a id="aa296af7add592c1bd334ee526b4ad5ac"></a>
+<a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_msg_listener_channels.html">IMgmtMsgListenerChannels</a>&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ChannelListenerJson</b><code> [get]</code></td></tr>
+<tr class="separator:aa296af7add592c1bd334ee526b4ad5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac940cf89eeb63da9e726ef85970ed339"><td class="memItemLeft" align="right" valign="top"><a id="ac940cf89eeb63da9e726ef85970ed339"></a>
+<a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_i_mgmt_msg_listener_channels.html">IMgmtMsgListenerChannels</a>&lt; <a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_mgmt_1_1_mgmt_msg.html">MgmtMsg</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ChannelListenerMgmtMsg</b><code> [get]</code></td></tr>
+<tr class="separator:ac940cf89eeb63da9e726ef85970ed339"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0026cb658280e6b81c84d5c6d9970f87"><td class="memItemLeft" align="right" valign="top"><a id="a0026cb658280e6b81c84d5c6d9970f87"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>UsingDataPort</b> = false<code> [get, set]</code></td></tr>
+<tr class="separator:a0026cb658280e6b81c84d5c6d9970f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳細描述</h2>
+<div class="textblock"><p>使用 JSON 格式的管理 (<a class="el" href="namespace_uni_p_r_t_1_1_sdk_1_1_mgmt.html">Mgmt</a>) Comm。負責完整/格式良好的 Mgmt/JSON 訊息框架，並通過通道轉發給任何監聽者。 </p>
+<p>需要通訊連接來發送和監聽完整的 <a class="el" href="namespace_uni_p_r_t_1_1_sdk_1_1_mgmt.html">Mgmt</a> 訊息。<br  />
+此類還使用通訊連接來發送和監聽 JSON 訊息。<br  />
+注意，這個類將在接收時讀取所有從通訊連接接收的數據，以監聽並解析完整的 JSON 訊息。 </p>
+</div><h2 class="groupheader">建構子與解構子說明文件</h2>
+<a id="ae1b1fc47893a1fad5962721b44c7ddec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1b1fc47893a1fad5962721b44c7ddec">&#9670;&nbsp;</a></span>JsonComm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UniPRT.Sdk.Json.JsonComm.JsonComm </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html">IComm</a>&#160;</td>
+          <td class="paramname"><em>commToPtr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用傳入的連接開始 JSON 通訊。 </p>
+<p>連接必須由呼叫者/使用者打開並保持打開狀態。 </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_uni_p_r_t.html">UniPRT</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk.html">Sdk</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk_1_1_json.html">Json</a></li><li class="navelem"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_comm.html">JsonComm</a></li>
+    <li class="footer">產生者:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
+</body>
+</html>

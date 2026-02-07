@@ -1,0 +1,25 @@
+var class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection =
+[
+    [ "UsbConnection", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad7cd011a94509307f89b98b7a0b916af", null ],
+    [ "UsbConnection", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14", null ],
+    [ "UsbConnection", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a20cd357e0744f7d2f45a8b5f7470bf2d", null ],
+    [ "UsbConnection", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a6162e593033d8cedf18f097194ad90b1", null ],
+    [ "AvaliableDevices", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a135b1b13fd777540e98e1114935b2572", null ],
+    [ "Close", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#aa0ecbff98285a9c9f5252128a65ebd92", null ],
+    [ "DescriptorValidate", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a3ef1bd7c2dfb3f40d24e47771e40669b", null ],
+    [ "Open", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a7523fa9b8a9052c502a31bfca11edcc4", null ],
+    [ "Read", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a07dcb2a79d70fd9abb4dba92ac42c02e", null ],
+    [ "Read", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ac2d898737fd90d070b2e5c025f5ce39c", null ],
+    [ "WaitForData", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a1fa8818dfb87edfbab7eb5f488f45435", null ],
+    [ "Write", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a4026e9d6fba29d7a3daf5ce2f583835c", null ],
+    [ "Write", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a5486b6d018736522868361685ee532d1", null ],
+    [ "WriteAndWaitForResponse", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ab935a61657b32455b09dd817a3682495", null ],
+    [ "WriteAndWaitForResponse", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a29721ecab9ac8ed3509e585503375dfe", null ],
+    [ "Descriptor", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a68bce0be7fe90375942805adef0999c2", null ],
+    [ "PTX_USB_VID", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ae455e6617518a1d73e53920b0841519c", null ],
+    [ "TSC_USB_VID", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a3db11fda89ec9574622a15fa8578cd0c", null ],
+    [ "BytesAvailable", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a0bc2e56eace540f1a91d3d14bbf0fd4b", null ],
+    [ "Connected", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a48b01d9f3793f36a58052108ce59e97c", null ],
+    [ "P_ID", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#adfb09d127ab638dc3ea1c9202bef4dde", null ],
+    [ "V_ID", "class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a139efd724630709261599736f684d258", null ]
+];

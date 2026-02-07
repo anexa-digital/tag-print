@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: JsonCmdInterface</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">UniPRT SDK<span id="projectnumber">&#160;v２.0.0.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('md__2_users_2bob__huang_2_documents_2_project_2_uni_p_r_t_s_d_k__python_2_json_cmd_interface.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">JsonCmdInterface</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="JsonDataInterchangeWithPrinter"></a>
+与打印机进行 JSON 数据交换</h1>
+<p>以下部分描述了用于读取/写入打印机设置的 JSON（JavaScript 对象表示法）数据交换语法。<br  />
+</p>
+<p>请注意，SettingsReadWrite 类提供了对设置的读取/写入支持，并使用下面定义的 JSON 命令结构与打印机通信。这是为了给那些希望使用打印机支持的 JSON 接口直接与打印机通信的人提供信息。</p>
+<h1><a class="anchor" id="autotoc_md8"></a>
+通用 JSON 命令语法 - 管理端口</h1>
+<p>以下是向打印机发送 JSON 命令的通用语法。<br  />
+</p>
+<p>请注意， <b>To</b> 和 <b>From</b> 键是可选的，如果应用程序不需要它们，可以省略。这些参数只是从打印机端交换并回显。</p>
+<p>打印机通过回显发送的 <b>TrackNo</b> 来响应命令，调用者/发送者可以使用它来选择从打印机接收的适当响应，尤其是在向打印机发送多个命令的情况下。如果打印机发送回数据，它将包含在 <b>Content</b> 字段中。</p>
+<p>完整命令格式： </p><div class="fragment"><div class="line">{    &quot;Command&quot;: &lt;command&gt;,</div>
+<div class="line">    &quot;From&quot;:    &lt;optional&gt;, </div>
+<div class="line">    &quot;To&quot;:      &lt;optional&gt;, </div>
+<div class="line">    &quot;TrackNo&quot;: &lt;AnyTrackingString&gt;,</div>
+<div class="line">    &quot;Content&quot;: { &lt;content&gt; }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> 最小命令格式：无 <b>To</b> 或 <b>From</b> 可选键。</p>
+<div class="fragment"><div class="line">{    &quot;Command&quot;: &lt;command&gt;, </div>
+<div class="line">    &quot;TrackNo&quot;: &lt;AnyTrackingString&gt;,</div>
+<div class="line">    &quot;Content&quot;: { &lt;content&gt; }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
+通用 JSON 命令语法 - 数据端口</h1>
+<p>在使用数据端口时，为了区分 JSON 命令和打印数据，以下语法显示了 JSON 命令被 <b>前缀</b> 和 <b>后缀</b> 包裹的情况。请注意，这仅适用于通过与打印数据相同的端口发送 JSON 命令的情况。</p>
+<p>通过数据端口发送的命令必须由如下所示的前缀和后缀进行框架。 </p><div class="fragment"><div class="line">!PTR_SETUP</div>
+<div class="line">UPMC</div>
+<div class="line">  &lt;JSON_Command&gt;</div>
+<div class="line">PTR_END</div>
+</div><!-- fragment --><p>例如 - 读取 "KeyToRead" </p><div class="fragment"><div class="line">!PTR_SETUP</div>
+<div class="line">UPMC</div>
+<div class="line">{    &quot;Command&quot;: &quot;Cfg.Item&quot;,</div>
+<div class="line">    &quot;TrackNo&quot;: &quot;Ex-WrappedByPrefixAndSuffix&quot;,</div>
+<div class="line">    &quot;Content&quot;: {</div>
+<div class="line">       &quot;KeyToRead&quot; : null</div>
+<div class="line">       }</div>
+<div class="line">}</div>
+<div class="line">PTR_END</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
+支持的 JSON 命令</h1>
+<p>以下是发送到打印机的 <b>"Command"</b> 键支持的值。</p><ul>
+<li><b>"Cfg.Item"</b> 读取/写入键值对<ul>
+<li>使用 <b>null</b> 作为值读取键项<ul>
+<li>读取单个键。 <br  />
+(<b>"Content":</b>) <div class="fragment"><div class="line">{ &quot;MyKeyOfInterest&quot; : null }</div>
+</div><!-- fragment --></li>
+<li>读取多个键。 <br  />
+(<b>"Content":</b>) <br  />
+ <div class="fragment"><div class="line">{ &quot;MyKey1&quot; : null, &quot;MyKey2&quot; : null, .., &quot;MyKeyN&quot; : null }</div>
+</div><!-- fragment --></li>
+<li>请注意，如果使用分支名称，则可以读取多个键。<br  />
+ 例如，使用 "branchX.subBranch" 作为键将返回键 "item1" 和 "item2"，如果 branchX.subBranch.item1 和 branchX.subBranch.item2 存在的话。 <br  />
+(<b>"Content":</b>): <div class="fragment"><div class="line">{ &quot;branchX.subBranch&quot; : null }</div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li>通过使用与特定键关联的任何支持值来写入键。 <br  />
+(<b>"Content":</b>): <div class="fragment"><div class="line">{&quot;DecimalKey&quot; : 3.5}</div>
+</div><!-- fragment --></li>
+</ul>
+</li>
+<li><b>"Cfg.Prop"</b> 读取与键或分支关联的属性<ul>
+<li>属性: <table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">属性   </th><th class="markdownTableHeadLeft">描述    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Type"   </td><td class="markdownTableBodyLeft">"Dec" - Decimal, "Enum" - Enumeration, "Bool" - Boolean, "Exe" - Executable    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">"Perm"   </td><td class="markdownTableBodyLeft">权限: 读取 (R), 写入 (W), 执行 (X)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Value"   </td><td class="markdownTableBodyLeft">当前与键关联的值    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">"Min"   </td><td class="markdownTableBodyLeft">最小值    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Max"   </td><td class="markdownTableBodyLeft">最大值    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">"Inc"   </td><td class="markdownTableBodyLeft">增量    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Options"   </td><td class="markdownTableBodyLeft">允许的值。注意对于 <b>Bool</b> 仅允许 <b>true</b> 或 <b>false</b> 。   </td></tr>
+</table>
+</li>
+<li>按键 "Type" 返回的属性： <br  />
+ <table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadCenter">"Dec"   </th><th class="markdownTableHeadCenter">"Enum"   </th><th class="markdownTableHeadCenter">"Bool"   </th><th class="markdownTableHeadCenter">"Exe"    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Type"   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">"Perm"   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Value"   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">"Min"   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Max"   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">"Inc"   </td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">"Options"   </td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter">x   </td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td></tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md11"></a>
+支持的 JSON 键</h1>
+<p>支持的键/值对：</p><ul>
+<li>@JsonTableLink{refJsonKeyValues}</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md12"></a>
+示例</h1>
+<h2><a class="anchor" id="autotoc_md13"></a>
+示例 1 - 读取 "Image.Width-in" 键</h2>
+<div class="fragment"><div class="line">{    &quot;Command&quot;: &quot;Cfg.Item&quot;,</div>
+<div class="line">    &quot;TrackNo&quot;: &quot;Ex-1&quot;,</div>
+<div class="line">    &quot;Content&quot;: {</div>
+<div class="line">       &quot;Image.Width-in&quot; : null</div>
+<div class="line">       }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+示例 2 - 写入 "Image.Width-in" 键</h2>
+<div class="fragment"><div class="line">{    &quot;Command&quot;: &quot;Cfg.Item&quot;,</div>
+<div class="line">    &quot;TrackNo&quot;: &quot;Ex-2&quot;,</div>
+<div class="line">    &quot;Content&quot;: {</div>
+<div class="line">       &quot;Image.Width-in&quot; : 3.5</div>
+<div class="line">       }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
+示例 3 - 读取多个键的属性</h2>
+<p>下面展示了如何读取多个 "branch" 项 ("Speed" 和 "ODV.Symbol")，以读取与每个分支相关的所有键以及单个项 "Label.Sensor"。</p>
+<p>发送给打印机的命令： </p><div class="fragment"><div class="line">{    &quot;Command&quot;: &quot;Cfg.Prop&quot;,</div>
+<div class="line">    &quot;From&quot;:    &quot;Originator&quot;, </div>
+<div class="line">    &quot;To&quot;:      &quot;Receiver101&quot;, </div>
+<div class="line">    &quot;TrackNo&quot;: &quot;Ex-3&quot;,</div>
+<div class="line">    &quot;Content&quot;: {</div>
+<div class="line">       &quot;Speed&quot; : null,</div>
+<div class="line">       &quot;ODV.Symbol&quot; : null,</div>
+<div class="line">       &quot;Label.Sensor&quot;:null       </div>
+<div class="line">        }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>打印机回传: </p><div class="fragment"><div class="line">{</div>
+<div class="line">    &quot;Command&quot;:    &quot;Success&quot;,</div>
+<div class="line">    &quot;From&quot;:    &quot;P-408106&quot;,</div>
+<div class="line">    &quot;To&quot;:    &quot;Originator&quot;,</div>
+<div class="line">    &quot;TrackNo&quot;:    &quot;Ex-3&quot;,</div>
+<div class="line">    &quot;Content&quot;:    {</div>
+<div class="line">        &quot;Speed.Print-ips&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Dec&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    6,</div>
+<div class="line">            &quot;Min&quot;:    1,</div>
+<div class="line">            &quot;Max&quot;:    8,</div>
+<div class="line">            &quot;Inc&quot;:    1</div>
+<div class="line">        },</div>
+<div class="line">        &quot;Speed.Print-mmps&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Enum&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    &quot;e152.4&quot;,</div>
+<div class="line">            &quot;Options&quot;:    [&quot;e25.4&quot;, &quot;e50.8&quot;, &quot;e76.2&quot;, &quot;e101.6&quot;, &quot;e127.0&quot;, &quot;e152.4&quot;, &quot;e177.8&quot;, &quot;e203.2&quot;]</div>
+<div class="line">        },</div>
+<div class="line">        &quot;Speed.Rev-ips&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Dec&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    2,</div>
+<div class="line">            &quot;Min&quot;:    1,</div>
+<div class="line">            &quot;Max&quot;:    6,</div>
+<div class="line">            &quot;Inc&quot;:    1</div>
+<div class="line">        },</div>
+<div class="line">        &quot;Speed.Rev-mmps&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Enum&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    &quot;e50.8&quot;,</div>
+<div class="line">            &quot;Options&quot;:    [&quot;e25.4&quot;, &quot;e50.8&quot;, &quot;e76.2&quot;, &quot;e101.6&quot;, &quot;e127.0&quot;, &quot;e152.4&quot;]</div>
+<div class="line">        },</div>
+<div class="line">        &quot;Speed.Slew-ips&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Dec&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    6,</div>
+<div class="line">            &quot;Min&quot;:    1,</div>
+<div class="line">            &quot;Max&quot;:    8,</div>
+<div class="line">            &quot;Inc&quot;:    1</div>
+<div class="line">        },</div>
+<div class="line">        &quot;Speed.Slew-mmps&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Enum&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    &quot;e152.4&quot;,</div>
+<div class="line">            &quot;Options&quot;:    [&quot;e25.4&quot;, &quot;e50.8&quot;, &quot;e76.2&quot;, &quot;e101.6&quot;, &quot;e127.0&quot;, &quot;e152.4&quot;, &quot;e177.8&quot;, &quot;e203.2&quot;]</div>
+<div class="line">        },</div>
+<div class="line">        &quot;Speed.SlewControl&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Enum&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    &quot;eAutomatic&quot;,</div>
+<div class="line">            &quot;Options&quot;:    [&quot;eAutomatic&quot;, &quot;eManual&quot;]</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.Codabar-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.Code128-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.Code39-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.Code93-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.DataMatrix-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.Graphics-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.Int25-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.Orient&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Enum&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    &quot;eAll&quot;,</div>
+<div class="line">            &quot;Options&quot;:    [&quot;eAll&quot;, &quot;ePicket&quot;, &quot;eLadder&quot;]</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.PDF417-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.QR-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;ODV.Symbol.UPCEAN-b&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Bool&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    true</div>
+<div class="line">        },</div>
+<div class="line">        &quot;Label.Sensor&quot;:    {</div>
+<div class="line">            &quot;Type&quot;:    &quot;Enum&quot;,</div>
+<div class="line">            &quot;Perm&quot;:    &quot;RW&quot;,</div>
+<div class="line">            &quot;Value&quot;:    &quot;eGap&quot;,</div>
+<div class="line">            &quot;Options&quot;:    [&quot;eDisable&quot;, &quot;eMark&quot;, &quot;eGap&quot;]</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

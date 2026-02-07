@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: RfidMonitor.RfidMonitor  類別 參考文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">UniPRT SDK<span id="projectnumber">&#160;v２.0.0.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜尋" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 產生者: Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_rfid_monitor_1_1_rfid_monitor.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">載入中...</div>
+<div class="SRStatus" id="Searching">搜尋中...</div>
+<div class="SRStatus" id="NoMatches">無符合項目</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開方法(Public Methods)</a> &#124;
+<a href="#pub-attribs">公開屬性</a> &#124;
+<a href="class_rfid_monitor_1_1_rfid_monitor-members.html">全部成員列表</a>  </div>
+  <div class="headertitle"><div class="title">RfidMonitor.RfidMonitor 類別 參考文件</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開方法(Public Methods)</h2></td></tr>
+<tr class="memitem:ae3bc8f441d99ccec0140355837f8a389" id="r_ae3bc8f441d99ccec0140355837f8a389"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3bc8f441d99ccec0140355837f8a389">__init__</a> (self, connection=None, <a class="el" href="#a6f7f69a09aec206ca0217c2245182b95">mgmt_comm</a>=None, comm_descriptor=None)</td></tr>
+<tr class="separator:ae3bc8f441d99ccec0140355837f8a389"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2641b69986f0223600a252ebe173c1" id="r_a7a2641b69986f0223600a252ebe173c1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a2641b69986f0223600a252ebe173c1">init_with_tcp_comm</a> (self, connection)</td></tr>
+<tr class="memdesc:a7a2641b69986f0223600a252ebe173c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用給定的TCP通信對象初始化一個新實例。  <br /></td></tr>
+<tr class="separator:a7a2641b69986f0223600a252ebe173c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a673d3068c6f7774ab7cab2f93fcab34c" id="r_a673d3068c6f7774ab7cab2f93fcab34c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a673d3068c6f7774ab7cab2f93fcab34c">init_with_json_comm</a> (self, <a class="el" href="#a6f7f69a09aec206ca0217c2245182b95">mgmt_comm</a>)</td></tr>
+<tr class="memdesc:a673d3068c6f7774ab7cab2f93fcab34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用給定的JSON通信對象初始化一個新實例。  <br /></td></tr>
+<tr class="separator:a673d3068c6f7774ab7cab2f93fcab34c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3963a870bee9089ac42fca7cb0b7b99e" id="r_a3963a870bee9089ac42fca7cb0b7b99e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3963a870bee9089ac42fca7cb0b7b99e">init_with_comm_descriptor</a> (self, comm_descriptor)</td></tr>
+<tr class="memdesc:a3963a870bee9089ac42fca7cb0b7b99e"><td class="mdescLeft">&#160;</td><td class="mdescRight">創建由SDK管理的連接時調用的構造函數。  <br /></td></tr>
+<tr class="separator:a3963a870bee9089ac42fca7cb0b7b99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff5978a1b98882cbac98a28f17d40a3" id="r_a4ff5978a1b98882cbac98a28f17d40a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ff5978a1b98882cbac98a28f17d40a3">set_rfid_report_listening</a> (self, value)</td></tr>
+<tr class="memdesc:a4ff5978a1b98882cbac98a28f17d40a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">設置是否啟用Rfid報告監聽。  <br /></td></tr>
+<tr class="separator:a4ff5978a1b98882cbac98a28f17d40a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f7cb683594cf449ffd66a30c4453fa0" id="r_a5f7cb683594cf449ffd66a30c4453fa0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f7cb683594cf449ffd66a30c4453fa0">stop_listening_thread</a> (self)</td></tr>
+<tr class="memdesc:a5f7cb683594cf449ffd66a30c4453fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">停止監聽線程。  <br /></td></tr>
+<tr class="separator:a5f7cb683594cf449ffd66a30c4453fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開屬性</h2></td></tr>
+<tr class="memitem:a805ffa464a637de3d137c37f72a6e9f5" id="r_a805ffa464a637de3d137c37f72a6e9f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a805ffa464a637de3d137c37f72a6e9f5">ptr_comm</a> = connection</td></tr>
+<tr class="separator:a805ffa464a637de3d137c37f72a6e9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f7f69a09aec206ca0217c2245182b95" id="r_a6f7f69a09aec206ca0217c2245182b95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f7f69a09aec206ca0217c2245182b95">mgmt_comm</a> = <a class="el" href="class_json_mng_1_1_json_comm.html">JsonComm</a>(connection, CommType.TCP_COMM)</td></tr>
+<tr class="separator:a6f7f69a09aec206ca0217c2245182b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7b6fba2121d6a4a9f9357936f73b567" id="r_af7b6fba2121d6a4a9f9357936f73b567"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7b6fba2121d6a4a9f9357936f73b567">my_mgmt_id</a> = JsonStringBuilder.get_random_object_id_json()</td></tr>
+<tr class="separator:af7b6fba2121d6a4a9f9357936f73b567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfd9034f95898b55c499d6f7b36163c5" id="r_adfd9034f95898b55c499d6f7b36163c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfd9034f95898b55c499d6f7b36163c5">sync_context</a></td></tr>
+<tr class="separator:adfd9034f95898b55c499d6f7b36163c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795be76adc252e306532e013a81175be" id="r_a795be76adc252e306532e013a81175be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a795be76adc252e306532e013a81175be">sdk_managed_comm</a> = True</td></tr>
+<tr class="separator:a795be76adc252e306532e013a81175be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37f3b49780fcba6c38b3a187ecde9c76" id="r_a37f3b49780fcba6c38b3a187ecde9c76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f3b49780fcba6c38b3a187ecde9c76">managed_descriptor</a> = comm_descriptor</td></tr>
+<tr class="separator:a37f3b49780fcba6c38b3a187ecde9c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2040b61f50b3b44a1c2228afd8bcf493" id="r_a2040b61f50b3b44a1c2228afd8bcf493"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2040b61f50b3b44a1c2228afd8bcf493">rfid_report_listening</a> = value</td></tr>
+<tr class="separator:a2040b61f50b3b44a1c2228afd8bcf493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaf21a3941374c38afdf72bac1e1ab4c" id="r_abaf21a3941374c38afdf72bac1e1ab4c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abaf21a3941374c38afdf72bac1e1ab4c">listener_cts</a></td></tr>
+<tr class="separator:abaf21a3941374c38afdf72bac1e1ab4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af76ec383c2f15efe92a128ce87ade443" id="r_af76ec383c2f15efe92a128ce87ade443"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af76ec383c2f15efe92a128ce87ade443">listener_thread</a></td></tr>
+<tr class="separator:af76ec383c2f15efe92a128ce87ade443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">建構子與解構子說明文件</h2>
+<a id="ae3bc8f441d99ccec0140355837f8a389" name="ae3bc8f441d99ccec0140355837f8a389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3bc8f441d99ccec0140355837f8a389">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>connection</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mgmt_comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>comm_descriptor</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">函式成員說明文件</h2>
+<a id="a3963a870bee9089ac42fca7cb0b7b99e" name="a3963a870bee9089ac42fca7cb0b7b99e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3963a870bee9089ac42fca7cb0b7b99e">&#9670;&#160;</a></span>init_with_comm_descriptor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.init_with_comm_descriptor </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>comm_descriptor</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>創建由SDK管理的連接時調用的構造函數。 </p>
+<p>commDescriptor 是用於與打印機連接的通信描述符。</p>
+<p>TCP描述符格式："ip" 或 "ip:port"</p>
+<p>例如 "127.0.0.1" 或 "127.0.0.1:3007"</p>
+<p>如果沒有提供端口，則使用默認值。</p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commDescriptor</td><td>通信描述符。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>傳回值</dt><dd>一個初始化的RfidMonitor實例，如果對象無法創建則返回nil。 </dd></dl>
+
+</div>
+</div>
+<a id="a673d3068c6f7774ab7cab2f93fcab34c" name="a673d3068c6f7774ab7cab2f93fcab34c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a673d3068c6f7774ab7cab2f93fcab34c">&#9670;&#160;</a></span>init_with_json_comm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.init_with_json_comm </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>mgmt_comm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用給定的JSON通信對象初始化一個新實例。 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mgmt_comm</td><td>JSON通信對象。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>傳回值</dt><dd>一個初始化的RfidMonitor實例，如果對象無法創建則返回nil。 </dd></dl>
+
+</div>
+</div>
+<a id="a7a2641b69986f0223600a252ebe173c1" name="a7a2641b69986f0223600a252ebe173c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a2641b69986f0223600a252ebe173c1">&#9670;&#160;</a></span>init_with_tcp_comm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.init_with_tcp_comm </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>connection</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用給定的TCP通信對象初始化一個新實例。 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">connection</td><td>TCP通信對象。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>傳回值</dt><dd>一個初始化的RfidMonitor實例，如果對象無法創建則返回nil。 </dd></dl>
+
+</div>
+</div>
+<a id="a4ff5978a1b98882cbac98a28f17d40a3" name="a4ff5978a1b98882cbac98a28f17d40a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ff5978a1b98882cbac98a28f17d40a3">&#9670;&#160;</a></span>set_rfid_report_listening()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.set_rfid_report_listening </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>設置是否啟用Rfid報告監聽。 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>YES表示啟用監聽，NO表示禁用。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5f7cb683594cf449ffd66a30c4453fa0" name="a5f7cb683594cf449ffd66a30c4453fa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7cb683594cf449ffd66a30c4453fa0">&#9670;&#160;</a></span>stop_listening_thread()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.stop_listening_thread </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>停止監聽線程。 </p>
+
+</div>
+</div>
+<h2 class="groupheader">資料成員說明文件</h2>
+<a id="abaf21a3941374c38afdf72bac1e1ab4c" name="abaf21a3941374c38afdf72bac1e1ab4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaf21a3941374c38afdf72bac1e1ab4c">&#9670;&#160;</a></span>listener_cts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.listener_cts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af76ec383c2f15efe92a128ce87ade443" name="af76ec383c2f15efe92a128ce87ade443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af76ec383c2f15efe92a128ce87ade443">&#9670;&#160;</a></span>listener_thread</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.listener_thread</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37f3b49780fcba6c38b3a187ecde9c76" name="a37f3b49780fcba6c38b3a187ecde9c76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f3b49780fcba6c38b3a187ecde9c76">&#9670;&#160;</a></span>managed_descriptor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.managed_descriptor = comm_descriptor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f7f69a09aec206ca0217c2245182b95" name="a6f7f69a09aec206ca0217c2245182b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f7f69a09aec206ca0217c2245182b95">&#9670;&#160;</a></span>mgmt_comm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.mgmt_comm = <a class="el" href="class_json_mng_1_1_json_comm.html">JsonComm</a>(connection, CommType.TCP_COMM)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7b6fba2121d6a4a9f9357936f73b567" name="af7b6fba2121d6a4a9f9357936f73b567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7b6fba2121d6a4a9f9357936f73b567">&#9670;&#160;</a></span>my_mgmt_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.my_mgmt_id = JsonStringBuilder.get_random_object_id_json()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a805ffa464a637de3d137c37f72a6e9f5" name="a805ffa464a637de3d137c37f72a6e9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a805ffa464a637de3d137c37f72a6e9f5">&#9670;&#160;</a></span>ptr_comm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.ptr_comm = connection</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2040b61f50b3b44a1c2228afd8bcf493" name="a2040b61f50b3b44a1c2228afd8bcf493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2040b61f50b3b44a1c2228afd8bcf493">&#9670;&#160;</a></span>rfid_report_listening</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.rfid_report_listening = value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a795be76adc252e306532e013a81175be" name="a795be76adc252e306532e013a81175be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a795be76adc252e306532e013a81175be">&#9670;&#160;</a></span>sdk_managed_comm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RfidMonitor.RfidMonitor.sdk_managed_comm = True</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adfd9034f95898b55c499d6f7b36163c5" name="adfd9034f95898b55c499d6f7b36163c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfd9034f95898b55c499d6f7b36163c5">&#9670;&#160;</a></span>sync_context</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">RfidMonitor.RfidMonitor.sync_context</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>此類別(class) 文件是由下列檔案中產生:<ul>
+<li>/Users/bob_huang/Documents/Project/UniPRTSDK_python/Json/<b>RfidMonitor.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_rfid_monitor.html">RfidMonitor</a></li><li class="navelem"><a class="el" href="class_rfid_monitor_1_1_rfid_monitor.html">RfidMonitor</a></li>
+    <li class="footer">產生者: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

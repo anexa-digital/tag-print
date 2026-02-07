@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hant">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: LabelMaker.Interfaces.ICoordinates.PrintPlane  類別 參考文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">UniPRT SDK<span id="projectnumber">&#160;v２.0.0.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜尋" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 產生者: Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_print_plane.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">載入中...</div>
+<div class="SRStatus" id="Searching">搜尋中...</div>
+<div class="SRStatus" id="NoMatches">無符合項目</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開方法(Public Methods)</a> &#124;
+<a href="#pub-static-methods">靜態公開方法(Static Public Methods)</a> &#124;
+<a href="#pub-attribs">公開屬性</a> &#124;
+<a href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_print_plane-members.html">全部成員列表</a>  </div>
+  <div class="headertitle"><div class="title">LabelMaker.Interfaces.ICoordinates.PrintPlane 類別 參考文件</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>繼承自IPrintPlane的PrintPlane類。  
+ <a href="#details">更多...</a></p>
+<div class="dynheader">
+類別LabelMaker.Interfaces.ICoordinates.PrintPlane的繼承圖:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_print_plane.png" usemap="#LabelMaker.Interfaces.ICoordinates.PrintPlane_map" alt=""/>
+  <map id="LabelMaker.Interfaces.ICoordinates.PrintPlane_map" name="LabelMaker.Interfaces.ICoordinates.PrintPlane_map">
+<area href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html" title="定義PrintPlane類接口的協議。" alt="LabelMaker.Interfaces.ICoordinates.IPrintPlane" shape="rect" coords="0,56,279,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開方法(Public Methods)</h2></td></tr>
+<tr class="memitem:a8f711748f93dc3c7fc86db2f9f4d9a31" id="r_a8f711748f93dc3c7fc86db2f9f4d9a31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f711748f93dc3c7fc86db2f9f4d9a31">__init__</a> (self, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] <a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a>=None, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] print_resolution=None)</td></tr>
+<tr class="separator:a8f711748f93dc3c7fc86db2f9f4d9a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d1ad501b364150139b0e7fb175887d" id="r_a02d1ad501b364150139b0e7fb175887d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02d1ad501b364150139b0e7fb175887d">dots_per_unit_with_ruler</a> (self, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] <a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a>=None, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:a02d1ad501b364150139b0e7fb175887d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62af5c8c6af53f473ad4c531e6d95a5e" id="r_a62af5c8c6af53f473ad4c531e6d95a5e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62af5c8c6af53f473ad4c531e6d95a5e">dots_to_points_with_dots</a> (self, float dots, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:a62af5c8c6af53f473ad4c531e6d95a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac413779c6d9e7a887ca5209de1b36bec" id="r_ac413779c6d9e7a887ca5209de1b36bec"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac413779c6d9e7a887ca5209de1b36bec">inch_to_dots_with_inch_value</a> (self, float inch_value, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:ac413779c6d9e7a887ca5209de1b36bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad42c9327cd78fde39dce51ec2b86f62e" id="r_ad42c9327cd78fde39dce51ec2b86f62e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad42c9327cd78fde39dce51ec2b86f62e">inch_to_points_with_inch_value</a> (self, float inch_value, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:ad42c9327cd78fde39dce51ec2b86f62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a024e940fc0787f7ee99dab67502978b2" id="r_a024e940fc0787f7ee99dab67502978b2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a024e940fc0787f7ee99dab67502978b2">mm_to_dots_with_mm_value</a> (self, float mm_value, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:a024e940fc0787f7ee99dab67502978b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0be1227e4859adaa5cfb9e7a6e00568e" id="r_a0be1227e4859adaa5cfb9e7a6e00568e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0be1227e4859adaa5cfb9e7a6e00568e">mm_to_points_with_mm_value</a> (self, float mm_value, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:a0be1227e4859adaa5cfb9e7a6e00568e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d2475093924dc2521e2ff1702f608d" id="r_a02d2475093924dc2521e2ff1702f608d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02d2475093924dc2521e2ff1702f608d">to_points_with_scaled_number</a> (self, float scaled_number, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] <a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a>=None, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:a02d2475093924dc2521e2ff1702f608d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e17bda0937c533997941abbee2af7a0" id="r_a1e17bda0937c533997941abbee2af7a0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e17bda0937c533997941abbee2af7a0">to_dots_with_scaled_number</a> (self, float scaled_number, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] <a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a>=None, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:a1e17bda0937c533997941abbee2af7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8270b2884b1c6f4cffadb9e59f30266" id="r_ae8270b2884b1c6f4cffadb9e59f30266"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8270b2884b1c6f4cffadb9e59f30266">to_inch_with_scaled_number</a> (self, float scaled_number, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] <a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a>=None, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:ae8270b2884b1c6f4cffadb9e59f30266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad058cfbf79f1f5f05dc08622874b22a0" id="r_ad058cfbf79f1f5f05dc08622874b22a0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad058cfbf79f1f5f05dc08622874b22a0">to_mm_with_scaled_number</a> (self, float scaled_number, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] <a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a>=None, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:ad058cfbf79f1f5f05dc08622874b22a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b70d7193b1a2d83e1fd2ab3173e3fe3" id="r_a1b70d7193b1a2d83e1fd2ab3173e3fe3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_point.html">IPoint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b70d7193b1a2d83e1fd2ab3173e3fe3">to_dots_with_scaled_position</a> (self, <a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_point.html">IPoint</a> scaled_position, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] <a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a>=None, Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] resolution=None)</td></tr>
+<tr class="separator:a1b70d7193b1a2d83e1fd2ab3173e3fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+靜態公開方法(Static Public Methods)</h2></td></tr>
+<tr class="memitem:a7df8b3d84cf998155d8812eb59e12599" id="r_a7df8b3d84cf998155d8812eb59e12599"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7df8b3d84cf998155d8812eb59e12599">round</a> (float num_to_round)</td></tr>
+<tr class="separator:a7df8b3d84cf998155d8812eb59e12599"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開屬性</h2></td></tr>
+<tr class="memitem:a74ce1496a057817e8db6e0812457f467" id="r_a74ce1496a057817e8db6e0812457f467"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74ce1496a057817e8db6e0812457f467">printer_resolution</a> = print_resolution if print_resolution else Defaults.printer_resolution()</td></tr>
+<tr class="separator:a74ce1496a057817e8db6e0812457f467"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24252ba29b5d47ea6d55cf267d7794a6" id="r_a24252ba29b5d47ea6d55cf267d7794a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24252ba29b5d47ea6d55cf267d7794a6">ruler</a> = ruler if ruler else Defaults.ruler()</td></tr>
+<tr class="separator:a24252ba29b5d47ea6d55cf267d7794a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳細描述</h2>
+<div class="textblock"><p>繼承自IPrintPlane的PrintPlane類。 </p>
+</div><h2 class="groupheader">建構子與解構子說明文件</h2>
+<a id="a8f711748f93dc3c7fc86db2f9f4d9a31" name="a8f711748f93dc3c7fc86db2f9f4d9a31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f711748f93dc3c7fc86db2f9f4d9a31">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.Interfaces.ICoordinates.PrintPlane.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] </td>          <td class="paramname"><span class="paramname"><em>ruler</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>print_resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">函式成員說明文件</h2>
+<a id="a02d1ad501b364150139b0e7fb175887d" name="a02d1ad501b364150139b0e7fb175887d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02d1ad501b364150139b0e7fb175887d">&#9670;&#160;</a></span>dots_per_unit_with_ruler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.dots_per_unit_with_ruler </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] </td>          <td class="paramname"><span class="paramname"><em>ruler</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#ad984d72b5878b819e1f40fd138a1c445">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="a62af5c8c6af53f473ad4c531e6d95a5e" name="a62af5c8c6af53f473ad4c531e6d95a5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62af5c8c6af53f473ad4c531e6d95a5e">&#9670;&#160;</a></span>dots_to_points_with_dots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.dots_to_points_with_dots </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dots</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#a13edfe4471128ddea2c94c60c24097bf">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="ac413779c6d9e7a887ca5209de1b36bec" name="ac413779c6d9e7a887ca5209de1b36bec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac413779c6d9e7a887ca5209de1b36bec">&#9670;&#160;</a></span>inch_to_dots_with_inch_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.inch_to_dots_with_inch_value </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>inch_value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#a108c95ca552987638a1f7b2aa6e2d17e">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="ad42c9327cd78fde39dce51ec2b86f62e" name="ad42c9327cd78fde39dce51ec2b86f62e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad42c9327cd78fde39dce51ec2b86f62e">&#9670;&#160;</a></span>inch_to_points_with_inch_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.inch_to_points_with_inch_value </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>inch_value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#a984f7e1f498fd44a12577ee0cc50a4d7">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="a024e940fc0787f7ee99dab67502978b2" name="a024e940fc0787f7ee99dab67502978b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a024e940fc0787f7ee99dab67502978b2">&#9670;&#160;</a></span>mm_to_dots_with_mm_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.mm_to_dots_with_mm_value </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>mm_value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#aa8aacbf96b23f196d356d4c56638e832">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="a0be1227e4859adaa5cfb9e7a6e00568e" name="a0be1227e4859adaa5cfb9e7a6e00568e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0be1227e4859adaa5cfb9e7a6e00568e">&#9670;&#160;</a></span>mm_to_points_with_mm_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.mm_to_points_with_mm_value </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>mm_value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#abf4a999152d7a2cd3fb2cdfffc22e266">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="a7df8b3d84cf998155d8812eb59e12599" name="a7df8b3d84cf998155d8812eb59e12599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7df8b3d84cf998155d8812eb59e12599">&#9670;&#160;</a></span>round()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> int LabelMaker.Interfaces.ICoordinates.PrintPlane.round </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>num_to_round</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1e17bda0937c533997941abbee2af7a0" name="a1e17bda0937c533997941abbee2af7a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e17bda0937c533997941abbee2af7a0">&#9670;&#160;</a></span>to_dots_with_scaled_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.to_dots_with_scaled_number </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>scaled_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] </td>          <td class="paramname"><span class="paramname"><em>ruler</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#a8d58749288f0931e3e9442450c3212cb">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="a1b70d7193b1a2d83e1fd2ab3173e3fe3" name="a1b70d7193b1a2d83e1fd2ab3173e3fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b70d7193b1a2d83e1fd2ab3173e3fe3">&#9670;&#160;</a></span>to_dots_with_scaled_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> <a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_point.html">IPoint</a> LabelMaker.Interfaces.ICoordinates.PrintPlane.to_dots_with_scaled_position </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_point.html">IPoint</a></td>          <td class="paramname"><span class="paramname"><em>scaled_position</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] </td>          <td class="paramname"><span class="paramname"><em>ruler</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#a11a7f5504d356ef87b680ef9565d5b85">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="ae8270b2884b1c6f4cffadb9e59f30266" name="ae8270b2884b1c6f4cffadb9e59f30266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8270b2884b1c6f4cffadb9e59f30266">&#9670;&#160;</a></span>to_inch_with_scaled_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.to_inch_with_scaled_number </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>scaled_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] </td>          <td class="paramname"><span class="paramname"><em>ruler</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#a14c39a52c355cec3395bcfa8ad000af5">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="ad058cfbf79f1f5f05dc08622874b22a0" name="ad058cfbf79f1f5f05dc08622874b22a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad058cfbf79f1f5f05dc08622874b22a0">&#9670;&#160;</a></span>to_mm_with_scaled_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.to_mm_with_scaled_number </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>scaled_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] </td>          <td class="paramname"><span class="paramname"><em>ruler</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#aa7a903e4a95f5e57cac7988c9ba12073">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<a id="a02d2475093924dc2521e2ff1702f608d" name="a02d2475093924dc2521e2ff1702f608d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02d2475093924dc2521e2ff1702f608d">&#9670;&#160;</a></span>to_points_with_scaled_number()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> float LabelMaker.Interfaces.ICoordinates.PrintPlane.to_points_with_scaled_number </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>scaled_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_ruler.html">IRuler</a>] </td>          <td class="paramname"><span class="paramname"><em>ruler</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Optional[<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_resolution.html">IPrintResolution</a>] </td>          <td class="paramname"><span class="paramname"><em>resolution</em></span><span class="paramdefsep"> = </span><span class="paramdefval">None</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>依據<a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_i_print_plane.html#acfe5594880887f34dc88a71c26b58419">LabelMaker.Interfaces.ICoordinates.IPrintPlane</a>重新實作.</p>
+
+</div>
+</div>
+<h2 class="groupheader">資料成員說明文件</h2>
+<a id="a74ce1496a057817e8db6e0812457f467" name="a74ce1496a057817e8db6e0812457f467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ce1496a057817e8db6e0812457f467">&#9670;&#160;</a></span>printer_resolution</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.Interfaces.ICoordinates.PrintPlane.printer_resolution = print_resolution if print_resolution else Defaults.printer_resolution()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a24252ba29b5d47ea6d55cf267d7794a6" name="a24252ba29b5d47ea6d55cf267d7794a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24252ba29b5d47ea6d55cf267d7794a6">&#9670;&#160;</a></span>ruler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.Interfaces.ICoordinates.PrintPlane.ruler = ruler if ruler else Defaults.ruler()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>此類別(class) 文件是由下列檔案中產生:<ul>
+<li>/Users/bob_huang/Documents/Project/UniPRTSDK_python/LabelMaker/Interfaces/<b>ICoordinates.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_label_maker.html">LabelMaker</a></li><li class="navelem"><a class="el" href="namespace_label_maker_1_1_interfaces.html">Interfaces</a></li><li class="navelem"><a class="el" href="namespace_label_maker_1_1_interfaces_1_1_i_coordinates.html">ICoordinates</a></li><li class="navelem"><a class="el" href="class_label_maker_1_1_interfaces_1_1_i_coordinates_1_1_print_plane.html">PrintPlane</a></li>
+    <li class="footer">產生者: <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['_5falignment_0',['_alignment',['../class_label_maker_1_1_interfaces_1_1_defaults_1_1_defaults.html#a68c0f06a7d3146f5c404f8fc0c9bcc32',1,'LabelMaker::Interfaces::Defaults::Defaults']]],
+  ['_5fcell_5fsize_1',['_cell_size',['../class_label_maker_1_1_interfaces_1_1_defaults_1_1_defaults.html#aee86ccffcfa08bca7eec7e2435a52e8b',1,'LabelMaker::Interfaces::Defaults::Defaults']]],
+  ['_5fcell_5fsize_5frect_2',['_cell_size_rect',['../class_label_maker_1_1_interfaces_1_1_defaults_1_1_defaults.html#a3afbc0c7d32d504eb84b1f4a113f7f96',1,'LabelMaker::Interfaces::Defaults::Defaults']]],
+  ['_5fconnected_3',['_connected',['../class_tcp_comm_1_1_tcp_comm.html#ab8a110bdfdbb5ff80254b74f306eb817',1,'TcpComm.TcpComm._connected'],['../class_usb_comm_1_1_usb_comm.html#a6a06afb930fcd501ddc51a7f4d29bcc3',1,'UsbComm.UsbComm._connected']]],
+  ['_5fctrl_5fdelim_5ftspl_4',['_ctrl_delim_tspl',['../class_label_maker_1_1_t_s_p_l_1_1_bcd_data_matrix_1_1_data_matrix_barcode.html#a8f5e587c6233a1d1c3fe25445361056d',1,'LabelMaker::TSPL::BcdDataMatrix::DataMatrixBarcode']]],
+  ['_5fdevice_5flist_5',['_device_list',['../class_usb_comm_1_1_usb_comm.html#a9ed540418ffd0b49d23af54b8eaa0c7a',1,'UsbComm::UsbComm']]],
+  ['_5fdiscovered_5finterfaces_6',['_discovered_interfaces',['../class_usb_comm_1_1_usb_comm.html#a5a3ffee6b49d9d06474e9fcf66d3a62f',1,'UsbComm::UsbComm']]],
+  ['_5ffont_5fsize_7',['_font_size',['../class_label_maker_1_1_interfaces_1_1_i_text_1_1_a_text_item.html#aafa185824076577a39c43a271cb81424',1,'LabelMaker::Interfaces::IText::ATextItem']]],
+  ['_5fimagename_8',['_ImageName',['../class_label_maker_1_1_interfaces_1_1_i_picture_1_1_a_picture.html#aa33b7a1a6c3ed6fe9f4cc06496672703',1,'LabelMaker::Interfaces::IPicture::APicture']]],
+  ['_5fip_9',['_ip',['../class_tcp_comm_1_1_tcp_comm.html#a11d16c75c6a1687187b1defa53808192',1,'TcpComm::TcpComm']]],
+  ['_5fmatched_5finterfaces_10',['_matched_interfaces',['../class_usb_comm_1_1_usb_comm.html#a1cdeca87c4b70ba0aebaf67813133af7',1,'UsbComm::UsbComm']]],
+  ['_5fmode_11',['_mode',['../class_label_maker_1_1_p_g_l_1_1_bcd_maxicode_1_1_maxicode_msg.html#a4218782e3299f0bb9618faa981f80f31',1,'LabelMaker::PGL::BcdMaxicode::MaxicodeMsg']]],
+  ['_5fpid_12',['_pId',['../class_usb_comm_1_1_usb_comm.html#abb18b53920935f2cbff27116b1e98d70',1,'UsbComm::UsbComm']]],
+  ['_5fport_13',['_port',['../class_tcp_comm_1_1_tcp_comm.html#a3ffff010448e06661c1ead6acb0c9015',1,'TcpComm::TcpComm']]],
+  ['_5fprimary_5fmsg_14',['_primary_msg',['../class_label_maker_1_1_p_g_l_1_1_bcd_maxicode_1_1_maxicode_msg.html#ad906c5b3fd47d239172e3235791444f9',1,'LabelMaker::PGL::BcdMaxicode::MaxicodeMsg']]],
+  ['_5fprinter_5fresolution_15',['_printer_resolution',['../class_label_maker_1_1_interfaces_1_1_defaults_1_1_defaults.html#af042cce60916b6ba3b78be6e31777773',1,'LabelMaker::Interfaces::Defaults::Defaults']]],
+  ['_5fraw_5finfo_16',['_raw_info',['../class_printer_monitor_1_1_printer_info.html#a1112a86b278a8a6de3a2b36b1131e8bd',1,'PrinterMonitor::PrinterInfo']]],
+  ['_5fremaining_5fmsg_17',['_remaining_msg',['../class_label_maker_1_1_p_g_l_1_1_bcd_maxicode_1_1_maxicode_msg.html#ab7daa6f1f0349fc74282f5b4523bae0c',1,'LabelMaker::PGL::BcdMaxicode::MaxicodeMsg']]],
+  ['_5frotation_18',['_rotation',['../class_label_maker_1_1_interfaces_1_1_defaults_1_1_defaults.html#a857c7040f2490aa147122a1be8c39e62',1,'LabelMaker::Interfaces::Defaults::Defaults']]],
+  ['_5fruler_19',['_Ruler',['../class_label_maker_1_1_interfaces_1_1_i_picture_1_1_a_picture.html#a6d1851d44aa8bf7e2daf00e8bead876f',1,'LabelMaker::Interfaces::IPicture::APicture']]],
+  ['_5fruler_20',['_ruler',['../class_label_maker_1_1_interfaces_1_1_defaults_1_1_defaults.html#ac92af0e5bf9fb6f68eb6cb75c123ff39',1,'LabelMaker::Interfaces::Defaults::Defaults']]],
+  ['_5fshould_5fstop_5fread_5floop_21',['_should_stop_read_loop',['../class_usb_comm_1_1_usb_comm.html#ad1bca0b861c5756243b98316ba0f9857',1,'UsbComm::UsbComm']]],
+  ['_5fsocket_22',['_socket',['../class_tcp_comm_1_1_tcp_comm.html#aece2e45ea9aeb06325513d6f47663d67',1,'TcpComm::TcpComm']]],
+  ['_5fstart_23',['_Start',['../class_label_maker_1_1_interfaces_1_1_i_picture_1_1_a_picture.html#ab8d37d8dd9a89189f6c8c94b8f6a5225',1,'LabelMaker::Interfaces::IPicture::APicture']]],
+  ['_5fvid_24',['_vId',['../class_usb_comm_1_1_usb_comm.html#ad4e24f059f6269ad7ea0ea8c518192c3',1,'UsbComm::UsbComm']]]
+];

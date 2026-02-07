@@ -1,0 +1,5 @@
+var interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_point =
+[
+    [ "x", "interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_point.html#a6f38515f66af171528b220482d260408", null ],
+    [ "y", "interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_point.html#ab3ce21a2aafa28e4cfb488ebd5b3c316", null ]
+];

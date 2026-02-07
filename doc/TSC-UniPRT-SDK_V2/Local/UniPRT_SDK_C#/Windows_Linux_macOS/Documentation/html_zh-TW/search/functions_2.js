@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['close_524',['Close',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_tcp_connection.html#a4d0abf99df97b0b761e4b1f5507d73c3',1,'UniPRT.Sdk.Comm.TcpConnection.Close()'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a448be47c07cb46b3743ac0bc1927c0d8',1,'UniPRT.Sdk.Comm.AComm.Close()'],['../interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a0dd0a074b62ccd4ceffbbebb1a91ecd9',1,'UniPRT.Sdk.Comm.IComm.Close()'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#aa0ecbff98285a9c9f5252128a65ebd92',1,'UniPRT.Sdk.Comm.UsbConnection.Close()'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a168ea110d5266b592a7d4bd0065004b6',1,'UniPRT.Sdk.Comm.BTClassicConnection.Close()'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_com_connection.html#abccc644c5a1af39a79881f122f46dcd4',1,'UniPRT.Sdk.Comm.ComConnection.Close()']]],
+  ['config_525',['Config',['../class_uni_p_r_t_1_1_sdk_1_1_settings_1_1_config.html#a7eaaa25956a76b193a964e8cbe79aa0b',1,'UniPRT::Sdk::Settings::Config']]],
+  ['configs_526',['Configs',['../class_uni_p_r_t_1_1_sdk_1_1_settings_1_1_configs.html#a30fecb8bed7418489141feaab2b74981',1,'UniPRT.Sdk.Settings.Configs.Configs(IComm connection)'],['../class_uni_p_r_t_1_1_sdk_1_1_settings_1_1_configs.html#a0109e8464f9871528aefda54576bb0c8',1,'UniPRT.Sdk.Settings.Configs.Configs(string commDescriptor)']]],
+  ['createcomm_527',['CreateComm',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_communication.html#aa301ff1a68ee9b49354a43acba4437d4',1,'UniPRT::Sdk::Comm::Communication']]],
+  ['createmsgframe_528',['CreateMsgFrame',['../class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_string_builder.html#a25f3faf5ec3f3e1b0435ee657af88fae',1,'UniPRT::Sdk::Json::JsonStringBuilder']]],
+  ['createmsgframe_5fjson_529',['CreateMsgFrame_Json',['../class_uni_p_r_t_1_1_sdk_1_1_json_1_1_json_string_builder.html#ac562ed48f19e3fffe701d05c00f49dde',1,'UniPRT::Sdk::Json::JsonStringBuilder']]],
+  ['ctrlchar_530',['CtrlChar',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_a_data_matrix.html#a8733afe373f1efc4e4ebfb56f1c6b2da',1,'UniPRT::Sdk::LabelMaker::Interfaces::ADataMatrix']]]
+];

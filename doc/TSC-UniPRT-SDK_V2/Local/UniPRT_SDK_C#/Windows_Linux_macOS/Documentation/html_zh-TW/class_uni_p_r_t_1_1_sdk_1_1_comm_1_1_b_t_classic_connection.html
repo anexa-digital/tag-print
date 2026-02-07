@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: UniPRT.Sdk.Comm.BTClassicConnection  類別 參考文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">UniPRT SDK
+   &#160;<span id="projectnumber">v2.0.0.3</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜尋" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 產生者: Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜尋');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">複合項目</a> &#124;
+<a href="#pub-methods">公開方法(Public Methods)</a> &#124;
+<a href="#pub-static-methods">靜態公開方法(Static Public Methods)</a> &#124;
+<a href="#pub-attribs">公開屬性</a> &#124;
+<a href="#properties">屬性(properties)</a> &#124;
+<a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection-members.html">全部成員列表</a>  </div>
+  <div class="headertitle">
+<div class="title">UniPRT.Sdk.Comm.BTClassicConnection 類別 參考文件</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>實現藍牙經典通信並擴展AComm類的類別。  
+ <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#details">更多...</a></p>
+<div class="dynheader">
+類別UniPRT.Sdk.Comm.BTClassicConnection的繼承圖:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.png" usemap="#UniPRT.Sdk.Comm.BTClassicConnection_map" alt=""/>
+  <map id="UniPRT.Sdk.Comm.BTClassicConnection_map" name="UniPRT.Sdk.Comm.BTClassicConnection_map">
+<area href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html" title="實現 IComm 介面類別的預設功能的抽象類別" alt="UniPRT.Sdk.Comm.AComm" shape="rect" coords="0,56,240,80"/>
+<area href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html" title="Interface to a communication connection." alt="UniPRT.Sdk.Comm.IComm" shape="rect" coords="0,0,240,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+公開方法(Public Methods)</h2></td></tr>
+<tr class="memitem:a24ab63e3967e0e3a9cf6f371436a2097"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a24ab63e3967e0e3a9cf6f371436a2097">BTClassicConnection</a> (long macAddress)</td></tr>
+<tr class="memdesc:a24ab63e3967e0e3a9cf6f371436a2097"><td class="mdescLeft">&#160;</td><td class="mdescRight">根據__macAddress__初始化新類實例。 在連接之前，需要與印表機進行藍牙配對。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a24ab63e3967e0e3a9cf6f371436a2097">更多...</a><br /></td></tr>
+<tr class="separator:a24ab63e3967e0e3a9cf6f371436a2097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6923232d2e97fd3b16568227bb2b8010"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010">BTClassicConnection</a> (string descriptor)</td></tr>
+<tr class="memdesc:a6923232d2e97fd3b16568227bb2b8010"><td class="mdescLeft">&#160;</td><td class="mdescRight">根據__descriptor__字串初始化新類實例。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010">更多...</a><br /></td></tr>
+<tr class="separator:a6923232d2e97fd3b16568227bb2b8010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a168ea110d5266b592a7d4bd0065004b6"><td class="memItemLeft" align="right" valign="top"><a id="a168ea110d5266b592a7d4bd0065004b6"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a168ea110d5266b592a7d4bd0065004b6">Close</a> ()</td></tr>
+<tr class="memdesc:a168ea110d5266b592a7d4bd0065004b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a connection. <br /></td></tr>
+<tr class="separator:a168ea110d5266b592a7d4bd0065004b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86acfddb0860f499a6b7bb7de899b362"><td class="memItemLeft" align="right" valign="top"><a id="a86acfddb0860f499a6b7bb7de899b362"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a86acfddb0860f499a6b7bb7de899b362">Open</a> ()</td></tr>
+<tr class="memdesc:a86acfddb0860f499a6b7bb7de899b362"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a connection. <br /></td></tr>
+<tr class="separator:a86acfddb0860f499a6b7bb7de899b362"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a297d5cac9caf6f950481e0a6c662bcb5"><td class="memItemLeft" align="right" valign="top"><a id="a297d5cac9caf6f950481e0a6c662bcb5"></a>
+override byte[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a297d5cac9caf6f950481e0a6c662bcb5">Read</a> ()</td></tr>
+<tr class="memdesc:a297d5cac9caf6f950481e0a6c662bcb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read all bytes available. <br /></td></tr>
+<tr class="separator:a297d5cac9caf6f950481e0a6c662bcb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d898737fd90d070b2e5c025f5ce39c"><td class="memItemLeft" align="right" valign="top"><a id="ac2d898737fd90d070b2e5c025f5ce39c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#ac2d898737fd90d070b2e5c025f5ce39c">Read</a> (BinaryWriter binDataIn)</td></tr>
+<tr class="memdesc:ac2d898737fd90d070b2e5c025f5ce39c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads all bytes available into the stream passed in. <br /></td></tr>
+<tr class="separator:ac2d898737fd90d070b2e5c025f5ce39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fa8818dfb87edfbab7eb5f488f45435"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a1fa8818dfb87edfbab7eb5f488f45435">WaitForData</a> (int msTimeOut)</td></tr>
+<tr class="memdesc:a1fa8818dfb87edfbab7eb5f488f45435"><td class="mdescLeft">&#160;</td><td class="mdescRight">等待數據可用 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a607228f2aa7463618201fda21d5e0a7c">BytesAvailable</a> 在當前線程。當前線程休眠直到接收到數據或超時。阻塞調用。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a1fa8818dfb87edfbab7eb5f488f45435">更多...</a><br /></td></tr>
+<tr class="separator:a1fa8818dfb87edfbab7eb5f488f45435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4026e9d6fba29d7a3daf5ce2f583835c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a4026e9d6fba29d7a3daf5ce2f583835c">Write</a> (BinaryReader binReader)</td></tr>
+<tr class="memdesc:a4026e9d6fba29d7a3daf5ce2f583835c"><td class="mdescLeft">&#160;</td><td class="mdescRight">從輸入流寫入輸出流  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a4026e9d6fba29d7a3daf5ce2f583835c">更多...</a><br /></td></tr>
+<tr class="separator:a4026e9d6fba29d7a3daf5ce2f583835c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a603f6f51deb9b24cb195d19c1b429a"><td class="memItemLeft" align="right" valign="top"><a id="a6a603f6f51deb9b24cb195d19c1b429a"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6a603f6f51deb9b24cb195d19c1b429a">Write</a> (byte[] dataOut)</td></tr>
+<tr class="memdesc:a6a603f6f51deb9b24cb195d19c1b429a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all bytes from the array passed in. <br /></td></tr>
+<tr class="separator:a6a603f6f51deb9b24cb195d19c1b429a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab935a61657b32455b09dd817a3682495"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#ab935a61657b32455b09dd817a3682495">WriteAndWaitForResponse</a> (BinaryWriter binDataIn, BinaryReader binDataOut, int responseStartTimeOut, int responseEndTimeOut, string completetionToken)</td></tr>
+<tr class="memdesc:ab935a61657b32455b09dd817a3682495"><td class="mdescLeft">&#160;</td><td class="mdescRight">將 binDataOut 流數據寫入輸出流，並將接收到的數據返回到 binDataIn 流中。返回的數據是接收到的任何數據或達到接收的完成令牌。如果沒有回應則在返回前等待超時。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#ab935a61657b32455b09dd817a3682495">更多...</a><br /></td></tr>
+<tr class="separator:ab935a61657b32455b09dd817a3682495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29721ecab9ac8ed3509e585503375dfe"><td class="memItemLeft" align="right" valign="top">virtual byte[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a29721ecab9ac8ed3509e585503375dfe">WriteAndWaitForResponse</a> (byte[] dataOut, int responseStartTimeOut, int responseEndTimeOut, string completetionToken)</td></tr>
+<tr class="memdesc:a29721ecab9ac8ed3509e585503375dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">將字節數據寫入輸出流並返回接收到的數據。返回的數據是接收到的任何數據或達到接收的完成令牌。在返回前等待回應超時。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a29721ecab9ac8ed3509e585503375dfe">更多...</a><br /></td></tr>
+<tr class="separator:a29721ecab9ac8ed3509e585503375dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+靜態公開方法(Static Public Methods)</h2></td></tr>
+<tr class="memitem:a8d8e5e5ed5db819efabfa6f4acea8dae"><td class="memItemLeft" align="right" valign="top">static long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a8d8e5e5ed5db819efabfa6f4acea8dae">DescriptorValidate</a> (string descriptorHint)</td></tr>
+<tr class="memdesc:a8d8e5e5ed5db819efabfa6f4acea8dae"><td class="mdescLeft">&#160;</td><td class="mdescRight">驗證從 descriptorHint 傳入的描述符字串，該字串可能包含或不包含 v_id 和 p_id。返回元組。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a8d8e5e5ed5db819efabfa6f4acea8dae">更多...</a><br /></td></tr>
+<tr class="separator:a8d8e5e5ed5db819efabfa6f4acea8dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+公開屬性</h2></td></tr>
+<tr class="memitem:a078370baa30616e144f4e2dab14b08a9"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a078370baa30616e144f4e2dab14b08a9">Descriptor</a> =&gt; $&quot;BT:MAC Address:{_bt_address.ToString(&quot;X12&quot;)}&quot;</td></tr>
+<tr class="memdesc:a078370baa30616e144f4e2dab14b08a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回連接的字符串描述。格式："<b>BT</b>:<b>MAC Address</b>:_bt_mac" 例如 "<b>BT</b>:<b>MAC Address</b>:0080A3123456"  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a078370baa30616e144f4e2dab14b08a9">更多...</a><br /></td></tr>
+<tr class="separator:a078370baa30616e144f4e2dab14b08a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+屬性(properties)</h2></td></tr>
+<tr class="memitem:a4d1c98c1715e8140dc66c180f90acc48"><td class="memItemLeft" align="right" valign="top"><a id="a4d1c98c1715e8140dc66c180f90acc48"></a>
+override int&#160;</td><td class="memItemRight" valign="bottom"><b>BytesAvailable</b><code> [get]</code></td></tr>
+<tr class="separator:a4d1c98c1715e8140dc66c180f90acc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af328edd8ad4b1146448e0d39d70d0b5d"><td class="memItemLeft" align="right" valign="top"><a id="af328edd8ad4b1146448e0d39d70d0b5d"></a>
+override bool&#160;</td><td class="memItemRight" valign="bottom"><b>Connected</b><code> [get]</code></td></tr>
+<tr class="separator:af328edd8ad4b1146448e0d39d70d0b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳細描述</h2>
+<div class="textblock"><p>實現藍牙經典通信並擴展AComm類的類別。 </p>
+<h1><a class="anchor" id="Examples"></a>
+Examples</h1>
+<p><a class="anchor" id="refToBTClassiCommExample"></a></p><div class="fragment"><div class="line"><span class="keyword">using</span> System;</div>
+<div class="line"><span class="keyword">using</span> System.IO;</div>
+<div class="line"><span class="keyword">using</span> System.Text;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="namespace_uni_p_r_t.html">UniPRT</a>.<a class="code" href="namespace_uni_p_r_t_1_1_sdk.html">Sdk</a>.<a class="code" href="namespace_uni_p_r_t_1_1_sdk_1_1_comm.html">Comm</a>;  <span class="comment">// imports SDK namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>Snippets</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">class </span>MyComm</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> MainComm(<span class="keywordtype">string</span>[] args)</div>
+<div class="line">        {</div>
+<div class="line">            SendPrintFile();     <span class="comment">// send file over BT Classic</span></div>
+<div class="line">            SendPrintString();   <span class="comment">// send print data over BT Classic           </span></div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> SendPrintFile()  <span class="comment">// send file over usb</span></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordtype">string</span> fileName = <span class="stringliteral">@&quot;C:\testFiles\Hello.pgl&quot;</span>;</div>
+<div class="line">            <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010">BTClassicConnection</a> BTClassicComm = <span class="keyword">new</span> <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010">BTClassicConnection</a>(0x8CDE5294F30F);</div>
+<div class="line">            <span class="keywordflow">try</span></div>
+<div class="line">            {</div>
+<div class="line">                BTClassicComm.Open();</div>
+<div class="line">                <span class="keywordflow">if</span> (File.Exists(fileName))</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="keyword">using</span> (BinaryReader binReader = <span class="keyword">new</span> BinaryReader(File.Open(fileName, FileMode.Open)))</div>
+<div class="line">                    {</div>
+<div class="line">                        Console.WriteLine($<span class="stringliteral">&quot;Sending \&quot;{fileName}\&quot; to printer&quot;</span>);</div>
+<div class="line">                        BTClassicComm.Write(binReader);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span></div>
+<div class="line">                {</div>
+<div class="line">                    Console.WriteLine($<span class="stringliteral">&quot;File \&quot;{fileName}\&quot; not found&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line">            {</div>
+<div class="line">                Console.WriteLine($<span class="stringliteral">&quot;Exception Msg: {e.Message}&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">finally</span></div>
+<div class="line">            {</div>
+<div class="line">                BTClassicComm.Close();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> SendPrintString()    <span class="comment">// send print data over BT Classic</span></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordtype">string</span> dataToPrint =</div>
+<div class="line"><span class="stringliteral">@&quot;~CREATE;C39;72</span></div>
+<div class="line"><span class="stringliteral">    SCALE;DOT</span></div>
+<div class="line"><span class="stringliteral">    PAGE;30;40</span></div>
+<div class="line"><span class="stringliteral">    ALPHA</span></div>
+<div class="line"><span class="stringliteral">    C10;1;33;0;0;@HELLO@</span></div>
+<div class="line"><span class="stringliteral">    C16;54;37;0;0;@*World*@</span></div>
+<div class="line"><span class="stringliteral">    STOP</span></div>
+<div class="line"><span class="stringliteral">    BARCODE</span></div>
+<div class="line"><span class="stringliteral">    C128C;XRD3:3:6:6:9:9:12:12;H6;10;32</span></div>
+<div class="line"><span class="stringliteral">    @World@</span></div>
+<div class="line"><span class="stringliteral">    STOP</span></div>
+<div class="line"><span class="stringliteral">    END</span></div>
+<div class="line"><span class="stringliteral">    ~EXECUTE;C39</span></div>
+<div class="line"><span class="stringliteral">    ~NORMAL</span></div>
+<div class="line"><span class="stringliteral"></span> </div>
+<div class="line"><span class="stringliteral">    &quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">            <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010">BTClassicConnection</a> BTClassicComm = <span class="keyword">new</span> <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010">BTClassicConnection</a>(0x8CDE5294F30F);</div>
+<div class="line">            <span class="keywordflow">try</span></div>
+<div class="line">            {</div>
+<div class="line">                BTClassicComm.Open();</div>
+<div class="line"> </div>
+<div class="line">                <span class="keywordflow">if</span> (BTClassicComm.Connected)</div>
+<div class="line">                {</div>
+<div class="line">                    <span class="comment">//byte[] outBytes = Encoding.UTF8.GetBytes(dataToPrint);</span></div>
+<div class="line">                    <span class="keywordtype">byte</span>[] outBytes = Encoding.ASCII.GetBytes(dataToPrint);</div>
+<div class="line">                    BTClassicComm.Write(outBytes);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">else</span></div>
+<div class="line">                {</div>
+<div class="line">                    Console.WriteLine($<span class="stringliteral">&quot;Not connected to printer&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line">            {</div>
+<div class="line">                Console.WriteLine($<span class="stringliteral">&quot;Exception Msg: {e.Message}&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">finally</span></div>
+<div class="line">            {</div>
+<div class="line">                BTClassicComm.Close();</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> <br  />
+ </p>
+</div><h2 class="groupheader">建構子與解構子說明文件</h2>
+<a id="a6923232d2e97fd3b16568227bb2b8010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6923232d2e97fd3b16568227bb2b8010">&#9670;&nbsp;</a></span>BTClassicConnection() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UniPRT.Sdk.Comm.BTClassicConnection.BTClassicConnection </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>descriptor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根據__descriptor__字串初始化新類實例。 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">descriptor</td><td>可接受的格式：<ul>
+<li>"BT:MAC Address:&lt;_bt_mac&gt;"<ul>
+<li>_bt_mac 是十六進制的<b>字符串</b>b&gt;。例如: MAC Address:0080A3123456 </li>
+</ul>
+</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24ab63e3967e0e3a9cf6f371436a2097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ab63e3967e0e3a9cf6f371436a2097">&#9670;&nbsp;</a></span>BTClassicConnection() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UniPRT.Sdk.Comm.BTClassicConnection.BTClassicConnection </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>macAddress</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根據__macAddress__初始化新類實例。 在連接之前，需要與印表機進行藍牙配對。 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">macAddress</td><td>指定要通過印表機的藍牙MAC地址連接的印表機。例如：0x0080A3123456 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">函式成員說明文件</h2>
+<a id="a8d8e5e5ed5db819efabfa6f4acea8dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d8e5e5ed5db819efabfa6f4acea8dae">&#9670;&nbsp;</a></span>DescriptorValidate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static long UniPRT.Sdk.Comm.BTClassicConnection.DescriptorValidate </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>descriptorHint</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>驗證從 descriptorHint 傳入的描述符字串，該字串可能包含或不包含 v_id 和 p_id。返回元組。 </p>
+<p>descriptorHint 接受的值：</p><ul>
+<li>"BT:MAC Address:&lt;_bt_mac&gt;"<ul>
+<li>_bt_mac 是十六進制 <b>字符串</b>b&gt;。例如: MAC Address:0080A3123456 </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="a1fa8818dfb87edfbab7eb5f488f45435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa8818dfb87edfbab7eb5f488f45435">&#9670;&nbsp;</a></span>WaitForData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void UniPRT.Sdk.Comm.AComm.WaitForData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msTimeOut</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>等待數據可用 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a607228f2aa7463618201fda21d5e0a7c">BytesAvailable</a> 在當前線程。當前線程休眠直到接收到數據或超時。阻塞調用。 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msTimeOut</td><td>如果未接收到數據則在返回前的毫秒超時時間。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>實作 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#ae809ff7ef10cb9bcdf3e8e44f75f474a">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<a id="a4026e9d6fba29d7a3daf5ce2f583835c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4026e9d6fba29d7a3daf5ce2f583835c">&#9670;&nbsp;</a></span>Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void UniPRT.Sdk.Comm.AComm.Write </td>
+          <td>(</td>
+          <td class="paramtype">BinaryReader&#160;</td>
+          <td class="paramname"><em>binReader</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>從輸入流寫入輸出流 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">binReader</td><td>要發送的來源數據 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>實作 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#aff51470df8d83e4a058bb70b11d487b8">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<a id="ab935a61657b32455b09dd817a3682495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab935a61657b32455b09dd817a3682495">&#9670;&nbsp;</a></span>WriteAndWaitForResponse() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void UniPRT.Sdk.Comm.AComm.WriteAndWaitForResponse </td>
+          <td>(</td>
+          <td class="paramtype">BinaryWriter&#160;</td>
+          <td class="paramname"><em>binDataIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BinaryReader&#160;</td>
+          <td class="paramname"><em>binDataOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseStartTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseEndTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>completetionToken</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>將 binDataOut 流數據寫入輸出流，並將接收到的數據返回到 binDataIn 流中。返回的數據是接收到的任何數據或達到接收的完成令牌。如果沒有回應則在返回前等待超時。 </p>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">binDataIn</td><td>目標流以存儲從連接接收到的回應。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">binDataOut</td><td><br  />
+ 要寫入連接的來源流數據。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseStartTimeOut</td><td>等待接收到第一個數據的超時時間（毫秒）。第一個字節的時間。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseEndTimeOut</td><td>沒有接收到新數據的超時時間（毫秒）。最後一個字節後的時間。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">completetionToken</td><td>指示預期回應結束的字符串令牌。如果只是想等待寫入數據後的回應，可以是空字符串。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>實作 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#ab7133c6d6ab80aeb6b3f3317e877e0ce">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<a id="a29721ecab9ac8ed3509e585503375dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29721ecab9ac8ed3509e585503375dfe">&#9670;&nbsp;</a></span>WriteAndWaitForResponse() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual byte [] UniPRT.Sdk.Comm.AComm.WriteAndWaitForResponse </td>
+          <td>(</td>
+          <td class="paramtype">byte[]&#160;</td>
+          <td class="paramname"><em>dataOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseStartTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseEndTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>completetionToken</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>將字節數據寫入輸出流並返回接收到的數據。返回的數據是接收到的任何數據或達到接收的完成令牌。在返回前等待回應超時。 </p>
+<dl class="retval"><dt>傳回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">byte[]</td><td>從連接接收到的字節數組。 返回的數據是接收到的任何數據或達到完成標記時的數據。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>參數</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataOut</td><td><br  />
+ 要寫入連接的來源字節數組。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseStartTimeOut</td><td>等待接收到第一個數據的超時時間（毫秒）。第一個字節的時間。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseEndTimeOut</td><td>沒有接收到新數據的超時時間（毫秒）。最後一個字節後的時間。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">completetionToken</td><td>指示預期回應結束的字符串令牌。如果只是想等待寫入數據後的回應，可以是空字符串。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>實作 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a9b71a952461bf8ecb42eed6e1a6d159a">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">資料成員說明文件</h2>
+<a id="a078370baa30616e144f4e2dab14b08a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078370baa30616e144f4e2dab14b08a9">&#9670;&nbsp;</a></span>Descriptor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string UniPRT.Sdk.Comm.BTClassicConnection.Descriptor =&gt; $&quot;BT:MAC Address:{_bt_address.ToString(&quot;X12&quot;)}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>返回連接的字符串描述。格式："<b>BT</b>:<b>MAC Address</b>:_bt_mac" 例如 "<b>BT</b>:<b>MAC Address</b>:0080A3123456" </p>
+<p>回傳格式:</p><ul>
+<li>BT:MAC Address:&lt;_bt_mac&gt;<ul>
+<li>_bt_mac 為 <b>String</b>b&gt;. 例: MAC Address:0080A3123456 </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="anamespace_uni_p_r_t_html"><div class="ttname"><a href="namespace_uni_p_r_t.html">UniPRT</a></div><div class="ttdoc">提供對不同通訊介面/端口的支援</div><div class="ttdef"><b>Definition:</b> Communication.cs:9</div></div>
+<div class="ttc" id="anamespace_uni_p_r_t_1_1_sdk_1_1_comm_html"><div class="ttname"><a href="namespace_uni_p_r_t_1_1_sdk_1_1_comm.html">UniPRT.Sdk.Comm</a></div><div class="ttdef"><b>Definition:</b> Communication.cs:9</div></div>
+<div class="ttc" id="anamespace_uni_p_r_t_1_1_sdk_html"><div class="ttname"><a href="namespace_uni_p_r_t_1_1_sdk.html">UniPRT.Sdk</a></div><div class="ttdef"><b>Definition:</b> Communication.cs:9</div></div>
+<div class="ttc" id="aclass_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection_html_a6923232d2e97fd3b16568227bb2b8010"><div class="ttname"><a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010">UniPRT.Sdk.Comm.BTClassicConnection.BTClassicConnection</a></div><div class="ttdeci">BTClassicConnection(string descriptor)</div><div class="ttdoc">根據__descriptor__字串初始化新類實例。</div><div class="ttdef"><b>Definition:</b> BtComm.cs:311</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_uni_p_r_t.html">UniPRT</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk.html">Sdk</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk_1_1_comm.html">Comm</a></li><li class="navelem"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html">BTClassicConnection</a></li>
+    <li class="footer">產生者:
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
+</body>
+</html>

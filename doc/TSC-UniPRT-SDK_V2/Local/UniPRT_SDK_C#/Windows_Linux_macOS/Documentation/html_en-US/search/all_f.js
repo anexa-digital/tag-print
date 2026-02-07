@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['p_5fid_260',['P_ID',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#adfb09d127ab638dc3ea1c9202bef4dde',1,'UniPRT::Sdk::Comm::UsbConnection']]],
+  ['parity_261',['Parity',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_com_connection.html#a453bdd79ac7d5226d49c067aadcc0fb0',1,'UniPRT::Sdk::Comm::ComConnection']]],
+  ['password_262',['Password',['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_rfid_password.html#a92f944fc841dc70a63aaec3b411833f4',1,'UniPRT.Sdk.LabelMaker.Interfaces.IRfidPassword.Password()'],['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_rfid_write.html#a57cd8a63f53938e42db8714a9a54196d',1,'UniPRT.Sdk.LabelMaker.Interfaces.IRfidWrite.Password()']]],
+  ['passwordtype_263',['PasswordType',['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_rfid_password.html#a4724069a0045c5c883c653aa4045cfc9',1,'UniPRT::Sdk::LabelMaker::Interfaces::IRfidPassword']]],
+  ['pc_264',['PC',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a161400a0b863035638de73670c4c4d03a88dba0c4e2af76447df43d1e31331a3d',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['pdf417barcode_265',['Pdf417Barcode',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_p_g_l_1_1_pdf417_barcode.html',1,'UniPRT.Sdk.LabelMaker.PGL.Pdf417Barcode'],['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_t_s_p_l_1_1_pdf417_barcode.html',1,'UniPRT.Sdk.LabelMaker.TSPL.Pdf417Barcode']]],
+  ['pdf417errcorrectionenum_266',['Pdf417ErrCorrectionEnum',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a8aa9fec3532e8ca534f2b5afb24f6f1b',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['percent_267',['Percent',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a4172e961ce515dee2836746d605f21b1aadaaee4b22041c27198d410c68d952c9',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['permalock_268',['PermaLock',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a6b4e5a7e993ae325d8381638d2840d44ab2e82dc36ae0309691642fa587edeb7d',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['permaunlock_269',['PermaUnlock',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a6b4e5a7e993ae325d8381638d2840d44acbef2f3702bd20727d3efdc7998521f4',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['pgl_5futilities_270',['PGL_Utilities',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_pgl_lib_1_1_p_g_l___utilities.html',1,'UniPRT::Sdk::LabelMaker::PglLib']]],
+  ['picutre_271',['Picutre',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_t_s_p_l_1_1_picutre.html',1,'UniPRT.Sdk.LabelMaker.TSPL.Picutre'],['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_p_g_l_1_1_picutre.html',1,'UniPRT.Sdk.LabelMaker.PGL.Picutre']]],
+  ['point_272',['Point',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_point.html',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['points_273',['Points',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a4172e961ce515dee2836746d605f21b1a75dd5f1160a3f02b6fae89c54361a1b3',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['port_274',['Port',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_tcp_connection.html#a77f01cfc4c27b6b51cd1cabb05d72197',1,'UniPRT::Sdk::Comm::TcpConnection']]],
+  ['primarymsg_275',['PrimaryMsg',['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_maxicode_msg.html#a8a78b716c143e8013fa894385fb14da9',1,'UniPRT::Sdk::LabelMaker::Interfaces::IMaxicodeMsg']]],
+  ['printerinfo_276',['PrinterInfo',['../class_uni_p_r_t_1_1_sdk_1_1_reports_1_1_printer_info.html',1,'UniPRT::Sdk::Reports']]],
+  ['printermonitor_277',['PrinterMonitor',['../class_uni_p_r_t_1_1_sdk_1_1_monitor_1_1_printer_monitor.html',1,'UniPRT.Sdk.Monitor.PrinterMonitor'],['../class_uni_p_r_t_1_1_sdk_1_1_monitor_1_1_printer_monitor.html#a20abde2387e52b6ef52e010c1e2e8940',1,'UniPRT.Sdk.Monitor.PrinterMonitor.PrinterMonitor()']]],
+  ['printerresolution_278',['PrinterResolution',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_defaults.html#ab4618b8dba1e773a88bc92eb6780c431',1,'UniPRT::Sdk::LabelMaker::Interfaces::Defaults']]],
+  ['printheadresolution_279',['PrintheadResolution',['../class_uni_p_r_t_1_1_sdk_1_1_reports_1_1_printer_info.html#a80b0de530deae4606714744092b54563',1,'UniPRT::Sdk::Reports::PrinterInfo']]],
+  ['printhumanreadable_280',['PrintHumanReadable',['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_barcode__1_d___properties.html#af9626dd45fdb2df898cbbbf1a63345f2',1,'UniPRT::Sdk::LabelMaker::Interfaces::IBarcode_1D_Properties']]],
+  ['printresolution_281',['PrintResolution',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_print_resolution.html',1,'UniPRT.Sdk.LabelMaker.Interfaces.PrintResolution'],['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_print_resolution.html#a7a9a31c9080ab9c7a7a0de6c1fc92aa0',1,'UniPRT.Sdk.LabelMaker.Interfaces.PrintResolution.PrintResolution()']]],
+  ['programfile_282',['ProgramFile',['../class_uni_p_r_t_1_1_sdk_1_1_settings_1_1_config.html#a98b8c5ebdc10b033857a082f08baecc0',1,'UniPRT::Sdk::Settings::Config']]],
+  ['ptx_283',['PTX',['../namespace_uni_p_r_t_1_1_sdk_1_1_discovery.html#a6bf1e4e0f4246e03cb1b86e6fc412e64ae3c5ca6a28ee215e0adfb1a014d9d7ab',1,'UniPRT::Sdk::Discovery']]],
+  ['ptx_5fusb_5fvid_284',['PTX_USB_VID',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ae455e6617518a1d73e53920b0841519c',1,'UniPRT::Sdk::Comm::UsbConnection']]]
+];

@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: LabelMaker.PGL.Label.Label类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">UniPRT SDK<span id="projectnumber">&#160;v２.0.0.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('class_label_maker_1_1_p_g_l_1_1_label_1_1_label.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="class_label_maker_1_1_p_g_l_1_1_label_1_1_label-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LabelMaker.PGL.Label.Label类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>表示可以格式化打印的标签。  
+ <a href="#details">更多...</a></p>
+<div class="dynheader">
+类 LabelMaker.PGL.Label.Label 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_label_maker_1_1_p_g_l_1_1_label_1_1_label.png" usemap="#LabelMaker.PGL.Label.Label_map" alt=""/>
+  <map id="LabelMaker.PGL.Label.Label_map" name="LabelMaker.PGL.Label.Label_map">
+<area href="class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label.html" title="标签是包含其他打印对象的容器。" alt="LabelMaker.Interfaces.ILabel.ILabel" shape="rect" coords="0,56,215,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:acad11c28732b7d30fadd5d870aaee024" id="r_acad11c28732b7d30fadd5d870aaee024"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acad11c28732b7d30fadd5d870aaee024">__init__</a> (self, str <a class="el" href="#a140771b459354d5fde7277f7ab20d2a7">name</a>)</td></tr>
+<tr class="memdesc:acad11c28732b7d30fadd5d870aaee024"><td class="mdescLeft">&#160;</td><td class="mdescRight">使用指定名称初始化Label类的新实例。  <br /></td></tr>
+<tr class="separator:acad11c28732b7d30fadd5d870aaee024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a140771b459354d5fde7277f7ab20d2a7" id="r_a140771b459354d5fde7277f7ab20d2a7"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a140771b459354d5fde7277f7ab20d2a7">name</a> (self)</td></tr>
+<tr class="memdesc:a140771b459354d5fde7277f7ab20d2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取标签的名称。  <br /></td></tr>
+<tr class="separator:a140771b459354d5fde7277f7ab20d2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02b22c6d6aa9a3625200ac3386908c3a" id="r_a02b22c6d6aa9a3625200ac3386908c3a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02b22c6d6aa9a3625200ac3386908c3a">name</a> (self, str name)</td></tr>
+<tr class="memdesc:a02b22c6d6aa9a3625200ac3386908c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">设置标签的名称。  <br /></td></tr>
+<tr class="separator:a02b22c6d6aa9a3625200ac3386908c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8eddacedddf5231eb42e8bc12fff16d" id="r_ae8eddacedddf5231eb42e8bc12fff16d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8eddacedddf5231eb42e8bc12fff16d">add_object</a> (self, Union[object, str] add_object)</td></tr>
+<tr class="memdesc:ae8eddacedddf5231eb42e8bc12fff16d"><td class="mdescLeft">&#160;</td><td class="mdescRight">向标签添加可以转换为打印机语言语法的对象。  <br /></td></tr>
+<tr class="separator:ae8eddacedddf5231eb42e8bc12fff16d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5365a716f4837dc18ec58697e4ff1b09" id="r_a5365a716f4837dc18ec58697e4ff1b09"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5365a716f4837dc18ec58697e4ff1b09">add_raw_content</a> (self, str raw_content)</td></tr>
+<tr class="memdesc:a5365a716f4837dc18ec58697e4ff1b09"><td class="mdescLeft">&#160;</td><td class="mdescRight">向标签添加原始内容，以便在需要添加自定义内容的情况下使用。  <br /></td></tr>
+<tr class="separator:a5365a716f4837dc18ec58697e4ff1b09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0d3b3025112947484ea7e794090c49c" id="r_aa0d3b3025112947484ea7e794090c49c"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0d3b3025112947484ea7e794090c49c">__str__</a> (self)</td></tr>
+<tr class="memdesc:aa0d3b3025112947484ea7e794090c49c"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回可以发送到打印机的字符串。  <br /></td></tr>
+<tr class="separator:aa0d3b3025112947484ea7e794090c49c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label')"><img src="closed.png" alt="-"/>&#160;Public 成员函数 继承自 <a class="el" href="class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label.html">LabelMaker.Interfaces.ILabel.ILabel</a></td></tr>
+<tr class="memitem:af6846dc25c1d88601d83441ee7f14ac3 inherit pub_methods_class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label" id="r_af6846dc25c1d88601d83441ee7f14ac3"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label.html#af6846dc25c1d88601d83441ee7f14ac3">__str__</a> (self)</td></tr>
+<tr class="memdesc:af6846dc25c1d88601d83441ee7f14ac3 inherit pub_methods_class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回可以发送到打印机的字符串。  <br /></td></tr>
+<tr class="separator:af6846dc25c1d88601d83441ee7f14ac3 inherit pub_methods_class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a868648004a16c535b585c22d72c6e1db" id="r_a868648004a16c535b585c22d72c6e1db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a868648004a16c535b585c22d72c6e1db">form</a> = PglForm(<a class="el" href="#a140771b459354d5fde7277f7ab20d2a7">name</a>=<a class="el" href="#a140771b459354d5fde7277f7ab20d2a7">name</a>)</td></tr>
+<tr class="separator:a868648004a16c535b585c22d72c6e1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0e838253cf76829907a5632d4bc7b4b" id="r_ab0e838253cf76829907a5632d4bc7b4b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0e838253cf76829907a5632d4bc7b4b">scale</a></td></tr>
+<tr class="separator:ab0e838253cf76829907a5632d4bc7b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>表示可以格式化打印的标签。 </p>
+<p>此类提供用于创建和管理具有指定设置的标签的功能，允许添加对象和原始内容，以便格式化为打印机语言语法。 </p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="acad11c28732b7d30fadd5d870aaee024" name="acad11c28732b7d30fadd5d870aaee024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acad11c28732b7d30fadd5d870aaee024">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.PGL.Label.Label.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>使用指定名称初始化Label类的新实例。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>标签的名称。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="aa0d3b3025112947484ea7e794090c49c" name="aa0d3b3025112947484ea7e794090c49c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d3b3025112947484ea7e794090c49c">&#9670;&#160;</a></span>__str__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str LabelMaker.PGL.Label.Label.__str__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>返回可以发送到打印机的字符串。 </p>
+<p>此方法生成Label实例的字符串表示形式，格式化并准备发送到打印机。字符串包括所有打印所需的命令和数据。</p>
+<dl class="section return"><dt>返回</dt><dd>Label实例的字符串描述。 </dd></dl>
+
+</div>
+</div>
+<a id="ae8eddacedddf5231eb42e8bc12fff16d" name="ae8eddacedddf5231eb42e8bc12fff16d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8eddacedddf5231eb42e8bc12fff16d">&#9670;&#160;</a></span>add_object()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.PGL.Label.Label.add_object </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Union[object, str]</td>          <td class="paramname"><span class="paramname"><em>add_object</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>向标签添加可以转换为打印机语言语法的对象。 </p>
+<p>此方法允许添加任何可以格式化为标签的打印机语言的对象。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">add_object</td><td>要添加到标签的对象。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label.html#ad2f1c1d48136f2066bb95e23f7b1df31">LabelMaker.Interfaces.ILabel.ILabel</a> .</p>
+
+</div>
+</div>
+<a id="a5365a716f4837dc18ec58697e4ff1b09" name="a5365a716f4837dc18ec58697e4ff1b09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5365a716f4837dc18ec58697e4ff1b09">&#9670;&#160;</a></span>add_raw_content()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.PGL.Label.Label.add_raw_content </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>raw_content</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>向标签添加原始内容，以便在需要添加自定义内容的情况下使用。 </p>
+<p>添加原始内容允许添加可能不可用的打印机语言命令或其他功能。不进行内容格式化；调用者负责确保内容遵循打印机语言语法。</p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">raw_content</td><td>要添加到标签的原始内容。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>重载 <a class="el" href="class_label_maker_1_1_interfaces_1_1_i_label_1_1_i_label.html#a699ade8874bfa28b231cee43652ff466">LabelMaker.Interfaces.ILabel.ILabel</a> .</p>
+
+</div>
+</div>
+<a id="a140771b459354d5fde7277f7ab20d2a7" name="a140771b459354d5fde7277f7ab20d2a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a140771b459354d5fde7277f7ab20d2a7">&#9670;&#160;</a></span>name() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> str LabelMaker.PGL.Label.Label.name </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>获取标签的名称。 </p>
+<dl class="section return"><dt>返回</dt><dd>标签的名称。 </dd></dl>
+
+</div>
+</div>
+<a id="a02b22c6d6aa9a3625200ac3386908c3a" name="a02b22c6d6aa9a3625200ac3386908c3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b22c6d6aa9a3625200ac3386908c3a">&#9670;&#160;</a></span>name() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.PGL.Label.Label.name </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>设置标签的名称。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>标签的新名称。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a868648004a16c535b585c22d72c6e1db" name="a868648004a16c535b585c22d72c6e1db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a868648004a16c535b585c22d72c6e1db">&#9670;&#160;</a></span>form</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.PGL.Label.Label.form = PglForm(<a class="el" href="#a140771b459354d5fde7277f7ab20d2a7">name</a>=<a class="el" href="#a140771b459354d5fde7277f7ab20d2a7">name</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab0e838253cf76829907a5632d4bc7b4b" name="ab0e838253cf76829907a5632d4bc7b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e838253cf76829907a5632d4bc7b4b">&#9670;&#160;</a></span>scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LabelMaker.PGL.Label.Label.scale</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=  Scale(</div>
+<div class="line">            units=PGLScaleUnits.DOT,</div>
+<div class="line">            horz_resolution=int(Defaults.printer_resolution().dots_per_inch),</div>
+<div class="line">            vert_resolution=int(Defaults.printer_resolution().dots_per_inch),</div>
+<div class="line">        )</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>/Users/bob_huang/Documents/Project/UniPRTSDK_python/LabelMaker/PGL/<b>Label.py</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_label_maker.html">LabelMaker</a></li><li class="navelem"><a class="el" href="namespace_label_maker_1_1_p_g_l.html">PGL</a></li><li class="navelem"><a class="el" href="namespace_label_maker_1_1_p_g_l_1_1_label.html">Label</a></li><li class="navelem"><a class="el" href="class_label_maker_1_1_p_g_l_1_1_label_1_1_label.html">Label</a></li>
+    <li class="footer">制作者 <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

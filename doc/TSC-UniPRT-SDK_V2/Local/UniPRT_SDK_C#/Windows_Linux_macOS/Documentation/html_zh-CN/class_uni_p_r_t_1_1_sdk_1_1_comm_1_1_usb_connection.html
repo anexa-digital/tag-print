@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>UniPRT SDK: UniPRT.Sdk.Comm.UsbConnection类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="custom.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo_tsc_w.png"/></td>
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">UniPRT SDK
+   &#160;<span id="projectnumber">v2.0.0.3</span>
+   </div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.8.16 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'搜索');
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
+<a href="#properties">属性</a> &#124;
+<a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection-members.html">所有成员列表</a>  </div>
+  <div class="headertitle">
+<div class="title">UniPRT.Sdk.Comm.UsbConnection类 参考</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>实现USB特定通信并扩展AComm类的类。  
+ <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#details">更多...</a></p>
+<div class="dynheader">
+类 UniPRT.Sdk.Comm.UsbConnection 继承关系图:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.png" usemap="#UniPRT.Sdk.Comm.UsbConnection_map" alt=""/>
+  <map id="UniPRT.Sdk.Comm.UsbConnection_map" name="UniPRT.Sdk.Comm.UsbConnection_map">
+<area href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html" title="实现 IComm 接口类的默认功能的抽象类" alt="UniPRT.Sdk.Comm.AComm" shape="rect" coords="0,56,205,80"/>
+<area href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html" title="Interface to a communication connection" alt="UniPRT.Sdk.Comm.IComm" shape="rect" coords="0,0,205,24"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:ad59c06832485f9c61cef310e5a74ae14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UsbConnection</a> ()</td></tr>
+<tr class="memdesc:ad59c06832485f9c61cef310e5a74ae14"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据 <b>vendorId</b> 和 <b>productId</b> 初始化新类实例。此实例的目标是与 vendorId 和 productId 匹配的第一个印表机。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">更多...</a><br /></td></tr>
+<tr class="separator:ad59c06832485f9c61cef310e5a74ae14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cd357e0744f7d2f45a8b5f7470bf2d"><td class="memItemLeft" align="right" valign="top"><a id="a20cd357e0744f7d2f45a8b5f7470bf2d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>UsbConnection</b> (short vendorId)</td></tr>
+<tr class="separator:a20cd357e0744f7d2f45a8b5f7470bf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6162e593033d8cedf18f097194ad90b1"><td class="memItemLeft" align="right" valign="top"><a id="a6162e593033d8cedf18f097194ad90b1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>UsbConnection</b> (short vendorId, short productId)</td></tr>
+<tr class="separator:a6162e593033d8cedf18f097194ad90b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7cd011a94509307f89b98b7a0b916af"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad7cd011a94509307f89b98b7a0b916af">UsbConnection</a> (string descriptor)</td></tr>
+<tr class="memdesc:ad7cd011a94509307f89b98b7a0b916af"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据 <b>descriptor</b> 字符串初始化新类实例。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad7cd011a94509307f89b98b7a0b916af">更多...</a><br /></td></tr>
+<tr class="separator:ad7cd011a94509307f89b98b7a0b916af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ecbff98285a9c9f5252128a65ebd92"><td class="memItemLeft" align="right" valign="top"><a id="aa0ecbff98285a9c9f5252128a65ebd92"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#aa0ecbff98285a9c9f5252128a65ebd92">Close</a> ()</td></tr>
+<tr class="memdesc:aa0ecbff98285a9c9f5252128a65ebd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a connection. <br /></td></tr>
+<tr class="separator:aa0ecbff98285a9c9f5252128a65ebd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7523fa9b8a9052c502a31bfca11edcc4"><td class="memItemLeft" align="right" valign="top"><a id="a7523fa9b8a9052c502a31bfca11edcc4"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a7523fa9b8a9052c502a31bfca11edcc4">Open</a> ()</td></tr>
+<tr class="memdesc:a7523fa9b8a9052c502a31bfca11edcc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a connection. <br /></td></tr>
+<tr class="separator:a7523fa9b8a9052c502a31bfca11edcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07dcb2a79d70fd9abb4dba92ac42c02e"><td class="memItemLeft" align="right" valign="top"><a id="a07dcb2a79d70fd9abb4dba92ac42c02e"></a>
+override byte[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a07dcb2a79d70fd9abb4dba92ac42c02e">Read</a> ()</td></tr>
+<tr class="memdesc:a07dcb2a79d70fd9abb4dba92ac42c02e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read all bytes available. <br /></td></tr>
+<tr class="separator:a07dcb2a79d70fd9abb4dba92ac42c02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d898737fd90d070b2e5c025f5ce39c"><td class="memItemLeft" align="right" valign="top"><a id="ac2d898737fd90d070b2e5c025f5ce39c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#ac2d898737fd90d070b2e5c025f5ce39c">Read</a> (BinaryWriter binDataIn)</td></tr>
+<tr class="memdesc:ac2d898737fd90d070b2e5c025f5ce39c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads all bytes available into the stream passed in. <br /></td></tr>
+<tr class="separator:ac2d898737fd90d070b2e5c025f5ce39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fa8818dfb87edfbab7eb5f488f45435"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a1fa8818dfb87edfbab7eb5f488f45435">WaitForData</a> (int msTimeOut)</td></tr>
+<tr class="memdesc:a1fa8818dfb87edfbab7eb5f488f45435"><td class="mdescLeft">&#160;</td><td class="mdescRight">等待数据可用 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a607228f2aa7463618201fda21d5e0a7c">BytesAvailable</a> 在当前线程。当前线程休眠直到接收到数据或超时。阻塞调用。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a1fa8818dfb87edfbab7eb5f488f45435">更多...</a><br /></td></tr>
+<tr class="separator:a1fa8818dfb87edfbab7eb5f488f45435"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4026e9d6fba29d7a3daf5ce2f583835c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a4026e9d6fba29d7a3daf5ce2f583835c">Write</a> (BinaryReader binReader)</td></tr>
+<tr class="memdesc:a4026e9d6fba29d7a3daf5ce2f583835c"><td class="mdescLeft">&#160;</td><td class="mdescRight">从输入流写入输出流  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a4026e9d6fba29d7a3daf5ce2f583835c">更多...</a><br /></td></tr>
+<tr class="separator:a4026e9d6fba29d7a3daf5ce2f583835c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5486b6d018736522868361685ee532d1"><td class="memItemLeft" align="right" valign="top"><a id="a5486b6d018736522868361685ee532d1"></a>
+override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a5486b6d018736522868361685ee532d1">Write</a> (byte[] dataOut)</td></tr>
+<tr class="memdesc:a5486b6d018736522868361685ee532d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes all bytes from the array passed in. <br /></td></tr>
+<tr class="separator:a5486b6d018736522868361685ee532d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab935a61657b32455b09dd817a3682495"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#ab935a61657b32455b09dd817a3682495">WriteAndWaitForResponse</a> (BinaryWriter binDataIn, BinaryReader binDataOut, int responseStartTimeOut, int responseEndTimeOut, string completetionToken)</td></tr>
+<tr class="memdesc:ab935a61657b32455b09dd817a3682495"><td class="mdescLeft">&#160;</td><td class="mdescRight">将 binDataOut 流数据写入输出流，并将接收到的数据返回到 binDataIn 流中。返回的数据是接收到的任何数据或达到接收的完成标记。如果没有响应则在返回前等待超时。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#ab935a61657b32455b09dd817a3682495">更多...</a><br /></td></tr>
+<tr class="separator:ab935a61657b32455b09dd817a3682495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29721ecab9ac8ed3509e585503375dfe"><td class="memItemLeft" align="right" valign="top">virtual byte[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a29721ecab9ac8ed3509e585503375dfe">WriteAndWaitForResponse</a> (byte[] dataOut, int responseStartTimeOut, int responseEndTimeOut, string completetionToken)</td></tr>
+<tr class="memdesc:a29721ecab9ac8ed3509e585503375dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">将字节数据写入输出流并返回接收到的数据。返回的数据是接收到的任何数据或达到接收的完成标记。在返回前等待响应超时。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_a_comm.html#a29721ecab9ac8ed3509e585503375dfe">更多...</a><br /></td></tr>
+<tr class="separator:a29721ecab9ac8ed3509e585503375dfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a135b1b13fd777540e98e1114935b2572"><td class="memItemLeft" align="right" valign="top">static List&lt;(short vendorID, short productID)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a135b1b13fd777540e98e1114935b2572">AvaliableDevices</a> ()</td></tr>
+<tr class="memdesc:a135b1b13fd777540e98e1114935b2572"><td class="mdescLeft">&#160;</td><td class="mdescRight">以 List&lt;(short v_id, short p_id)&gt; 格式返回有效设备的 v_id 和 p_id。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a135b1b13fd777540e98e1114935b2572">更多...</a><br /></td></tr>
+<tr class="separator:a135b1b13fd777540e98e1114935b2572"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ef1bd7c2dfb3f40d24e47771e40669b"><td class="memItemLeft" align="right" valign="top">static List&lt; short &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a3ef1bd7c2dfb3f40d24e47771e40669b">DescriptorValidate</a> (string descriptorHint)</td></tr>
+<tr class="memdesc:a3ef1bd7c2dfb3f40d24e47771e40669b"><td class="mdescLeft">&#160;</td><td class="mdescRight">验证从 descriptorHint 传入的描述符字符串，该字符串可能包含或不包含 v_id 和 p_id。返回元组。  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a3ef1bd7c2dfb3f40d24e47771e40669b">更多...</a><br /></td></tr>
+<tr class="separator:a3ef1bd7c2dfb3f40d24e47771e40669b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:a68bce0be7fe90375942805adef0999c2"><td class="memItemLeft" align="right" valign="top">override string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a68bce0be7fe90375942805adef0999c2">Descriptor</a> =&gt; $&quot;USB:V_ID:{_v_id}; P_ID:{_p_id}&quot;</td></tr>
+<tr class="memdesc:a68bce0be7fe90375942805adef0999c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">返回连接的字符串描述。格式："<b>USB</b>:<b>V_ID</b>:_v_id; <b>P_ID</b>:_p_id" 例如 "<b>USB</b>:<b>V_ID</b>:4611; <b>P_ID</b>:1234"  <a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a68bce0be7fe90375942805adef0999c2">更多...</a><br /></td></tr>
+<tr class="separator:a68bce0be7fe90375942805adef0999c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:ae455e6617518a1d73e53920b0841519c"><td class="memItemLeft" align="right" valign="top"><a id="ae455e6617518a1d73e53920b0841519c"></a>
+static readonly short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ae455e6617518a1d73e53920b0841519c">PTX_USB_VID</a> = 0x14ae</td></tr>
+<tr class="memdesc:ae455e6617518a1d73e53920b0841519c"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB v_id of PRINTRONIX printer (0x14ae) <br /></td></tr>
+<tr class="separator:ae455e6617518a1d73e53920b0841519c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db11fda89ec9574622a15fa8578cd0c"><td class="memItemLeft" align="right" valign="top"><a id="a3db11fda89ec9574622a15fa8578cd0c"></a>
+static readonly short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a3db11fda89ec9574622a15fa8578cd0c">TSC_USB_VID</a> = 0x1203</td></tr>
+<tr class="memdesc:a3db11fda89ec9574622a15fa8578cd0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB v_id of TSC printer (0x1203) <br /></td></tr>
+<tr class="separator:a3db11fda89ec9574622a15fa8578cd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
+属性</h2></td></tr>
+<tr class="memitem:a0bc2e56eace540f1a91d3d14bbf0fd4b"><td class="memItemLeft" align="right" valign="top"><a id="a0bc2e56eace540f1a91d3d14bbf0fd4b"></a>
+override int&#160;</td><td class="memItemRight" valign="bottom"><b>BytesAvailable</b><code> [get]</code></td></tr>
+<tr class="separator:a0bc2e56eace540f1a91d3d14bbf0fd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b01d9f3793f36a58052108ce59e97c"><td class="memItemLeft" align="right" valign="top"><a id="a48b01d9f3793f36a58052108ce59e97c"></a>
+override bool&#160;</td><td class="memItemRight" valign="bottom"><b>Connected</b><code> [get]</code></td></tr>
+<tr class="separator:a48b01d9f3793f36a58052108ce59e97c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfb09d127ab638dc3ea1c9202bef4dde"><td class="memItemLeft" align="right" valign="top"><a id="adfb09d127ab638dc3ea1c9202bef4dde"></a>
+short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#adfb09d127ab638dc3ea1c9202bef4dde">P_ID</a><code> [get]</code></td></tr>
+<tr class="memdesc:adfb09d127ab638dc3ea1c9202bef4dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Product ID <br /></td></tr>
+<tr class="separator:adfb09d127ab638dc3ea1c9202bef4dde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a139efd724630709261599736f684d258"><td class="memItemLeft" align="right" valign="top"><a id="a139efd724630709261599736f684d258"></a>
+short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#a139efd724630709261599736f684d258">V_ID</a><code> [get]</code></td></tr>
+<tr class="memdesc:a139efd724630709261599736f684d258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vendor ID <br /></td></tr>
+<tr class="separator:a139efd724630709261599736f684d258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>实现USB特定通信并扩展AComm类的类。 </p>
+<h1><a class="anchor" id="示例"></a>
+示例</h1>
+<p><a class="anchor" id="refToUsbCommExample"></a></p><div class="fragment"><div class="line"><span class="keyword">using</span> System;</div>
+<div class="line"><span class="keyword">using</span> System.IO;</div>
+<div class="line"><span class="keyword">using</span> System.Text;</div>
+<div class="line"><span class="keyword">using</span> <a class="code" href="namespace_uni_p_r_t.html">UniPRT</a>.<a class="code" href="namespace_uni_p_r_t_1_1_sdk.html">Sdk</a>.<a class="code" href="namespace_uni_p_r_t_1_1_sdk_1_1_comm.html">Comm</a>;  <span class="comment">// imports SDK namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>Snippets</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">class </span>MyComm</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> MainComm(<span class="keywordtype">string</span>[] args)</div>
+<div class="line">        {</div>
+<div class="line">            SendPrintFile();     <span class="comment">// send file over usb</span></div>
+<div class="line">            SendPrintString();   <span class="comment">// send print data over usb           </span></div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> SendPrintFile()  <span class="comment">// send file over usb</span></div>
+<div class="line">        {</div>
+<div class="line">            var devices = <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UsbConnection</a>.AvaliableDevices();</div>
+<div class="line">            <span class="keywordflow">if</span> (devices.Count &gt; 0)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordtype">string</span> fileName = <span class="stringliteral">@&quot;C:\testFiles\Hello.pgl&quot;</span>;</div>
+<div class="line">                <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UsbConnection</a> PtrUsbComm = <span class="keyword">new</span> <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UsbConnection</a>(devices[0].vendorID, devices[0].productID);</div>
+<div class="line">                <span class="keywordflow">try</span></div>
+<div class="line">                {</div>
+<div class="line">                    PtrUsbComm.Open();</div>
+<div class="line">                    <span class="keywordflow">if</span> (File.Exists(fileName))</div>
+<div class="line">                    {</div>
+<div class="line">                        <span class="keyword">using</span> (BinaryReader binReader = <span class="keyword">new</span> BinaryReader(File.Open(fileName, FileMode.Open)))</div>
+<div class="line">                        {</div>
+<div class="line">                            Console.WriteLine($<span class="stringliteral">&quot;Sending \&quot;{fileName}\&quot; to printer&quot;</span>);</div>
+<div class="line">                            PtrUsbComm.Write(binReader);</div>
+<div class="line">                        }</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span></div>
+<div class="line">                    {</div>
+<div class="line">                        Console.WriteLine($<span class="stringliteral">&quot;File \&quot;{fileName}\&quot; not found&quot;</span>);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line">                {</div>
+<div class="line">                    Console.WriteLine($<span class="stringliteral">&quot;Exception Msg: {e.Message}&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line"> </div>
+<div class="line">                <span class="keywordflow">finally</span></div>
+<div class="line">                {</div>
+<div class="line">                    PtrUsbComm.Close();</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">void</span> SendPrintString()    <span class="comment">// send print data over usb</span></div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordtype">string</span> dataToPrint =</div>
+<div class="line"><span class="stringliteral">@&quot;~CREATE;C39;72</span></div>
+<div class="line"><span class="stringliteral">SCALE;DOT</span></div>
+<div class="line"><span class="stringliteral">PAGE;30;40</span></div>
+<div class="line"><span class="stringliteral">ALPHA</span></div>
+<div class="line"><span class="stringliteral">C10;1;33;0;0;@HELLO@</span></div>
+<div class="line"><span class="stringliteral">C16;54;37;0;0;@*World*@</span></div>
+<div class="line"><span class="stringliteral">STOP</span></div>
+<div class="line"><span class="stringliteral">BARCODE</span></div>
+<div class="line"><span class="stringliteral">C128C;XRD3:3:6:6:9:9:12:12;H6;10;32</span></div>
+<div class="line"><span class="stringliteral">@World@</span></div>
+<div class="line"><span class="stringliteral">STOP</span></div>
+<div class="line"><span class="stringliteral">END</span></div>
+<div class="line"><span class="stringliteral">~EXECUTE;C39</span></div>
+<div class="line"><span class="stringliteral">~NORMAL</span></div>
+<div class="line"><span class="stringliteral"></span> </div>
+<div class="line"><span class="stringliteral">&quot;</span>;</div>
+<div class="line">            var devices = <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UsbConnection</a>.AvaliableDevices();</div>
+<div class="line">            <span class="keywordflow">if</span> (devices.Count &gt; 0)</div>
+<div class="line">            {</div>
+<div class="line">                <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UsbConnection</a> PtrUsbComm = <span class="keyword">new</span> <a class="code" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UsbConnection</a>(devices[0].vendorID, devices[0].productID);</div>
+<div class="line"> </div>
+<div class="line">                <span class="keywordflow">try</span></div>
+<div class="line">                {</div>
+<div class="line">                    PtrUsbComm.Open();</div>
+<div class="line"> </div>
+<div class="line">                    <span class="keywordflow">if</span> (PtrUsbComm.Connected)</div>
+<div class="line">                    {</div>
+<div class="line">                        <span class="comment">//byte[] outBytes = Encoding.UTF8.GetBytes(dataToPrint);</span></div>
+<div class="line">                        <span class="keywordtype">byte</span>[] outBytes = Encoding.ASCII.GetBytes(dataToPrint);</div>
+<div class="line">                        PtrUsbComm.Write(outBytes);</div>
+<div class="line">                    }</div>
+<div class="line">                    <span class="keywordflow">else</span></div>
+<div class="line">                    {</div>
+<div class="line">                        Console.WriteLine($<span class="stringliteral">&quot;Not connected to printer&quot;</span>);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">catch</span> (Exception e)</div>
+<div class="line">                {</div>
+<div class="line">                    Console.WriteLine($<span class="stringliteral">&quot;Exception Msg: {e.Message}&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line"> </div>
+<div class="line">                <span class="keywordflow">finally</span></div>
+<div class="line">                {</div>
+<div class="line">                    PtrUsbComm.Close();</div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="ad7cd011a94509307f89b98b7a0b916af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7cd011a94509307f89b98b7a0b916af">&#9670;&nbsp;</a></span>UsbConnection() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UniPRT.Sdk.Comm.UsbConnection.UsbConnection </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>descriptor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据 <b>descriptor</b> 字符串初始化新类实例。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">descriptor</td><td>可接受的格式：<ul>
+<li>USB</li>
+<li>USB:V_ID:&lt;v_id&gt;</li>
+<li>USB:V_ID:&lt;v_id&gt;; P_ID:&lt;p_id&gt;<ul>
+<li>&lt;v_id&gt; 和 &lt;p_id&gt; 允许十进制或十六进制 </li>
+</ul>
+</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad59c06832485f9c61cef310e5a74ae14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad59c06832485f9c61cef310e5a74ae14">&#9670;&nbsp;</a></span>UsbConnection() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UniPRT.Sdk.Comm.UsbConnection.UsbConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>根据 <b>vendorId</b> 和 <b>productId</b> 初始化新类实例。此实例的目标是与 vendorId 和 productId 匹配的第一个印表机。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vendorId</td><td>指定要连接的 TSC 印表机或 PRINTRONIX 印表机。 当此参数省略时，TSC 印表机或 PRINTRONIX 印表机皆为目标</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">productId</td><td>指定印表机的 productId。 当此参数省略时，第一个与 vendorId 匹配的印表机为目标 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a135b1b13fd777540e98e1114935b2572"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a135b1b13fd777540e98e1114935b2572">&#9670;&nbsp;</a></span>AvaliableDevices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static List&lt;(short vendorID, short productID)&gt; UniPRT.Sdk.Comm.UsbConnection.AvaliableDevices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>以 List&lt;(short v_id, short p_id)&gt; 格式返回有效设备的 v_id 和 p_id。 </p>
+<p>"v_id" 指的是厂商 ID，而 "p_id" 指的是产品 ID。 </p>
+
+</div>
+</div>
+<a id="a3ef1bd7c2dfb3f40d24e47771e40669b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ef1bd7c2dfb3f40d24e47771e40669b">&#9670;&nbsp;</a></span>DescriptorValidate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static List&lt;short&gt; UniPRT.Sdk.Comm.UsbConnection.DescriptorValidate </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>descriptorHint</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>验证从 descriptorHint 传入的描述符字符串，该字符串可能包含或不包含 v_id 和 p_id。返回元组。 </p>
+<p>descriptorHint 接受的值：</p><ul>
+<li>未指定： "USB"</li>
+<li>指定 V_ID： "USB:V_ID:4611" 或 "USB:V_ID:0x1203"</li>
+<li>指定 V_ID 和 P_ID： "USB:V_ID:4611; P_ID:1234" 或 "USB:V_ID:0x1203; P_ID:0x04D2" </li>
+</ul>
+
+</div>
+</div>
+<a id="a1fa8818dfb87edfbab7eb5f488f45435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fa8818dfb87edfbab7eb5f488f45435">&#9670;&nbsp;</a></span>WaitForData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void UniPRT.Sdk.Comm.AComm.WaitForData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msTimeOut</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>等待数据可用 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a607228f2aa7463618201fda21d5e0a7c">BytesAvailable</a> 在当前线程。当前线程休眠直到接收到数据或超时。阻塞调用。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">msTimeOut</td><td>如果未接收到数据则在返回前的毫秒超时时间。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#ae809ff7ef10cb9bcdf3e8e44f75f474a">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<a id="a4026e9d6fba29d7a3daf5ce2f583835c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4026e9d6fba29d7a3daf5ce2f583835c">&#9670;&nbsp;</a></span>Write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void UniPRT.Sdk.Comm.AComm.Write </td>
+          <td>(</td>
+          <td class="paramtype">BinaryReader&#160;</td>
+          <td class="paramname"><em>binReader</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>从输入流写入输出流 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">binReader</td><td>要发送的源数据 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#aff51470df8d83e4a058bb70b11d487b8">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<a id="ab935a61657b32455b09dd817a3682495"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab935a61657b32455b09dd817a3682495">&#9670;&nbsp;</a></span>WriteAndWaitForResponse() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void UniPRT.Sdk.Comm.AComm.WriteAndWaitForResponse </td>
+          <td>(</td>
+          <td class="paramtype">BinaryWriter&#160;</td>
+          <td class="paramname"><em>binDataIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BinaryReader&#160;</td>
+          <td class="paramname"><em>binDataOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseStartTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseEndTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>completetionToken</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将 binDataOut 流数据写入输出流，并将接收到的数据返回到 binDataIn 流中。返回的数据是接收到的任何数据或达到接收的完成标记。如果没有响应则在返回前等待超时。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">binDataIn</td><td>目标流以存储从连接接收到的响应。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">binDataOut</td><td><br  />
+ 要写入连接的源流数据。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseStartTimeOut</td><td>等待接收到第一个数据的超时时间（毫秒）。第一个字节的时间。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseEndTimeOut</td><td>没有接收到新数据的超时时间（毫秒）。最后一个字节后的时间。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">completetionToken</td><td>指示预期响应结束的字符串标记。如果只是想等待写入数据后的响应，可以是空字符串。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#ab7133c6d6ab80aeb6b3f3317e877e0ce">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<a id="a29721ecab9ac8ed3509e585503375dfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29721ecab9ac8ed3509e585503375dfe">&#9670;&nbsp;</a></span>WriteAndWaitForResponse() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual byte [] UniPRT.Sdk.Comm.AComm.WriteAndWaitForResponse </td>
+          <td>(</td>
+          <td class="paramtype">byte[]&#160;</td>
+          <td class="paramname"><em>dataOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseStartTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>responseEndTimeOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>completetionToken</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>将字节数据写入输出流并返回接收到的数据。返回的数据是接收到的任何数据或达到接收的完成标记。在返回前等待响应超时。 </p>
+<dl class="retval"><dt>返回值</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">byte[]</td><td>从连接接收到的字节数组。 返回的数据是接收到的任何数据或达到完成标记时的数据。</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dataOut</td><td><br  />
+ 要写入连接的源字节数组。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseStartTimeOut</td><td>等待接收到第一个数据的超时时间（毫秒）。第一个字节的时间。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">responseEndTimeOut</td><td>没有接收到新数据的超时时间（毫秒）。最后一个字节后的时间。</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">completetionToken</td><td>指示预期响应结束的字符串标记。如果只是想等待写入数据后的响应，可以是空字符串。 </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>实现了 <a class="el" href="interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a9b71a952461bf8ecb42eed6e1a6d159a">UniPRT.Sdk.Comm.IComm</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a68bce0be7fe90375942805adef0999c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68bce0be7fe90375942805adef0999c2">&#9670;&nbsp;</a></span>Descriptor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">override string UniPRT.Sdk.Comm.UsbConnection.Descriptor =&gt; $&quot;USB:V_ID:{_v_id}; P_ID:{_p_id}&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>返回连接的字符串描述。格式："<b>USB</b>:<b>V_ID</b>:_v_id; <b>P_ID</b>:_p_id" 例如 "<b>USB</b>:<b>V_ID</b>:4611; <b>P_ID</b>:1234" </p>
+<p>返回格式:</p><ul>
+<li>USB:V_ID:&lt;v_id&gt;; P_ID:&lt;p_id&gt;<ul>
+<li>p_id 和 v_id 是 <b>short</b> 数字。例：V_ID:4611; P_ID:1234 </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="anamespace_uni_p_r_t_html"><div class="ttname"><a href="namespace_uni_p_r_t.html">UniPRT</a></div><div class="ttdoc">提供对不同通信接口/端口的支持</div><div class="ttdef"><b>Definition:</b> Communication.cs:9</div></div>
+<div class="ttc" id="anamespace_uni_p_r_t_1_1_sdk_1_1_comm_html"><div class="ttname"><a href="namespace_uni_p_r_t_1_1_sdk_1_1_comm.html">UniPRT.Sdk.Comm</a></div><div class="ttdef"><b>Definition:</b> Communication.cs:9</div></div>
+<div class="ttc" id="anamespace_uni_p_r_t_1_1_sdk_html"><div class="ttname"><a href="namespace_uni_p_r_t_1_1_sdk.html">UniPRT.Sdk</a></div><div class="ttdef"><b>Definition:</b> Communication.cs:9</div></div>
+<div class="ttc" id="aclass_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection_html_ad59c06832485f9c61cef310e5a74ae14"><div class="ttname"><a href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html#ad59c06832485f9c61cef310e5a74ae14">UniPRT.Sdk.Comm.UsbConnection.UsbConnection</a></div><div class="ttdeci">UsbConnection()</div><div class="ttdoc">根据 vendorId 和 productId 初始化新类实例。此实例的目标是与 vendorId 和 productId 匹配的第一个印表机。</div><div class="ttdef"><b>Definition:</b> UsbComm.cs:406</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_uni_p_r_t.html">UniPRT</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk.html">Sdk</a></li><li class="navelem"><a class="el" href="namespace_uni_p_r_t_1_1_sdk_1_1_comm.html">Comm</a></li><li class="navelem"><a class="el" href="class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_usb_connection.html">UsbConnection</a></li>
+    <li class="footer">制作者
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.16 </li>
+  </ul>
+</div>
+</body>
+</html>

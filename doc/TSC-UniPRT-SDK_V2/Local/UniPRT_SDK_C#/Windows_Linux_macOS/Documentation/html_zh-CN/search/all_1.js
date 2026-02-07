@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['barcode1d_39',['Barcode1D',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_t_s_p_l_1_1_barcode1_d.html',1,'UniPRT.Sdk.LabelMaker.TSPL.Barcode1D'],['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_p_g_l_1_1_barcode1_d.html',1,'UniPRT.Sdk.LabelMaker.PGL.Barcode1D']]],
+  ['barcodeitem_40',['BarcodeItem',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_barcode_item.html',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['barcodes_41',['Barcodes',['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_barcode1_d.html#aeabf527ccb3605ed618a06e23f8db76f',1,'UniPRT::Sdk::LabelMaker::Interfaces::IBarcode1D']]],
+  ['barcodetype_42',['BarcodeType',['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_barcode_type1_d.html#a8616e0aa91b1618d67165df94dcfe094',1,'UniPRT::Sdk::LabelMaker::Interfaces::IBarcodeType1D']]],
+  ['barcodetypeenum_5f1d_43',['BarcodeTypeEnum_1D',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#afd9b78ce8d8a17f76465226917dee79a',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['barwidths_44',['BarWidths',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_t_s_p_l_1_1_bar_widths.html',1,'UniPRT.Sdk.LabelMaker.TSPL.BarWidths'],['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_p_g_l_1_1_bar_widths.html',1,'UniPRT.Sdk.LabelMaker.PGL.BarWidths'],['../interface_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces_1_1_i_barcode__1_d___properties.html#a0c6899092ba74c549cff8fe13ddffc55',1,'UniPRT.Sdk.LabelMaker.Interfaces.IBarcode_1D_Properties.BarWidths()']]],
+  ['baudrate_45',['BaudRate',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_com_connection.html#a84cee3c7b27912ad8af2c707413ff47a',1,'UniPRT::Sdk::Comm::ComConnection']]],
+  ['binary_46',['Binary',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#a7a832427d3bcc230bea1ca950780086fa6ce976e8f061b2b5cfe4d0c50c3405dd',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['bold_47',['Bold',['../namespace_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_interfaces.html#ad37d55addefb80cb7274d3c76610d821a114c3050111d8b8ddd830b99ccebd246',1,'UniPRT::Sdk::LabelMaker::Interfaces']]],
+  ['box_48',['Box',['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_p_g_l_1_1_box.html',1,'UniPRT.Sdk.LabelMaker.PGL.Box'],['../class_uni_p_r_t_1_1_sdk_1_1_label_maker_1_1_t_s_p_l_1_1_box.html',1,'UniPRT.Sdk.LabelMaker.TSPL.Box']]],
+  ['brand_49',['Brand',['../namespace_uni_p_r_t_1_1_sdk_1_1_discovery.html#a6bf1e4e0f4246e03cb1b86e6fc412e64',1,'UniPRT::Sdk::Discovery']]],
+  ['btclassicconnection_50',['BTClassicConnection',['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html',1,'UniPRT.Sdk.Comm.BTClassicConnection'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a6923232d2e97fd3b16568227bb2b8010',1,'UniPRT.Sdk.Comm.BTClassicConnection.BTClassicConnection(string descriptor)'],['../class_uni_p_r_t_1_1_sdk_1_1_comm_1_1_b_t_classic_connection.html#a24ab63e3967e0e3a9cf6f371436a2097',1,'UniPRT.Sdk.Comm.BTClassicConnection.BTClassicConnection(long macAddress)']]],
+  ['bytesavailable_51',['BytesAvailable',['../interface_uni_p_r_t_1_1_sdk_1_1_comm_1_1_i_comm.html#a607228f2aa7463618201fda21d5e0a7c',1,'UniPRT::Sdk::Comm::IComm']]]
+];
