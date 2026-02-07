@@ -1,0 +1,14 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+**/node_modules/
+**/__pycache__/
+*.pyc
+.git
+.gitignore
+doc/
+SdkInspector/
+rfid_tag_printer_py/
+*.md
+!RfidTagPrinter/README.md

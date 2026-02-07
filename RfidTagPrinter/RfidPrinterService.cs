@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.RegularExpressions;
 using UniPRT.Sdk.Comm;
 
 namespace RfidTagPrinter;
@@ -13,6 +14,11 @@ public enum ConnectionType
 }
 
 /// <summary>
+/// Resultado de una operación de impresión
+/// </summary>
+public record PrintResult(bool Success, string Message, string? ZplSent = null);
+
+/// <summary>
 /// Servicio para impresión de etiquetas RFID en Printronix T820
 /// 
 /// IMPORTANTE: La impresora DEBE estar en modo ZGL (ZPL emulation).
@@ -20,6 +26,10 @@ public enum ConnectionType
 /// 
 /// Configurar en la impresora:
 ///   Settings > Application > Control > Active IGP Emul > ZGL
+/// 
+/// Soporta dos modos:
+///   1. Conexión persistente (para modo consola interactivo)
+///   2. Conexión on-demand (para API: conecta, ejecuta, desconecta)
 /// </summary>
 public class RfidPrinterService : IDisposable
 {
@@ -32,6 +42,19 @@ public class RfidPrinterService : IDisposable
     private UsbConnection? _usbConnection;
     private bool _isConnected;
     private string _connectionInfo = "";
+
+    // ==========================================
+    // CONFIGURACIÓN DE ETIQUETA (ZPL)
+    // ==========================================
+
+    // Dimensiones reales de la etiqueta RFID
+    // Medidas físicas: 80mm ancho x 20mm alto, gap 3mm, margen derecho 5mm
+    // ZPL usa dots. A 203 dpi: 1mm = 203/25.4 ≈ 7.99 dots ≈ 8 dots
+    private const int LABEL_WIDTH_DOTS = 640;   // 80mm @ 203dpi
+    private const int LABEL_HEIGHT_DOTS = 160;  // 20mm @ 203dpi
+    private const int GAP_DOTS = 24;            // 3mm gap @ 203dpi
+    private const int RIGHT_MARGIN_DOTS = 40;   // 5mm margen derecho @ 203dpi
+    private const int PRINTABLE_WIDTH_DOTS = LABEL_WIDTH_DOTS - RIGHT_MARGIN_DOTS; // 600 dots (75mm)
 
     // ==========================================
     // CONSTRUCTORES
@@ -59,7 +82,32 @@ public class RfidPrinterService : IDisposable
     }
 
     // ==========================================
-    // CONEXIÓN
+    // CONEXIÓN ON-DEMAND (para API)
+    // ==========================================
+
+    /// <summary>
+    /// Ejecuta una acción con una conexión TCP temporal (on-demand).
+    /// Abre conexión, ejecuta la acción, y cierra la conexión.
+    /// Ideal para uso desde la API donde cada request es independiente.
+    /// </summary>
+    public static PrintResult ExecuteWithConnection(string ip, int port, Func<RfidPrinterService, PrintResult> action)
+    {
+        using var service = new RfidPrinterService(ip, port);
+        if (!service.Connect())
+            return new PrintResult(false, $"No se pudo conectar a {ip}:{port}");
+
+        try
+        {
+            return action(service);
+        }
+        finally
+        {
+            service.Disconnect();
+        }
+    }
+
+    // ==========================================
+    // CONEXIÓN PERSISTENTE (para modo consola)
     // ==========================================
 
     /// <summary>
@@ -196,295 +244,161 @@ public class RfidPrinterService : IDisposable
     }
 
     // ==========================================
-    // CONFIGURACIÓN DE ETIQUETA (ZPL)
+    // ZPL BUILDERS (estáticos, reutilizables)
     // ==========================================
 
-    // Dimensiones reales de la etiqueta RFID
-    // Medidas físicas: 80mm ancho x 20mm alto, gap 3mm, margen derecho 5mm
-    // ZPL usa dots. A 203 dpi: 1mm = 203/25.4 ≈ 7.99 dots ≈ 8 dots
-    private const int LABEL_WIDTH_DOTS = 640;   // 80mm @ 203dpi
-    private const int LABEL_HEIGHT_DOTS = 160;  // 20mm @ 203dpi
-    private const int GAP_DOTS = 24;            // 3mm gap @ 203dpi
-    private const int RIGHT_MARGIN_DOTS = 40;   // 5mm margen derecho @ 203dpi
-    private const int PRINTABLE_WIDTH_DOTS = LABEL_WIDTH_DOTS - RIGHT_MARGIN_DOTS; // 600 dots (75mm)
+    /// <summary>
+    /// Genera el ZPL para una etiqueta RFID completa (texto + barcode + RFID).
+    /// </summary>
+    public static string BuildRfidLabelZpl(string epcHex, string labelText, string barcodeData)
+    {
+        int epcBytes = epcHex.Length / 2;
+        var sb = new StringBuilder();
+        sb.Append("^XA");
+        sb.Append($"^PW{LABEL_WIDTH_DOTS}");
+        sb.Append($"^LL{LABEL_HEIGHT_DOTS}");
+        sb.Append("^MNY");
+        sb.Append("^RS8,0,0,0,0,0");
+        sb.Append("^RR3");
+        sb.Append($"^RFW,H,2,{epcBytes}^FD{epcHex}^FS");
+        sb.Append($"^FO16,8^A0N,32,24^FD{labelText}^FS");
+        sb.Append($"^FO16,48^A0N,20,16^FDEPC: {epcHex}^FS");
+        sb.Append($"^FO16,76^BCN,30,Y,N,N^FD{barcodeData}^FS");
+        sb.Append("^PQ1");
+        sb.Append("^XZ");
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Genera el ZPL para una etiqueta RFID mínima (solo encode + texto simple).
+    /// </summary>
+    public static string BuildRfidMinimalZpl(string epcHex)
+    {
+        int epcBytes = epcHex.Length / 2;
+        var sb = new StringBuilder();
+        sb.Append("^XA");
+        sb.Append($"^PW{LABEL_WIDTH_DOTS}");
+        sb.Append($"^LL{LABEL_HEIGHT_DOTS}");
+        sb.Append("^MNY");
+        sb.Append("^RS8,0,0,0,0,0");
+        sb.Append("^RR3");
+        sb.Append($"^RFW,H,2,{epcBytes}^FD{epcHex}^FS");
+        sb.Append("^FO16,40^A0N,30,25^FDRFID OK^FS");
+        sb.Append("^PQ1");
+        sb.Append("^XZ");
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Genera el ZPL para una etiqueta de prueba (sin RFID).
+    /// </summary>
+    public static string BuildTestLabelZpl(string text)
+    {
+        var sb = new StringBuilder();
+        sb.Append("^XA");
+        sb.Append($"^PW{LABEL_WIDTH_DOTS}");
+        sb.Append($"^LL{LABEL_HEIGHT_DOTS}");
+        sb.Append("^MNY");
+        sb.Append($"^FO16,15^A0N,28,22^FD{text}^FS");
+        sb.Append("^FO16,55^A0N,18,16^FDConexion OK (ZPL/ZGL)^FS");
+        sb.Append("^PQ1");
+        sb.Append("^XZ");
+        return sb.ToString();
+    }
+
+    /// <summary>
+    /// Genera el ZPL de calibración de media.
+    /// </summary>
+    public static string BuildCalibrationZpl()
+    {
+        var sb = new StringBuilder();
+        sb.Append("^XA");
+        sb.Append("^MNY");
+        sb.Append($"^PW{LABEL_WIDTH_DOTS}");
+        sb.Append($"^LL{LABEL_HEIGHT_DOTS}");
+        sb.Append("^JUS");
+        sb.Append("^XZ");
+        return sb.ToString();
+    }
 
     // ==========================================
-    // MÉTODO 1: ZPL con RFID (^RF Write EPC)
+    // MÉTODOS DE IMPRESIÓN (usan conexión actual)
     // ==========================================
 
     /// <summary>
     /// Imprime etiqueta RFID usando ZPL con comando ^RF para escribir EPC.
-    /// REQUIERE: Impresora en modo ZGL (Settings > Application > Control > Active IGP Emul > ZGL)
-    /// 
-    /// Memoria EPC (Bank 01) estructura:
-    ///   Word 0: CRC (auto-calculado por el tag)
-    ///   Word 1: PC (Protocol Control) - indica longitud EPC
-    ///   Words 2-7: EPC data (96 bits = 6 words = 12 bytes = 24 hex chars)
-    /// 
-    /// ^RF params: ^RFW,H,startBlock,numBytes
-    ///   W = Write, H = Hex, startBlock = word offset, numBytes = bytes a escribir
     /// </summary>
-    public bool PrintRfidLabel(string epcHex, string labelText, string barcodeData)
+    public PrintResult PrintRfidLabel(string epcHex, string labelText, string barcodeData)
     {
-        if (!IsConnected)
-        {
-            Console.WriteLine("❌ No conectado a la impresora");
-            return false;
-        }
-
-        var normalizedEpc = NormalizeEpc(epcHex);
-        if (normalizedEpc == null) return false;
+        var normalizedEpc = EpcEncoder.NormalizeEpc(epcHex);
+        if (normalizedEpc == null)
+            return new PrintResult(false, "EPC contiene caracteres no hexadecimales");
         epcHex = normalizedEpc;
 
-        int epcBytes = epcHex.Length / 2;  // 24 hex chars = 12 bytes
+        var zpl = BuildRfidLabelZpl(epcHex, labelText, barcodeData);
 
-        Console.WriteLine($"🏷️ [ZPL + RFID] Preparando etiqueta RFID...");
-        Console.WriteLine($"   EPC: {epcHex} ({epcBytes} bytes)");
-        Console.WriteLine($"   Texto: {labelText}");
-        Console.WriteLine($"   Código: {barcodeData}");
+        if (SendCommand(zpl))
+            return new PrintResult(true, "Etiqueta RFID (ZPL) enviada a impresora", zpl);
 
-        try
-        {
-            var sb = new StringBuilder();
-            sb.Append("^XA");                                              // Inicio formato
-            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho: 640 dots (80mm)
-            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Alto: 160 dots (20mm)
-            sb.Append("^MNY");                                             // Gap sensing
-            // --- RFID Config ---
-            sb.Append("^RS8,0,0,0,0,0");                                  // RFID setup: 8 posiciones, EPC encode
-            sb.Append("^RR3");                                             // 3 reintentos si falla encode
-            // --- RFID: Escribir EPC ---
-            // ^RFW,H,2,12 = Write, Hex, empezar en word 2 (después de CRC+PC), 12 bytes
-            sb.Append($"^RFW,H,2,{epcBytes}^FD{epcHex}^FS");
-            // --- Contenido visual (etiqueta 20mm = 160 dots de alto) ---
-            sb.Append($"^FO16,8^A0N,32,24^FD{labelText}^FS");            // Texto grande arriba
-            sb.Append($"^FO16,48^A0N,20,16^FDEPC: {epcHex}^FS");        // EPC debajo
-            sb.Append($"^FO16,76^BCN,30,Y,N,N^FD{barcodeData}^FS");     // Barcode mas bajo y corto (30 dots)
-            sb.Append("^PQ1");                                             // 1 etiqueta
-            sb.Append("^XZ");                                              // Fin formato
-
-            string zpl = sb.ToString();
-
-            Console.WriteLine("📤 Script ZPL enviado:");
-            Console.WriteLine("---");
-            Console.WriteLine(zpl);
-            Console.WriteLine("---");
-
-            if (SendCommand(zpl))
-            {
-                Console.WriteLine("✅ Etiqueta RFID (ZPL) enviada a impresora");
-                return true;
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"❌ Error: {ex.Message}");
-            Console.WriteLine($"   Stack: {ex.StackTrace}");
-        }
-
-        return false;
+        return new PrintResult(false, "Error enviando etiqueta RFID a la impresora");
     }
-
-    // ==========================================
-    // MÉTODO 2: ZPL solo RFID (mínimo, sin contenido visual)
-    // ==========================================
 
     /// <summary>
     /// Imprime etiqueta RFID con ZPL mínimo: solo encode RFID + texto simple.
-    /// Útil para depuración: si esto funciona, el RFID está bien configurado.
     /// </summary>
-    public bool PrintRfidLabelRaw(string epcHex, string labelText, string barcodeData)
+    public PrintResult PrintRfidLabelRaw(string epcHex)
     {
-        if (!IsConnected)
-        {
-            Console.WriteLine("❌ No conectado a la impresora");
-            return false;
-        }
-
-        var normalizedEpc = NormalizeEpc(epcHex);
-        if (normalizedEpc == null) return false;
+        var normalizedEpc = EpcEncoder.NormalizeEpc(epcHex);
+        if (normalizedEpc == null)
+            return new PrintResult(false, "EPC contiene caracteres no hexadecimales");
         epcHex = normalizedEpc;
 
-        Console.WriteLine($"🏷️ [ZPL Mínimo] Solo RFID encode + texto simple...");
-        Console.WriteLine($"   EPC: {epcHex}");
+        var zpl = BuildRfidMinimalZpl(epcHex);
 
-        try
-        {
-            int epcBytes = epcHex.Length / 2;  // 12 bytes
-            var sb = new StringBuilder();
-            sb.Append("^XA");                                              // Inicio formato
-            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // Ancho: 640 dots (80mm)
-            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // Alto: 160 dots (20mm)
-            sb.Append("^MNY");                                             // Gap sensing
-            // --- RFID ---
-            sb.Append("^RS8,0,0,0,0,0");                                  // RFID setup: adaptive antenna
-            sb.Append("^RR3");                                             // 3 reintentos
-            sb.Append($"^RFW,H,2,{epcBytes}^FD{epcHex}^FS");            // Write EPC en word 2, 12 bytes
-            // --- Texto mínimo ---
-            sb.Append($"^FO16,40^A0N,30,25^FDRFID OK^FS");               // Solo un texto
-            sb.Append("^PQ1");                                             // 1 copia
-            sb.Append("^XZ");                                              // Fin formato
+        if (SendCommand(zpl))
+            return new PrintResult(true, "Etiqueta RFID mínima enviada a impresora", zpl);
 
-            string zpl = sb.ToString();
-
-            Console.WriteLine("📤 Script ZPL enviado:");
-            Console.WriteLine("---");
-            Console.WriteLine(zpl);
-            Console.WriteLine("---");
-
-            if (SendCommand(zpl))
-            {
-                Console.WriteLine("✅ Etiqueta RFID mínima enviada a impresora");
-                return true;
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"❌ Error: {ex.Message}");
-            Console.WriteLine($"   Stack: {ex.StackTrace}");
-        }
-
-        return false;
+        return new PrintResult(false, "Error enviando etiqueta RFID mínima a la impresora");
     }
 
-    // ==========================================
-    // ETIQUETA DE PRUEBA (sin RFID, ZPL)
-    // ==========================================
     /// <summary>
     /// Imprime etiqueta de prueba (sin RFID) con ZPL puro.
-    /// Sirve para verificar que ZGL está bien configurado.
     /// </summary>
-    public bool PrintTestLabel(string text)
+    public PrintResult PrintTestLabel(string text)
     {
-        if (!IsConnected)
-        {
-            Console.WriteLine("❌ No conectado a la impresora");
-            return false;
-        }
+        var zpl = BuildTestLabelZpl(text);
 
-        Console.WriteLine($"🏷️ Imprimiendo etiqueta de prueba (ZPL): {text}");
+        if (SendCommand(zpl))
+            return new PrintResult(true, "Etiqueta de prueba (ZPL) enviada", zpl);
 
-        try
-        {
-            var sb = new StringBuilder();
-            sb.Append("^XA");
-            sb.Append($"^PW{LABEL_WIDTH_DOTS}");                          // 640 dots (80mm)
-            sb.Append($"^LL{LABEL_HEIGHT_DOTS}");                         // 160 dots (20mm)
-            sb.Append("^MNY");                                             // Gap sensing
-            sb.Append($"^FO16,15^A0N,28,22^FD{text}^FS");                // Texto principal
-            sb.Append("^FO16,55^A0N,18,16^FDConexion OK (ZPL/ZGL)^FS"); // Subtexto
-            sb.Append("^PQ1");
-            sb.Append("^XZ");
-
-            string zpl = sb.ToString();
-            Console.WriteLine("📤 Script ZPL generado:");
-            Console.WriteLine(zpl);
-
-            if (SendCommand(zpl))
-            {
-                Console.WriteLine("✅ Etiqueta de prueba (ZPL) enviada");
-                return true;
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"❌ Error: {ex.Message}");
-        }
-
-        return false;
+        return new PrintResult(false, "Error enviando etiqueta de prueba");
     }
-
-    // ==========================================
-    // CALIBRACIÓN DE MEDIA
-    // ==========================================
 
     /// <summary>
     /// Calibra el media (gap sensing) de la impresora.
-    /// IMPORTANTE: Ejecutar tras cambiar de TGL a ZGL.
-    /// ~JC = calibración automática de media en ZPL.
-    /// También configura el label length y gap sensing.
     /// </summary>
-    public bool CalibrateMedia()
+    public PrintResult CalibrateMedia()
     {
-        if (!IsConnected)
-        {
-            Console.WriteLine("❌ No conectado a la impresora");
-            return false;
-        }
-
-        try
-        {
-            Console.WriteLine("📏 Enviando comandos de calibración...");
-
-            // 1. Configurar tipo de media y dimensiones
-            var setup = new StringBuilder();
-            setup.Append("^XA");
-            setup.Append("^MNY");                                   // Media tracking: gap/notch sensing
-            setup.Append($"^PW{LABEL_WIDTH_DOTS}");                 // Ancho: 640 dots (80mm)
-            setup.Append($"^LL{LABEL_HEIGHT_DOTS}");                // Alto: 160 dots (20mm)
-            setup.Append("^JUS");                                    // Guardar config actual
-            setup.Append("^XZ");
-            SendCommand(setup.ToString());
-            Console.WriteLine("   ✅ Dimensiones configuradas: 80mm x 20mm");
-
-            // 2. Calibración automática de media (~JC)
-            // La impresora avanza varias etiquetas para detectar gap
-            SendCommand("~JC");
-            Console.WriteLine("   ✅ Calibración de gap enviada (~JC)");
-            Console.WriteLine("   ⏳ Espera a que la impresora termine de calibrar...");
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"❌ Error calibrando: {ex.Message}");
-            return false;
-        }
+        var setupZpl = BuildCalibrationZpl();
+        SendCommand(setupZpl);
+        SendCommand("~JC");
+        return new PrintResult(true, "Calibración enviada. Espera a que la impresora termine de avanzar.");
     }
 
     /// <summary>
     /// Envía un comando ZPL/raw sin procesar
     /// </summary>
-    public bool SendRawCommand(string command)
+    public PrintResult SendRawCommand(string command)
     {
-        if (!IsConnected)
-        {
-            Console.WriteLine("❌ No conectado a la impresora");
-            return false;
-        }
-        return SendCommand(command);
+        if (SendCommand(command))
+            return new PrintResult(true, "Comando enviado", command);
+
+        return new PrintResult(false, "Error enviando comando");
     }
 
     // ==========================================
     // UTILIDADES
     // ==========================================
-
-    /// <summary>
-    /// Normaliza y valida el EPC hex
-    /// </summary>
-    private string? NormalizeEpc(string epcHex)
-    {
-        epcHex = epcHex.ToUpper().Replace(" ", "");
-        
-        if (!System.Text.RegularExpressions.Regex.IsMatch(epcHex, "^[0-9A-F]+$"))
-        {
-            Console.WriteLine("❌ Error: EPC contiene caracteres no hexadecimales");
-            return null;
-        }
-
-        if (epcHex.Length < 24)
-        {
-            epcHex = epcHex.PadRight(24, '0');
-            Console.WriteLine($"⚠️ EPC rellenado a 24 chars: {epcHex}");
-        }
-        else if (epcHex.Length > 24)
-        {
-            epcHex = epcHex.Substring(0, 24);
-            Console.WriteLine($"⚠️ EPC truncado a 24 chars: {epcHex}");
-        }
-
-        return epcHex;
-    }
 
     public string GetStatus()
     {

@@ -1,0 +1,15 @@
+services:
+  rfid-printer:
+    build: .
+    container_name: rfid-tag-printer
+    ports:
+      - "5000:5000"
+    environment:
+      - PRINTER_IP=192.168.3.38
+      - PRINTER_PORT=9100
+      - API_KEY=cambiar-esta-clave
+      - ASPNETCORE_URLS=http://+:5000
+    restart: unless-stopped
+    # Si el contenedor no puede alcanzar la impresora en la red local,
+    # descomentar la siguiente línea para usar la red del host:
+    # network_mode: host
