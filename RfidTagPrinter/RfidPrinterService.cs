@@ -256,10 +256,10 @@ public class RfidPrinterService : IDisposable
             // --- RFID: Escribir EPC ---
             // ^RFW,H,2,12 = Write, Hex, empezar en word 2 (después de CRC+PC), 12 bytes
             sb.Append($"^RFW,H,2,{epcBytes}^FD{epcHex}^FS");
-            // --- Contenido visual ---
-            sb.Append($"^FO16,8^A0N,25,20^FD{labelText}^FS");            // Texto principal
-            sb.Append($"^FO16,36^A0N,16,14^FDEPC: {epcHex}^FS");        // EPC visible
-            sb.Append($"^FO16,60^BCN,45,Y,N,N^FD{barcodeData}^FS");     // Code128 barcode
+            // --- Contenido visual (etiqueta 20mm = 160 dots de alto) ---
+            sb.Append($"^FO16,8^A0N,32,24^FD{labelText}^FS");            // Texto grande arriba
+            sb.Append($"^FO16,48^A0N,20,16^FDEPC: {epcHex}^FS");        // EPC debajo
+            sb.Append($"^FO16,76^BCN,30,Y,N,N^FD{barcodeData}^FS");     // Barcode mas bajo y corto (30 dots)
             sb.Append("^PQ1");                                             // 1 etiqueta
             sb.Append("^XZ");                                              // Fin formato
 
